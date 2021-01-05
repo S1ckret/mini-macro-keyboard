@@ -63,6 +63,11 @@ static void MX_GPIO_Init(void);
   * @brief  The application entry point.
   * @retval int
   */
+#include "usbd_custom_hid_if.h"
+
+extern USBD_HandleTypeDef hUsbDeviceFS;
+extern uint8_t report[8];
+extern uint8_t is_report;
 int main(void)
 {
   /* USER CODE BEGIN 1 */
@@ -89,6 +94,19 @@ int main(void)
   MX_GPIO_Init();
   MX_USB_DEVICE_Init();
   /* USER CODE BEGIN 2 */
+  GPIOB->BSRR |= GPIO_PIN_10;
+  HAL_Delay(500);
+  GPIOA->BSRR |= GPIO_PIN_5;
+  HAL_Delay(500);
+  GPIOA->BSRR |= GPIO_PIN_0;
+  HAL_Delay(500);
+
+  GPIOB->BRR |= GPIO_PIN_10;
+  HAL_Delay(500);
+  GPIOA->BRR |= GPIO_PIN_5;
+  HAL_Delay(500);
+  GPIOA->BRR |= GPIO_PIN_0;
+  HAL_Delay(500);
 
   /* USER CODE END 2 */
 
@@ -96,6 +114,17 @@ int main(void)
   /* USER CODE BEGIN WHILE */
   while (1)
   {
+    if (is_report) {
+      USBD_CUSTOM_HID_SendReport(&hUsbDeviceFS, report, 8);
+      HAL_Delay(20);
+      report[0] = 0;
+      report[3] = 0;
+      USBD_CUSTOM_HID_SendReport(&hUsbDeviceFS, report, 8);
+      GPIOB->BRR |= GPIO_PIN_10;
+      GPIOA->BRR |= GPIO_PIN_5;
+      GPIOA->BRR |= GPIO_PIN_0;
+      is_report = 0;
+    }
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
@@ -168,8 +197,8 @@ static void MX_GPIO_Init(void)
   /*Configure GPIO pin Output Level */
   HAL_GPIO_WritePin(GPIOB, GPIO_PIN_10, GPIO_PIN_RESET);
 
-  /*Configure GPIO pin : PC14 */
-  GPIO_InitStruct.Pin = GPIO_PIN_14;
+  /*Configure GPIO pin : PC15 */
+  GPIO_InitStruct.Pin = GPIO_PIN_15;
   GPIO_InitStruct.Mode = GPIO_MODE_IT_RISING;
   GPIO_InitStruct.Pull = GPIO_PULLUP;
   HAL_GPIO_Init(GPIOC, &GPIO_InitStruct);
