@@ -230,16 +230,10 @@ Text GLabel 1500 2250 0    50   Input ~ 0
 BOOT0
 Text GLabel 1200 4550 0    50   Input ~ 0
 NRST
-Text GLabel 3750 750  0    50   Input ~ 0
-VCC3V3
 Wire Wire Line
 	3750 800  3750 750 
 Wire Wire Line
 	3750 1000 3750 1050
-Wire Wire Line
-	3750 1050 3300 1050
-Wire Wire Line
-	3300 1050 3300 1100
 $Comp
 L power:GND #PWR?
 U 1 1 5FFEBFB1
@@ -251,15 +245,6 @@ F 3 "" H 3750 1650 50  0001 C CNN
 	1    3750 1650
 	1    0    0    -1  
 $EndComp
-Wire Wire Line
-	3300 1500 3300 1550
-Wire Wire Line
-	3300 1550 3750 1550
-Wire Wire Line
-	3750 1550 3750 1650
-Wire Wire Line
-	3750 1550 3750 1400
-Connection ~ 3750 1550
 Wire Wire Line
 	3750 1200 3750 1050
 Connection ~ 3750 1050
@@ -946,12 +931,36 @@ $EndComp
 $Comp
 L Switch:SW_Push SW?
 U 1 1 5FFA57A7
-P 3300 1300
-F 0 "SW?" V 3450 1500 50  0000 R CNN
-F 1 "SW_Push" V 3150 1650 50  0000 R CNN
-F 2 "" H 3300 1500 50  0001 C CNN
-F 3 "~" H 3300 1500 50  0001 C CNN
-	1    3300 1300
+P 3500 1300
+F 0 "SW?" V 3650 1500 50  0000 R CNN
+F 1 "SW_Push" V 3350 1650 50  0000 R CNN
+F 2 "" H 3500 1500 50  0001 C CNN
+F 3 "~" H 3500 1500 50  0001 C CNN
+	1    3500 1300
 	0    -1   -1   0   
+$EndComp
+Wire Wire Line
+	3750 1400 3750 1550
+Wire Wire Line
+	3750 1050 3500 1050
+Wire Wire Line
+	3500 1050 3500 1100
+Wire Wire Line
+	3500 1500 3500 1550
+Wire Wire Line
+	3500 1550 3750 1550
+Connection ~ 3750 1550
+Wire Wire Line
+	3750 1550 3750 1650
+$Comp
+L power:+3.3V #PWR?
+U 1 1 5FFB05C0
+P 3750 750
+F 0 "#PWR?" H 3750 600 50  0001 C CNN
+F 1 "+3.3V" H 3765 923 50  0000 C CNN
+F 2 "" H 3750 750 50  0001 C CNN
+F 3 "" H 3750 750 50  0001 C CNN
+	1    3750 750 
+	1    0    0    -1  
 $EndComp
 $EndSCHEMATC
