@@ -469,47 +469,47 @@ Wire Wire Line
 $Comp
 L Power_Protection:USBLC6-2SC6 U?
 U 1 1 60025D65
-P 7100 1200
-F 0 "U?" H 7350 1550 50  0000 C CNN
-F 1 "USBLC6-2SC6" H 7400 850 50  0000 C CNN
-F 2 "Package_TO_SOT_SMD:SOT-23-6" H 7100 700 50  0001 C CNN
-F 3 "https://www.st.com/resource/en/datasheet/usblc6-2.pdf" H 7300 1550 50  0001 C CNN
-	1    7100 1200
+P 7950 1250
+F 0 "U?" H 8200 1600 50  0000 C CNN
+F 1 "USBLC6-2SC6" H 8250 900 50  0000 C CNN
+F 2 "Package_TO_SOT_SMD:SOT-23-6" H 7950 750 50  0001 C CNN
+F 3 "https://www.st.com/resource/en/datasheet/usblc6-2.pdf" H 8150 1600 50  0001 C CNN
+	1    7950 1250
 	1    0    0    -1  
 $EndComp
 Text GLabel 5300 1200 2    50   Input ~ 0
 USB_CONN_D+
 Text GLabel 5300 1300 2    50   Input ~ 0
 USB_CONN_D-
-Text GLabel 6700 1300 0    50   Input ~ 0
+Text GLabel 7550 1350 0    50   Input ~ 0
 USB_CONN_D+
 $Comp
 L power:+5V #PWR?
 U 1 1 6002EBC6
-P 7100 800
-F 0 "#PWR?" H 7100 650 50  0001 C CNN
-F 1 "+5V" H 7115 973 50  0000 C CNN
-F 2 "" H 7100 800 50  0001 C CNN
-F 3 "" H 7100 800 50  0001 C CNN
-	1    7100 800 
+P 7950 850
+F 0 "#PWR?" H 7950 700 50  0001 C CNN
+F 1 "+5V" H 7965 1023 50  0000 C CNN
+F 2 "" H 7950 850 50  0001 C CNN
+F 3 "" H 7950 850 50  0001 C CNN
+	1    7950 850 
 	1    0    0    -1  
 $EndComp
 $Comp
 L power:GND #PWR?
 U 1 1 6002F1AC
-P 7100 1600
-F 0 "#PWR?" H 7100 1350 50  0001 C CNN
-F 1 "GND" H 7105 1427 50  0000 C CNN
-F 2 "" H 7100 1600 50  0001 C CNN
-F 3 "" H 7100 1600 50  0001 C CNN
-	1    7100 1600
+P 7950 1650
+F 0 "#PWR?" H 7950 1400 50  0001 C CNN
+F 1 "GND" H 7955 1477 50  0000 C CNN
+F 2 "" H 7950 1650 50  0001 C CNN
+F 3 "" H 7950 1650 50  0001 C CNN
+	1    7950 1650
 	1    0    0    -1  
 $EndComp
-Text GLabel 6700 1100 0    50   Input ~ 0
+Text GLabel 6700 1150 0    50   Input ~ 0
 USB_D+
-Text GLabel 7500 1300 2    50   Input ~ 0
+Text GLabel 8350 1350 2    50   Input ~ 0
 USB_CONN_D-
-Text GLabel 7500 1100 2    50   Input ~ 0
+Text GLabel 8550 1150 2    50   Input ~ 0
 USB_D-
 $Comp
 L mini-macro-keyboard:MP2359DJ-LF-Z U?
@@ -716,4 +716,59 @@ Wire Wire Line
 Connection ~ 4650 2950
 Wire Wire Line
 	4650 2950 4850 2950
+$Comp
+L Device:R_Small R?
+U 1 1 60089BCA
+P 7250 1150
+F 0 "R?" V 7350 1150 50  0000 C CNN
+F 1 "20" V 7150 1150 50  0000 C CNN
+F 2 "" H 7250 1150 50  0001 C CNN
+F 3 "~" H 7250 1150 50  0001 C CNN
+	1    7250 1150
+	0    -1   -1   0   
+$EndComp
+Wire Wire Line
+	7350 1150 7550 1150
+Wire Wire Line
+	7150 1150 6850 1150
+$Comp
+L Device:R_Small R?
+U 1 1 6008FD4C
+P 6850 1350
+F 0 "R?" H 6750 1450 50  0000 C CNN
+F 1 "1k5" H 6750 1250 50  0000 C CNN
+F 2 "" H 6850 1350 50  0001 C CNN
+F 3 "~" H 6850 1350 50  0001 C CNN
+	1    6850 1350
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	6850 1150 6850 1250
+Connection ~ 6850 1150
+Wire Wire Line
+	6850 1150 6700 1150
+$Comp
+L power:GND #PWR?
+U 1 1 60092073
+P 6850 1650
+F 0 "#PWR?" H 6850 1400 50  0001 C CNN
+F 1 "GND" H 6855 1477 50  0000 C CNN
+F 2 "" H 6850 1650 50  0001 C CNN
+F 3 "" H 6850 1650 50  0001 C CNN
+	1    6850 1650
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	6850 1650 6850 1450
+$Comp
+L Device:R_Small R?
+U 1 1 60094CF8
+P 8450 1150
+F 0 "R?" V 8550 1150 50  0000 C CNN
+F 1 "20" V 8350 1150 50  0000 C CNN
+F 2 "" H 8450 1150 50  0001 C CNN
+F 3 "~" H 8450 1150 50  0001 C CNN
+	1    8450 1150
+	0    -1   -1   0   
+$EndComp
 $EndSCHEMATC
