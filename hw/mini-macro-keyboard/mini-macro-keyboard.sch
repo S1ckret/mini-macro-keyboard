@@ -295,4 +295,54 @@ Text GLabel 3850 1500 2    50   Input ~ 0
 NRST
 Wire Wire Line
 	3700 1500 3850 1500
+Text GLabel 1200 4950 0    50   Input ~ 0
+OSC_IN
+Text GLabel 1200 5050 0    50   Input ~ 0
+OSC_OUT
+Text GLabel 2500 6950 2    50   Input ~ 0
+SWDIO
+Text GLabel 2500 7050 2    50   Input ~ 0
+SWCLK
+Text GLabel 1200 5950 0    50   Input ~ 0
+SWO
+Text GLabel 2500 6850 2    50   Input ~ 0
+USB_D+
+Text GLabel 2500 6750 2    50   Input ~ 0
+USB_D-
+Text GLabel 1200 6650 0    50   Input ~ 0
+LED_3
+Text GLabel 2500 6150 2    50   Input ~ 0
+LED_2
+Text GLabel 2500 5650 2    50   Input ~ 0
+LED_1
+Text GLabel 1200 5450 0    50   Input ~ 0
+SW_1
+Text GLabel 2500 6050 2    50   Input ~ 0
+SW_2
+Text GLabel 1200 5750 0    50   Input ~ 0
+SW_3
+NoConn ~ 2500 5750
+NoConn ~ 2500 5850
+NoConn ~ 2500 5950
+NoConn ~ 2500 6250
+NoConn ~ 2500 6350
+NoConn ~ 2500 6450
+NoConn ~ 2500 6550
+NoConn ~ 2500 6650
+NoConn ~ 2500 7150
+NoConn ~ 1200 7150
+NoConn ~ 1200 7050
+NoConn ~ 1200 6950
+NoConn ~ 1200 6850
+NoConn ~ 1200 6750
+NoConn ~ 1200 6550
+NoConn ~ 1200 6450
+NoConn ~ 1200 6350
+NoConn ~ 1200 6250
+NoConn ~ 1200 6150
+NoConn ~ 1200 6050
+NoConn ~ 1200 5850
+NoConn ~ 1200 5650
+NoConn ~ 1200 5350
+NoConn ~ 1200 5250
 $EndSCHEMATC
