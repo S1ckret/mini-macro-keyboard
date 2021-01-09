@@ -238,17 +238,6 @@ Text GLabel 1200 4550 0    50   Input ~ 0
 NRST
 Text GLabel 3700 1200 1    50   Input ~ 0
 VCC3V3
-$Comp
-L Device:R_Small R?
-U 1 1 5FFE7355
-P 3700 1350
-F 0 "R?" V 3800 1350 50  0000 C CNN
-F 1 "10k" V 3600 1350 50  0000 C CNN
-F 2 "" H 3700 1350 50  0001 C CNN
-F 3 "~" H 3700 1350 50  0001 C CNN
-	1    3700 1350
-	1    0    0    -1  
-$EndComp
 Wire Wire Line
 	3700 1250 3700 1200
 $Comp
@@ -297,8 +286,6 @@ Wire Wire Line
 	3700 1500 3850 1500
 Text GLabel 1200 4950 0    50   Input ~ 0
 OSC_IN
-Text GLabel 1200 5050 0    50   Input ~ 0
-OSC_OUT
 Text GLabel 2500 6950 2    50   Input ~ 0
 SWDIO
 Text GLabel 2500 7050 2    50   Input ~ 0
@@ -345,4 +332,95 @@ NoConn ~ 1200 5850
 NoConn ~ 1200 5650
 NoConn ~ 1200 5350
 NoConn ~ 1200 5250
+Text GLabel 1200 5050 0    50   Input ~ 0
+OSC_OUT
+$Comp
+L Device:Crystal_Small Y?
+U 1 1 6000CA22
+P 1400 3200
+F 0 "Y?" V 1354 3288 50  0000 L CNN
+F 1 "8MHz" V 1445 3288 50  0000 L CNN
+F 2 "" H 1400 3200 50  0001 C CNN
+F 3 "~" H 1400 3200 50  0001 C CNN
+	1    1400 3200
+	0    1    1    0   
+$EndComp
+$Comp
+L Device:C_Small C?
+U 1 1 6000E4D6
+P 1100 3000
+F 0 "C?" V 1000 2950 50  0000 L CNN
+F 1 "20p" V 1200 2950 50  0000 L CNN
+F 2 "" H 1100 3000 50  0001 C CNN
+F 3 "~" H 1100 3000 50  0001 C CNN
+	1    1100 3000
+	0    1    1    0   
+$EndComp
+$Comp
+L Device:C_Small C?
+U 1 1 6000EB9A
+P 1100 3400
+F 0 "C?" V 1000 3350 50  0000 L CNN
+F 1 "20p" V 1200 3350 50  0000 L CNN
+F 2 "" H 1100 3400 50  0001 C CNN
+F 3 "~" H 1100 3400 50  0001 C CNN
+	1    1100 3400
+	0    1    1    0   
+$EndComp
+$Comp
+L Device:R_Small R?
+U 1 1 5FFE7355
+P 3700 1350
+F 0 "R?" V 3800 1350 50  0000 C CNN
+F 1 "10k" V 3600 1350 50  0000 C CNN
+F 2 "" H 3700 1350 50  0001 C CNN
+F 3 "~" H 3700 1350 50  0001 C CNN
+	1    3700 1350
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:R_Small R?
+U 1 1 60011E97
+P 1750 3200
+F 0 "R?" H 1850 3250 50  0000 C CNN
+F 1 "1M" H 1850 3150 50  0000 C CNN
+F 2 "" H 1750 3200 50  0001 C CNN
+F 3 "~" H 1750 3200 50  0001 C CNN
+	1    1750 3200
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	1000 3000 950  3000
+Wire Wire Line
+	950  3000 950  3400
+Wire Wire Line
+	950  3400 1000 3400
+Wire Wire Line
+	1200 3000 1400 3000
+Wire Wire Line
+	1400 3000 1400 3100
+Wire Wire Line
+	1400 3300 1400 3400
+Wire Wire Line
+	1400 3400 1200 3400
+Connection ~ 1400 3000
+Connection ~ 1400 3400
+Text GLabel 2000 3000 2    50   Input ~ 0
+OSC_IN
+Text GLabel 2000 3400 2    50   Input ~ 0
+OSC_OUT
+Wire Wire Line
+	1400 3400 1750 3400
+Wire Wire Line
+	1400 3000 1750 3000
+Wire Wire Line
+	1750 3100 1750 3000
+Connection ~ 1750 3000
+Wire Wire Line
+	1750 3000 2000 3000
+Wire Wire Line
+	1750 3300 1750 3400
+Connection ~ 1750 3400
+Wire Wire Line
+	1750 3400 2000 3400
 $EndSCHEMATC
