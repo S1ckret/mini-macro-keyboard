@@ -234,17 +234,6 @@ Text GLabel 3750 750  0    50   Input ~ 0
 VCC3V3
 Wire Wire Line
 	3750 800  3750 750 
-$Comp
-L Switch:SW_SPST SW?
-U 1 1 5FFE8976
-P 3300 1300
-F 0 "SW?" V 3400 1250 50  0000 R CNN
-F 1 "SW_SPST" V 3200 1250 50  0000 R CNN
-F 2 "" H 3300 1300 50  0001 C CNN
-F 3 "~" H 3300 1300 50  0001 C CNN
-	1    3300 1300
-	0    -1   -1   0   
-$EndComp
 Wire Wire Line
 	3750 1000 3750 1050
 Wire Wire Line
@@ -953,5 +942,16 @@ F 2 "" H 4350 5900 50  0001 C CNN
 F 3 "~" H 4350 5900 50  0001 C CNN
 	1    4350 5900
 	-1   0    0    1   
+$EndComp
+$Comp
+L Switch:SW_Push SW?
+U 1 1 5FFA57A7
+P 3300 1300
+F 0 "SW?" V 3450 1500 50  0000 R CNN
+F 1 "SW_Push" V 3150 1650 50  0000 R CNN
+F 2 "" H 3300 1500 50  0001 C CNN
+F 3 "~" H 3300 1500 50  0001 C CNN
+	1    3300 1300
+	0    -1   -1   0   
 $EndComp
 $EndSCHEMATC
