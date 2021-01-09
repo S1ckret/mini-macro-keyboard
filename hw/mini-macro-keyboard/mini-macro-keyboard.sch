@@ -26,12 +26,10 @@ F 3 "" H 1700 7450 50  0001 C CNN
 $EndComp
 Wire Wire Line
 	1700 7350 1700 7450
-Text GLabel 1700 4250 1    50   Input ~ 0
+Text GLabel 1800 4250 1    50   Input ~ 0
 VCC3V3
 Text GLabel 1150 1100 0    50   Input ~ 0
 VCC3V3
-Wire Wire Line
-	1700 4250 1700 4350
 $Comp
 L Device:C_Small C?
 U 1 1 5FF9BD70
@@ -194,18 +192,14 @@ F 3 "~" H 1600 2250 50  0001 C CNN
 	1    1600 2250
 	0    -1   -1   0   
 $EndComp
-Connection ~ 1700 4350
 Connection ~ 2000 4350
 Wire Wire Line
 	2000 4350 2100 4350
 Wire Wire Line
 	1900 4350 2000 4350
 Connection ~ 1900 4350
-Connection ~ 1800 4350
 Wire Wire Line
 	1800 4350 1900 4350
-Wire Wire Line
-	1700 4350 1800 4350
 Wire Wire Line
 	1900 7350 2000 7350
 Connection ~ 1900 7350
@@ -423,4 +417,8 @@ Wire Wire Line
 Connection ~ 1750 3400
 Wire Wire Line
 	1750 3400 2000 3400
+Wire Wire Line
+	1800 4250 1800 4350
+Connection ~ 1800 4350
+NoConn ~ 1700 4350
 $EndSCHEMATC
