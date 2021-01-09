@@ -894,4 +894,64 @@ Text GLabel 3700 4800 0    50   Input ~ 0
 LED_2
 Text GLabel 3700 5150 0    50   Input ~ 0
 LED_3
+$Comp
+L power:+3.3V #PWR?
+U 1 1 600B8F7A
+P 3550 5700
+F 0 "#PWR?" H 3550 5550 50  0001 C CNN
+F 1 "+3.3V" H 3565 5873 50  0000 C CNN
+F 2 "" H 3550 5700 50  0001 C CNN
+F 3 "" H 3550 5700 50  0001 C CNN
+	1    3550 5700
+	1    0    0    -1  
+$EndComp
+Text GLabel 4150 5800 0    50   Input ~ 0
+SWDIO
+Text GLabel 4150 5900 0    50   Input ~ 0
+SWCLK
+Text GLabel 4150 6000 0    50   Input ~ 0
+SWO
+$Comp
+L Device:C_Small C?
+U 1 1 600C2115
+P 3550 5900
+F 0 "C?" H 3650 5950 50  0000 L CNN
+F 1 "100n" H 3600 5850 50  0000 L CNN
+F 2 "" H 3550 5900 50  0001 C CNN
+F 3 "~" H 3550 5900 50  0001 C CNN
+	1    3550 5900
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	4150 6100 3550 6100
+Wire Wire Line
+	3550 6100 3550 6000
+Wire Wire Line
+	3550 5700 4150 5700
+Wire Wire Line
+	3550 5800 3550 5700
+Connection ~ 3550 5700
+$Comp
+L power:GND #PWR?
+U 1 1 600C968A
+P 3550 6100
+F 0 "#PWR?" H 3550 5850 50  0001 C CNN
+F 1 "GND" H 3555 5927 50  0000 C CNN
+F 2 "" H 3550 6100 50  0001 C CNN
+F 3 "" H 3550 6100 50  0001 C CNN
+	1    3550 6100
+	1    0    0    -1  
+$EndComp
+Connection ~ 3550 6100
+$Comp
+L Connector:Conn_01x05_Male J?
+U 1 1 600C9FFE
+P 4350 5900
+F 0 "J?" H 4322 5832 50  0000 R CNN
+F 1 "Conn_01x05_Male" H 4322 5923 50  0000 R CNN
+F 2 "" H 4350 5900 50  0001 C CNN
+F 3 "~" H 4350 5900 50  0001 C CNN
+	1    4350 5900
+	-1   0    0    1   
+$EndComp
 $EndSCHEMATC
