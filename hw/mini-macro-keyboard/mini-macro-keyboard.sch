@@ -1231,4 +1231,15 @@ Text Notes 5100 2700 0    50   ~ 0
 Mechanical key switches
 Text Notes 9100 2700 0    50   ~ 0
 Debug  SWD connector
+$Comp
+L power:GND #PWR0131
+U 1 1 60105106
+P 6150 1700
+F 0 "#PWR0131" H 6150 1450 50  0001 C CNN
+F 1 "GND" H 6155 1527 50  0000 C CNN
+F 2 "" H 6150 1700 50  0001 C CNN
+F 3 "" H 6150 1700 50  0001 C CNN
+	1    6150 1700
+	1    0    0    -1  
+$EndComp
 $EndSCHEMATC
