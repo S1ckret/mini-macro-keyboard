@@ -1,3 +1,2 @@
 (sym_lib_table
-  (lib (name mini-macro-keyboard)(type Legacy)(uri ${KIPRJMOD}/mini-macro-keyboard.lib)(options "")(descr ""))
 )
