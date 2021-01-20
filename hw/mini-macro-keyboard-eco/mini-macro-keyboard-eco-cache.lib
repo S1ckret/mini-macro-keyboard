@@ -1,11 +1,59 @@
 EESchema-LIBRARY Version 2.4
 #encoding utf-8
 #
-# Connector_Conn_01x04_Male
+# mini-macro-keyboard-eco-rescue_+3.3V-power
 #
-DEF Connector_Conn_01x04_Male J 0 40 Y N 1 F N
+DEF mini-macro-keyboard-eco-rescue_+3.3V-power #PWR 0 0 Y Y 1 F P
+F0 "#PWR" 0 -150 50 H I C CNN
+F1 "mini-macro-keyboard-eco-rescue_+3.3V-power" 0 140 50 H V C CNN
+F2 "" 0 0 50 H I C CNN
+F3 "" 0 0 50 H I C CNN
+DRAW
+P 2 0 1 0 -30 50 0 100 N
+P 2 0 1 0 0 0 0 100 N
+P 2 0 1 0 0 100 30 50 N
+X +3V3 1 0 0 0 U 50 50 1 1 W N
+ENDDRAW
+ENDDEF
+#
+# mini-macro-keyboard-eco-rescue_+5V-power
+#
+DEF mini-macro-keyboard-eco-rescue_+5V-power #PWR 0 0 Y Y 1 F P
+F0 "#PWR" 0 -150 50 H I C CNN
+F1 "mini-macro-keyboard-eco-rescue_+5V-power" 0 140 50 H V C CNN
+F2 "" 0 0 50 H I C CNN
+F3 "" 0 0 50 H I C CNN
+DRAW
+P 2 0 1 0 -30 50 0 100 N
+P 2 0 1 0 0 0 0 100 N
+P 2 0 1 0 0 100 30 50 N
+X +5V 1 0 0 0 U 50 50 1 1 W N
+ENDDRAW
+ENDDEF
+#
+# mini-macro-keyboard-eco-rescue_C_Small-Device
+#
+DEF mini-macro-keyboard-eco-rescue_C_Small-Device C 0 10 N N 1 F N
+F0 "C" 10 70 50 H V L CNN
+F1 "mini-macro-keyboard-eco-rescue_C_Small-Device" 10 -80 50 H V L CNN
+F2 "" 0 0 50 H I C CNN
+F3 "" 0 0 50 H I C CNN
+$FPLIST
+ C_*
+$ENDFPLIST
+DRAW
+P 2 0 1 13 -60 -20 60 -20 N
+P 2 0 1 12 -60 20 60 20 N
+X ~ 1 0 100 80 D 50 50 1 1 P
+X ~ 2 0 -100 80 U 50 50 1 1 P
+ENDDRAW
+ENDDEF
+#
+# mini-macro-keyboard-eco-rescue_Conn_01x04_Male-Connector
+#
+DEF mini-macro-keyboard-eco-rescue_Conn_01x04_Male-Connector J 0 40 Y N 1 F N
 F0 "J" 0 200 50 H V C CNN
-F1 "Connector_Conn_01x04_Male" 0 -300 50 H V C CNN
+F1 "mini-macro-keyboard-eco-rescue_Conn_01x04_Male-Connector" 0 -300 50 H V C CNN
 F2 "" 0 0 50 H I C CNN
 F3 "" 0 0 50 H I C CNN
 $FPLIST
@@ -27,65 +75,11 @@ X Pin_4 4 200 -200 150 L 50 50 1 1 P
 ENDDRAW
 ENDDEF
 #
-# Connector_USB_B_Micro
+# mini-macro-keyboard-eco-rescue_Crystal_GND24_Small-Device
 #
-DEF Connector_USB_B_Micro J 0 40 Y Y 1 F N
-F0 "J" -200 450 50 H V L CNN
-F1 "Connector_USB_B_Micro" -200 350 50 H V L CNN
-F2 "" 150 -50 50 H I C CNN
-F3 "" 150 -50 50 H I C CNN
-ALIAS USB_B_Mini
-$FPLIST
- USB*
-$ENDFPLIST
-DRAW
-C -150 85 25 0 1 10 F
-C -25 135 15 0 1 10 F
-S -200 -300 200 300 0 1 10 f
-S -5 -300 5 -270 0 1 0 N
-S 10 50 -20 20 0 1 10 F
-S 200 -205 170 -195 0 1 0 N
-S 200 -105 170 -95 0 1 0 N
-S 200 -5 170 5 0 1 0 N
-S 200 195 170 205 0 1 0 N
-P 2 0 1 10 -75 85 25 85 N
-P 4 0 1 10 -125 85 -100 85 -50 135 -25 135 N
-P 4 0 1 10 -100 85 -75 85 -50 35 0 35 N
-P 4 0 1 10 25 110 25 60 75 85 25 110 F
-P 5 0 1 0 -170 220 -70 220 -80 190 -160 190 -170 220 F
-P 9 0 1 0 -185 230 -185 220 -175 190 -175 180 -65 180 -65 190 -55 220 -55 230 -185 230 N
-X VBUS 1 300 200 100 L 50 50 1 1 w
-X D- 2 300 -100 100 L 50 50 1 1 P
-X D+ 3 300 0 100 L 50 50 1 1 P
-X ID 4 300 -200 100 L 50 50 1 1 P
-X GND 5 0 -400 100 U 50 50 1 1 w
-X Shield 6 -100 -400 100 U 50 50 1 1 P
-ENDDRAW
-ENDDEF
-#
-# Device_C_Small
-#
-DEF Device_C_Small C 0 10 N N 1 F N
-F0 "C" 10 70 50 H V L CNN
-F1 "Device_C_Small" 10 -80 50 H V L CNN
-F2 "" 0 0 50 H I C CNN
-F3 "" 0 0 50 H I C CNN
-$FPLIST
- C_*
-$ENDFPLIST
-DRAW
-P 2 0 1 13 -60 -20 60 -20 N
-P 2 0 1 12 -60 20 60 20 N
-X ~ 1 0 100 80 D 50 50 1 1 P
-X ~ 2 0 -100 80 U 50 50 1 1 P
-ENDDRAW
-ENDDEF
-#
-# Device_Crystal_GND24_Small
-#
-DEF Device_Crystal_GND24_Small Y 0 40 Y N 1 F N
+DEF mini-macro-keyboard-eco-rescue_Crystal_GND24_Small-Device Y 0 40 Y N 1 F N
 F0 "Y" 50 175 50 H V L CNN
-F1 "Device_Crystal_GND24_Small" 50 100 50 H V L CNN
+F1 "mini-macro-keyboard-eco-rescue_Crystal_GND24_Small-Device" 50 100 50 H V L CNN
 F2 "" 0 0 50 H I C CNN
 F3 "" 0 0 50 H I C CNN
 $FPLIST
@@ -104,11 +98,24 @@ X 4 4 0 100 25 D 30 50 1 1 P
 ENDDRAW
 ENDDEF
 #
-# Device_LED_Small
+# mini-macro-keyboard-eco-rescue_GND-power
 #
-DEF Device_LED_Small D 0 10 N N 1 F N
+DEF mini-macro-keyboard-eco-rescue_GND-power #PWR 0 0 Y Y 1 F P
+F0 "#PWR" 0 -250 50 H I C CNN
+F1 "mini-macro-keyboard-eco-rescue_GND-power" 0 -150 50 H V C CNN
+F2 "" 0 0 50 H I C CNN
+F3 "" 0 0 50 H I C CNN
+DRAW
+P 6 0 1 0 0 0 0 -50 50 -50 0 -100 -50 -50 0 -50 N
+X GND 1 0 0 0 D 50 50 1 1 W N
+ENDDRAW
+ENDDEF
+#
+# mini-macro-keyboard-eco-rescue_LED_Small-Device
+#
+DEF mini-macro-keyboard-eco-rescue_LED_Small-Device D 0 10 N N 1 F N
 F0 "D" -50 125 50 H V L CNN
-F1 "Device_LED_Small" -175 -100 50 H V L CNN
+F1 "mini-macro-keyboard-eco-rescue_LED_Small-Device" -175 -100 50 H V L CNN
 F2 "" 0 0 50 V I C CNN
 F3 "" 0 0 50 V I C CNN
 $FPLIST
@@ -127,11 +134,11 @@ X A 2 100 0 70 L 50 50 1 1 P
 ENDDRAW
 ENDDEF
 #
-# Device_R_Small
+# mini-macro-keyboard-eco-rescue_R_Small-Device
 #
-DEF Device_R_Small R 0 10 N N 1 F N
+DEF mini-macro-keyboard-eco-rescue_R_Small-Device R 0 10 N N 1 F N
 F0 "R" 30 20 50 H V L CNN
-F1 "Device_R_Small" 30 -40 50 H V L CNN
+F1 "mini-macro-keyboard-eco-rescue_R_Small-Device" 30 -40 50 H V L CNN
 F2 "" 0 0 50 H I C CNN
 F3 "" 0 0 50 H I C CNN
 $FPLIST
@@ -144,11 +151,11 @@ X ~ 2 0 -100 30 U 50 50 1 1 P
 ENDDRAW
 ENDDEF
 #
-# MCU_ST_STM32F0_STM32F070F6Px
+# mini-macro-keyboard-eco-rescue_STM32F070F6Px-MCU_ST_STM32F0
 #
-DEF MCU_ST_STM32F0_STM32F070F6Px U 0 20 Y Y 1 F N
+DEF mini-macro-keyboard-eco-rescue_STM32F070F6Px-MCU_ST_STM32F0 U 0 20 Y Y 1 F N
 F0 "U" -600 650 50 H V L CNN
-F1 "MCU_ST_STM32F0_STM32F070F6Px" 0 650 50 H V L CNN
+F1 "mini-macro-keyboard-eco-rescue_STM32F070F6Px-MCU_ST_STM32F0" 0 650 50 H V L CNN
 F2 "Package_SO:TSSOP-20_4.4x6.5mm_P0.65mm" -600 -700 50 H I R CNN
 F3 "" 0 0 50 H I C CNN
 $FPLIST
@@ -179,11 +186,46 @@ X PA3 9 600 200 100 L 50 50 1 1 B
 ENDDRAW
 ENDDEF
 #
-# Power_Protection_USBLC6-2SC6
+# mini-macro-keyboard-eco-rescue_SW_Push-Switch
 #
-DEF Power_Protection_USBLC6-2SC6 U 0 20 Y N 1 F N
+DEF mini-macro-keyboard-eco-rescue_SW_Push-Switch SW 0 40 N N 1 F N
+F0 "SW" 50 100 50 H V L CNN
+F1 "mini-macro-keyboard-eco-rescue_SW_Push-Switch" 0 -60 50 H V C CNN
+F2 "" 0 200 50 H I C CNN
+F3 "" 0 200 50 H I C CNN
+DRAW
+C -80 0 20 0 1 0 N
+C 80 0 20 0 1 0 N
+P 2 0 1 0 0 50 0 120 N
+P 2 0 1 0 100 50 -100 50 N
+X 1 1 -200 0 100 R 50 50 0 1 P
+X 2 2 200 0 100 L 50 50 0 1 P
+ENDDRAW
+ENDDEF
+#
+# mini-macro-keyboard-eco-rescue_SW_SPDT-Switch
+#
+DEF mini-macro-keyboard-eco-rescue_SW_SPDT-Switch SW 0 0 Y N 1 F N
+F0 "SW" 0 170 50 H V C CNN
+F1 "mini-macro-keyboard-eco-rescue_SW_SPDT-Switch" 0 -200 50 H V C CNN
+F2 "" 0 0 50 H I C CNN
+F3 "" 0 0 50 H I C CNN
+DRAW
+C -80 0 20 0 0 0 N
+C 80 -100 20 0 0 0 N
+C 80 100 20 0 1 0 N
+P 2 0 1 0 -60 10 65 90 N
+X A 1 200 100 100 L 50 50 1 1 P
+X B 2 -200 0 100 R 50 50 1 1 P
+X C 3 200 -100 100 L 50 50 1 1 P
+ENDDRAW
+ENDDEF
+#
+# mini-macro-keyboard-eco-rescue_USBLC6-2SC6-Power_Protection
+#
+DEF mini-macro-keyboard-eco-rescue_USBLC6-2SC6-Power_Protection U 0 20 Y N 1 F N
 F0 "U" 100 350 50 H V L CNN
-F1 "Power_Protection_USBLC6-2SC6" 100 -350 50 H V L CNN
+F1 "mini-macro-keyboard-eco-rescue_USBLC6-2SC6-Power_Protection" 100 -350 50 H V L CNN
 F2 "Package_TO_SOT_SMD:SOT-23-6" 0 -500 50 H I C CNN
 F3 "" 200 350 50 H I C CNN
 $FPLIST
@@ -229,14 +271,48 @@ X I/O1 6 -400 100 100 R 50 50 1 1 P
 ENDDRAW
 ENDDEF
 #
-# Regulator_Linear_XC6206PxxxMR
+# mini-macro-keyboard-eco-rescue_USB_B_Micro-Connector
 #
-DEF Regulator_Linear_XC6206PxxxMR U 0 10 Y Y 1 F N
+DEF mini-macro-keyboard-eco-rescue_USB_B_Micro-Connector J 0 40 Y Y 1 F N
+F0 "J" -200 450 50 H V L CNN
+F1 "mini-macro-keyboard-eco-rescue_USB_B_Micro-Connector" -200 350 50 H V L CNN
+F2 "" 150 -50 50 H I C CNN
+F3 "" 150 -50 50 H I C CNN
+$FPLIST
+ USB*
+$ENDFPLIST
+DRAW
+C -150 85 25 0 1 10 F
+C -25 135 15 0 1 10 F
+S -200 -300 200 300 0 1 10 f
+S -5 -300 5 -270 0 1 0 N
+S 10 50 -20 20 0 1 10 F
+S 200 -205 170 -195 0 1 0 N
+S 200 -105 170 -95 0 1 0 N
+S 200 -5 170 5 0 1 0 N
+S 200 195 170 205 0 1 0 N
+P 2 0 1 10 -75 85 25 85 N
+P 4 0 1 10 -125 85 -100 85 -50 135 -25 135 N
+P 4 0 1 10 -100 85 -75 85 -50 35 0 35 N
+P 4 0 1 10 25 110 25 60 75 85 25 110 F
+P 5 0 1 0 -170 220 -70 220 -80 190 -160 190 -170 220 F
+P 9 0 1 0 -185 230 -185 220 -175 190 -175 180 -65 180 -65 190 -55 220 -55 230 -185 230 N
+X VBUS 1 300 200 100 L 50 50 1 1 w
+X D- 2 300 -100 100 L 50 50 1 1 P
+X D+ 3 300 0 100 L 50 50 1 1 P
+X ID 4 300 -200 100 L 50 50 1 1 P
+X GND 5 0 -400 100 U 50 50 1 1 w
+X Shield 6 -100 -400 100 U 50 50 1 1 P
+ENDDRAW
+ENDDEF
+#
+# mini-macro-keyboard-eco-rescue_XC6206PxxxMR-Regulator_Linear
+#
+DEF mini-macro-keyboard-eco-rescue_XC6206PxxxMR-Regulator_Linear U 0 10 Y Y 1 F N
 F0 "U" -150 125 50 H V C CNN
-F1 "Regulator_Linear_XC6206PxxxMR" 0 125 50 H V L CNN
+F1 "mini-macro-keyboard-eco-rescue_XC6206PxxxMR-Regulator_Linear" 0 125 50 H V L CNN
 F2 "Package_TO_SOT_SMD:SOT-23" 0 225 50 H I C CIN
 F3 "" 0 0 50 H I C CNN
-ALIAS APE8865N-15-HF-3 APE8865N-16-HF-3 APE8865N-17-HF-3 APE8865N-18-HF-3 APE8865N-19-HF-3 APE8865N-20-HF-3 APE8865N-21-HF-3 APE8865N-22-HF-3 APE8865N-23-HF-3 APE8865N-24-HF-3 APE8865N-25-HF-3 APE8865N-26-HF-3 APE8865N-27-HF-3 APE8865N-28-HF-3 APE8865N-29-HF-3 APE8865N-30-HF-3 APE8865N-31-HF-3 APE8865N-32-HF-3 APE8865N-33-HF-3 AP2127N-1.0 AP2127N-1.2 AP2127N-1.5 AP2127N-1.8 AP2127N-2.5 AP2127N-2.8 AP2127N-3.0 AP2127N-3.3 XC6206PxxxMR
 $FPLIST
  SOT?23*
 $ENDFPLIST
@@ -245,85 +321,6 @@ S -200 75 200 -200 0 1 10 f
 X GND 1 0 -300 100 U 50 50 1 1 W
 X VO 2 300 0 100 L 50 50 1 1 w
 X VI 3 -300 0 100 R 50 50 1 1 W
-ENDDRAW
-ENDDEF
-#
-# Switch_SW_Push
-#
-DEF Switch_SW_Push SW 0 40 N N 1 F N
-F0 "SW" 50 100 50 H V L CNN
-F1 "Switch_SW_Push" 0 -60 50 H V C CNN
-F2 "" 0 200 50 H I C CNN
-F3 "" 0 200 50 H I C CNN
-DRAW
-C -80 0 20 0 1 0 N
-C 80 0 20 0 1 0 N
-P 2 0 1 0 0 50 0 120 N
-P 2 0 1 0 100 50 -100 50 N
-X 1 1 -200 0 100 R 50 50 0 1 P
-X 2 2 200 0 100 L 50 50 0 1 P
-ENDDRAW
-ENDDEF
-#
-# Switch_SW_SPDT
-#
-DEF Switch_SW_SPDT SW 0 0 Y N 1 F N
-F0 "SW" 0 170 50 H V C CNN
-F1 "Switch_SW_SPDT" 0 -200 50 H V C CNN
-F2 "" 0 0 50 H I C CNN
-F3 "" 0 0 50 H I C CNN
-DRAW
-C -80 0 20 0 0 0 N
-C 80 -100 20 0 0 0 N
-C 80 100 20 0 1 0 N
-P 2 0 1 0 -60 10 65 90 N
-X A 1 200 100 100 L 50 50 1 1 P
-X B 2 -200 0 100 R 50 50 1 1 P
-X C 3 200 -100 100 L 50 50 1 1 P
-ENDDRAW
-ENDDEF
-#
-# power_+3.3V
-#
-DEF power_+3.3V #PWR 0 0 Y Y 1 F P
-F0 "#PWR" 0 -150 50 H I C CNN
-F1 "power_+3.3V" 0 140 50 H V C CNN
-F2 "" 0 0 50 H I C CNN
-F3 "" 0 0 50 H I C CNN
-ALIAS +3.3V
-DRAW
-P 2 0 1 0 -30 50 0 100 N
-P 2 0 1 0 0 0 0 100 N
-P 2 0 1 0 0 100 30 50 N
-X +3V3 1 0 0 0 U 50 50 1 1 W N
-ENDDRAW
-ENDDEF
-#
-# power_+5V
-#
-DEF power_+5V #PWR 0 0 Y Y 1 F P
-F0 "#PWR" 0 -150 50 H I C CNN
-F1 "power_+5V" 0 140 50 H V C CNN
-F2 "" 0 0 50 H I C CNN
-F3 "" 0 0 50 H I C CNN
-DRAW
-P 2 0 1 0 -30 50 0 100 N
-P 2 0 1 0 0 0 0 100 N
-P 2 0 1 0 0 100 30 50 N
-X +5V 1 0 0 0 U 50 50 1 1 W N
-ENDDRAW
-ENDDEF
-#
-# power_GND
-#
-DEF power_GND #PWR 0 0 Y Y 1 F P
-F0 "#PWR" 0 -250 50 H I C CNN
-F1 "power_GND" 0 -150 50 H V C CNN
-F2 "" 0 0 50 H I C CNN
-F3 "" 0 0 50 H I C CNN
-DRAW
-P 6 0 1 0 0 0 0 -50 50 -50 0 -100 -50 -50 0 -50 N
-X GND 1 0 0 0 D 50 50 1 1 W N
 ENDDRAW
 ENDDEF
 #
