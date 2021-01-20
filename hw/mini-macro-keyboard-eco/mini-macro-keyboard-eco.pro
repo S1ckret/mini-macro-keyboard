@@ -1,4 +1,4 @@
-update=1/20/2021 10:41:32 PM
+update=1/20/2021 10:43:50 PM
 version=1
 last_client=kicad
 [general]
@@ -25,7 +25,7 @@ ERC_TestSimilarLabels=1
 [pcbnew]
 version=1
 PageLayoutDescrFile=
-LastNetListRead=
+LastNetListRead=mini-macro-keyboard-eco.net
 CopperLayerCount=2
 BoardThickness=1.6
 AllowMicroVias=0
