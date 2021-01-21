@@ -493,202 +493,43 @@ F 3 "" H 3550 1900 50  0001 C CNN
 $EndComp
 Wire Notes Line
 	5000 500  5000 7800
-Text GLabel 5950 2850 2    50   Input ~ 0
+Text GLabel 5900 2750 2    50   Input ~ 0
 SW_1
-$Comp
-L mini-macro-keyboard-eco-rescue:+3.3V-power #PWR0125
-U 1 1 5FFBA660
-P 5800 2600
-F 0 "#PWR0125" H 5800 2450 50  0001 C CNN
-F 1 "+3.3V" H 5815 2773 50  0000 C CNN
-F 2 "" H 5800 2600 50  0001 C CNN
-F 3 "" H 5800 2600 50  0001 C CNN
-	1    5800 2600
-	1    0    0    -1  
-$EndComp
-Wire Wire Line
-	5800 3350 5800 3450
-Connection ~ 5800 3350
-Wire Wire Line
-	5550 3350 5800 3350
-Wire Wire Line
-	5550 3300 5550 3350
-Wire Wire Line
-	5550 2850 5550 2900
-Wire Wire Line
-	5800 2850 5550 2850
-Wire Wire Line
-	5800 3200 5800 3350
-$Comp
-L mini-macro-keyboard-eco-rescue:R_Small-Device R1
-U 1 1 5FFBA64D
-P 5800 2700
-F 0 "R1" V 5900 2700 50  0000 C CNN
-F 1 "10k" V 5700 2700 50  0000 C CNN
-F 2 "Resistor_SMD:R_0402_1005Metric" H 5800 2700 50  0001 C CNN
-F 3 "~" H 5800 2700 50  0001 C CNN
-	1    5800 2700
-	1    0    0    -1  
-$EndComp
-Wire Wire Line
-	5800 2850 5950 2850
-Connection ~ 5800 2850
-Wire Wire Line
-	5800 3000 5800 2850
 $Comp
 L mini-macro-keyboard-eco-rescue:GND-power #PWR0126
 U 1 1 5FFBA643
-P 5800 3450
-F 0 "#PWR0126" H 5800 3200 50  0001 C CNN
-F 1 "GND" H 5805 3277 50  0000 C CNN
-F 2 "" H 5800 3450 50  0001 C CNN
-F 3 "" H 5800 3450 50  0001 C CNN
-	1    5800 3450
+P 5800 3350
+F 0 "#PWR0126" H 5800 3100 50  0001 C CNN
+F 1 "GND" H 5805 3177 50  0000 C CNN
+F 2 "" H 5800 3350 50  0001 C CNN
+F 3 "" H 5800 3350 50  0001 C CNN
+	1    5800 3350
 	1    0    0    -1  
 $EndComp
-Wire Wire Line
-	5800 2800 5800 2850
-$Comp
-L mini-macro-keyboard-eco-rescue:C_Small-Device C1
-U 1 1 5FFBA63C
-P 5800 3100
-F 0 "C1" H 5900 3150 50  0000 L CNN
-F 1 "100n" H 5850 3050 50  0000 L CNN
-F 2 "Capacitor_SMD:C_0402_1005Metric" H 5800 3100 50  0001 C CNN
-F 3 "~" H 5800 3100 50  0001 C CNN
-	1    5800 3100
-	1    0    0    -1  
-$EndComp
-Text GLabel 8350 2850 2    50   Input ~ 0
+Text GLabel 8300 2800 2    50   Input ~ 0
 SW_3
-$Comp
-L mini-macro-keyboard-eco-rescue:+3.3V-power #PWR0127
-U 1 1 5FFC23F4
-P 8200 2600
-F 0 "#PWR0127" H 8200 2450 50  0001 C CNN
-F 1 "+3.3V" H 8215 2773 50  0000 C CNN
-F 2 "" H 8200 2600 50  0001 C CNN
-F 3 "" H 8200 2600 50  0001 C CNN
-	1    8200 2600
-	1    0    0    -1  
-$EndComp
-Wire Wire Line
-	8200 3350 8200 3450
-Connection ~ 8200 3350
-Wire Wire Line
-	7950 3350 8200 3350
-Wire Wire Line
-	7950 3300 7950 3350
-Wire Wire Line
-	7950 2850 7950 2900
-Wire Wire Line
-	8200 2850 7950 2850
-Wire Wire Line
-	8200 3200 8200 3350
-$Comp
-L mini-macro-keyboard-eco-rescue:R_Small-Device R3
-U 1 1 5FFC23E1
-P 8200 2700
-F 0 "R3" V 8300 2700 50  0000 C CNN
-F 1 "10k" V 8100 2700 50  0000 C CNN
-F 2 "Resistor_SMD:R_0402_1005Metric" H 8200 2700 50  0001 C CNN
-F 3 "~" H 8200 2700 50  0001 C CNN
-	1    8200 2700
-	1    0    0    -1  
-$EndComp
-Wire Wire Line
-	8200 2850 8350 2850
-Connection ~ 8200 2850
-Wire Wire Line
-	8200 3000 8200 2850
 $Comp
 L mini-macro-keyboard-eco-rescue:GND-power #PWR0128
 U 1 1 5FFC23D8
-P 8200 3450
-F 0 "#PWR0128" H 8200 3200 50  0001 C CNN
-F 1 "GND" H 8205 3277 50  0000 C CNN
-F 2 "" H 8200 3450 50  0001 C CNN
-F 3 "" H 8200 3450 50  0001 C CNN
-	1    8200 3450
+P 8200 3400
+F 0 "#PWR0128" H 8200 3150 50  0001 C CNN
+F 1 "GND" H 8205 3227 50  0000 C CNN
+F 2 "" H 8200 3400 50  0001 C CNN
+F 3 "" H 8200 3400 50  0001 C CNN
+	1    8200 3400
 	1    0    0    -1  
 $EndComp
-Wire Wire Line
-	8200 2800 8200 2850
-$Comp
-L mini-macro-keyboard-eco-rescue:C_Small-Device C3
-U 1 1 5FFC23D1
-P 8200 3100
-F 0 "C3" H 8300 3150 50  0000 L CNN
-F 1 "100n" H 8250 3050 50  0000 L CNN
-F 2 "Capacitor_SMD:C_0402_1005Metric" H 8200 3100 50  0001 C CNN
-F 3 "~" H 8200 3100 50  0001 C CNN
-	1    8200 3100
-	1    0    0    -1  
-$EndComp
-Text GLabel 7150 2850 2    50   Input ~ 0
+Text GLabel 7100 2750 2    50   Input ~ 0
 SW_2
-$Comp
-L mini-macro-keyboard-eco-rescue:+3.3V-power #PWR0129
-U 1 1 5FFBFB0E
-P 7000 2600
-F 0 "#PWR0129" H 7000 2450 50  0001 C CNN
-F 1 "+3.3V" H 7015 2773 50  0000 C CNN
-F 2 "" H 7000 2600 50  0001 C CNN
-F 3 "" H 7000 2600 50  0001 C CNN
-	1    7000 2600
-	1    0    0    -1  
-$EndComp
-Wire Wire Line
-	7000 3350 7000 3450
-Connection ~ 7000 3350
-Wire Wire Line
-	6750 3350 7000 3350
-Wire Wire Line
-	6750 3300 6750 3350
-Wire Wire Line
-	6750 2850 6750 2900
-Wire Wire Line
-	7000 2850 6750 2850
-Wire Wire Line
-	7000 3200 7000 3350
-$Comp
-L mini-macro-keyboard-eco-rescue:R_Small-Device R2
-U 1 1 5FFBFAFB
-P 7000 2700
-F 0 "R2" V 7100 2700 50  0000 C CNN
-F 1 "10k" V 6900 2700 50  0000 C CNN
-F 2 "Resistor_SMD:R_0402_1005Metric" H 7000 2700 50  0001 C CNN
-F 3 "~" H 7000 2700 50  0001 C CNN
-	1    7000 2700
-	1    0    0    -1  
-$EndComp
-Wire Wire Line
-	7000 2850 7150 2850
-Connection ~ 7000 2850
-Wire Wire Line
-	7000 3000 7000 2850
 $Comp
 L mini-macro-keyboard-eco-rescue:GND-power #PWR0130
 U 1 1 5FFBFAF2
-P 7000 3450
-F 0 "#PWR0130" H 7000 3200 50  0001 C CNN
-F 1 "GND" H 7005 3277 50  0000 C CNN
-F 2 "" H 7000 3450 50  0001 C CNN
-F 3 "" H 7000 3450 50  0001 C CNN
-	1    7000 3450
-	1    0    0    -1  
-$EndComp
-Wire Wire Line
-	7000 2800 7000 2850
-$Comp
-L mini-macro-keyboard-eco-rescue:C_Small-Device C2
-U 1 1 5FFBFAEB
-P 7000 3100
-F 0 "C2" H 7100 3150 50  0000 L CNN
-F 1 "100n" H 7050 3050 50  0000 L CNN
-F 2 "Capacitor_SMD:C_0402_1005Metric" H 7000 3100 50  0001 C CNN
-F 3 "~" H 7000 3100 50  0001 C CNN
-	1    7000 3100
+P 7000 3400
+F 0 "#PWR0130" H 7000 3150 50  0001 C CNN
+F 1 "GND" H 7005 3227 50  0000 C CNN
+F 2 "" H 7000 3400 50  0001 C CNN
+F 3 "" H 7000 3400 50  0001 C CNN
+	1    7000 3400
 	1    0    0    -1  
 $EndComp
 Text Notes 550  2650 0    50   ~ 0
@@ -1088,12 +929,12 @@ $EndComp
 $Comp
 L mini-macro-keyboard-eco-rescue:SW_Push-Switch SW3
 U 1 1 5FFC23E7
-P 7950 3100
-F 0 "SW3" V 8100 3300 50  0000 R CNN
-F 1 "SW_Cherry_MX_1.00u_PCB" H 8450 3400 50  0000 R CNN
-F 2 "Button_Switch_Keyboard:SW_Cherry_MX_1.00u_PCB" H 7950 3300 50  0001 C CNN
-F 3 "~" H 7950 3300 50  0001 C CNN
-	1    7950 3100
+P 8200 3100
+F 0 "SW3" V 8350 3300 50  0000 R CNN
+F 1 "SW_Cherry_MX_1.00u_PCB" H 8700 3400 50  0000 R CNN
+F 2 "Button_Switch_Keyboard:SW_Cherry_MX_1.00u_PCB" H 8200 3300 50  0001 C CNN
+F 3 "~" H 8200 3300 50  0001 C CNN
+	1    8200 3100
 	0    -1   -1   0   
 $EndComp
 $Comp
@@ -1110,23 +951,43 @@ $EndComp
 $Comp
 L mini-macro-keyboard-eco-rescue:SW_Push-Switch SW2
 U 1 1 5FFBFB01
-P 6750 3100
-F 0 "SW2" V 6900 3300 50  0000 R CNN
-F 1 "SW_Cherry_MX_1.00u_PCB" H 7250 3400 50  0000 R CNN
-F 2 "Button_Switch_Keyboard:SW_Cherry_MX_1.00u_PCB" H 6750 3300 50  0001 C CNN
-F 3 "~" H 6750 3300 50  0001 C CNN
-	1    6750 3100
+P 7000 3050
+F 0 "SW2" V 7150 3250 50  0000 R CNN
+F 1 "SW_Cherry_MX_1.00u_PCB" H 7500 3350 50  0000 R CNN
+F 2 "Button_Switch_Keyboard:SW_Cherry_MX_1.00u_PCB" H 7000 3250 50  0001 C CNN
+F 3 "~" H 7000 3250 50  0001 C CNN
+	1    7000 3050
 	0    -1   -1   0   
 $EndComp
 $Comp
 L mini-macro-keyboard-eco-rescue:SW_Push-Switch SW1
 U 1 1 5FFBA653
-P 5550 3100
-F 0 "SW1" V 5700 3300 50  0000 R CNN
-F 1 "SW_Cherry_MX_1.00u_PCB" H 6050 3400 50  0000 R CNN
-F 2 "Button_Switch_Keyboard:SW_Cherry_MX_1.00u_PCB" H 5550 3300 50  0001 C CNN
-F 3 "~" H 5550 3300 50  0001 C CNN
-	1    5550 3100
+P 5800 3050
+F 0 "SW1" V 5950 3250 50  0000 R CNN
+F 1 "SW_Cherry_MX_1.00u_PCB" H 6300 3350 50  0000 R CNN
+F 2 "Button_Switch_Keyboard:SW_Cherry_MX_1.00u_PCB" H 5800 3250 50  0001 C CNN
+F 3 "~" H 5800 3250 50  0001 C CNN
+	1    5800 3050
 	0    -1   -1   0   
 $EndComp
+Wire Wire Line
+	5800 3350 5800 3250
+Wire Wire Line
+	5900 2750 5800 2750
+Wire Wire Line
+	5800 2750 5800 2850
+Wire Wire Line
+	7100 2750 7000 2750
+Wire Wire Line
+	7000 2750 7000 2850
+Wire Wire Line
+	7000 3400 7000 3250
+Wire Wire Line
+	8300 2800 8200 2800
+Wire Wire Line
+	8200 2800 8200 2900
+Wire Wire Line
+	8200 3300 8200 3400
+Text Notes 7000 3900 0    50   ~ 0
+Note: Each pin will have internal pull-up resistor
 $EndSCHEMATC
