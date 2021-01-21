@@ -91,8 +91,6 @@ F 3 "" H 3300 1000 50  0001 C CNN
 	1    3300 1000
 	1    0    0    -1  
 $EndComp
-Text GLabel 3050 2400 0    50   Input ~ 0
-BOOT0
 Text GLabel 3050 3000 0    50   Input ~ 0
 OSC_IN
 Text GLabel 4350 3200 2    50   Input ~ 0
@@ -120,118 +118,118 @@ OSC_OUT
 $Comp
 L mini-macro-keyboard-eco-rescue:C_Small-Device C9
 U 1 1 6000E4D6
-P 1200 4750
-F 0 "C9" H 950 4700 50  0000 L CNN
-F 1 "12p" H 950 4800 50  0000 L CNN
-F 2 "Capacitor_SMD:C_0402_1005Metric" H 1200 4750 50  0001 C CNN
-F 3 "~" H 1200 4750 50  0001 C CNN
-	1    1200 4750
+P 1100 3300
+F 0 "C9" H 850 3250 50  0000 L CNN
+F 1 "12p" H 850 3350 50  0000 L CNN
+F 2 "Capacitor_SMD:C_0402_1005Metric" H 1100 3300 50  0001 C CNN
+F 3 "~" H 1100 3300 50  0001 C CNN
+	1    1100 3300
 	-1   0    0    1   
 $EndComp
 $Comp
 L mini-macro-keyboard-eco-rescue:R_Small-Device R7
 U 1 1 60011E97
-P 1750 4150
-F 0 "R7" H 1900 4200 50  0000 C CNN
-F 1 "47" H 1900 4100 50  0000 C CNN
-F 2 "Resistor_SMD:R_0402_1005Metric" H 1750 4150 50  0001 C CNN
-F 3 "~" H 1750 4150 50  0001 C CNN
-	1    1750 4150
+P 1650 2700
+F 0 "R7" H 1800 2750 50  0000 C CNN
+F 1 "47" H 1800 2650 50  0000 C CNN
+F 2 "Resistor_SMD:R_0402_1005Metric" H 1650 2700 50  0001 C CNN
+F 3 "~" H 1650 2700 50  0001 C CNN
+	1    1650 2700
 	1    0    0    -1  
 $EndComp
-Text GLabel 1950 3900 2    50   Input ~ 0
+Text GLabel 1850 2450 2    50   Input ~ 0
 OSC_IN
-Text GLabel 1950 4000 2    50   Input ~ 0
+Text GLabel 1850 2550 2    50   Input ~ 0
 OSC_OUT
 $Comp
 L mini-macro-keyboard-eco-rescue:USB_B_Micro-Connector J0
 U 1 1 6001BB49
-P 1000 6600
-F 0 "J0" H 1057 7067 50  0000 C CNN
-F 1 "USB" H 1057 6976 50  0000 C CNN
-F 2 "Connector_USB:USB_Micro-B_Molex-105017-0001" H 1150 6550 50  0001 C CNN
-F 3 "~" H 1150 6550 50  0001 C CNN
-	1    1000 6600
+P 1350 4850
+F 0 "J0" H 1407 5317 50  0000 C CNN
+F 1 "USB" H 1407 5226 50  0000 C CNN
+F 2 "Connector_USB:USB_Micro-B_Molex-105017-0001" H 1500 4800 50  0001 C CNN
+F 3 "~" H 1500 4800 50  0001 C CNN
+	1    1350 4850
 	1    0    0    -1  
 $EndComp
 $Comp
 L mini-macro-keyboard-eco-rescue:GND-power #PWR0107
 U 1 1 60020BF2
-P 1000 7050
-F 0 "#PWR0107" H 1000 6800 50  0001 C CNN
-F 1 "GND" H 1005 6877 50  0000 C CNN
-F 2 "" H 1000 7050 50  0001 C CNN
-F 3 "" H 1000 7050 50  0001 C CNN
-	1    1000 7050
+P 1350 5300
+F 0 "#PWR0107" H 1350 5050 50  0001 C CNN
+F 1 "GND" H 1355 5127 50  0000 C CNN
+F 2 "" H 1350 5300 50  0001 C CNN
+F 3 "" H 1350 5300 50  0001 C CNN
+	1    1350 5300
 	1    0    0    -1  
 $EndComp
-NoConn ~ 900  7000
+NoConn ~ 1250 5250
 Wire Wire Line
-	1300 6800 1300 7000
+	1650 5050 1650 5250
 Wire Wire Line
-	1300 7000 1000 7000
-Connection ~ 1000 7000
+	1650 5250 1350 5250
+Connection ~ 1350 5250
 Wire Wire Line
-	1000 7000 1000 7050
+	1350 5250 1350 5300
 $Comp
 L mini-macro-keyboard-eco-rescue:+5V-power #PWR0108
 U 1 1 60024143
-P 1450 6300
-F 0 "#PWR0108" H 1450 6150 50  0001 C CNN
-F 1 "+5V" H 1465 6473 50  0000 C CNN
-F 2 "" H 1450 6300 50  0001 C CNN
-F 3 "" H 1450 6300 50  0001 C CNN
-	1    1450 6300
+P 1800 4550
+F 0 "#PWR0108" H 1800 4400 50  0001 C CNN
+F 1 "+5V" H 1815 4723 50  0000 C CNN
+F 2 "" H 1800 4550 50  0001 C CNN
+F 3 "" H 1800 4550 50  0001 C CNN
+	1    1800 4550
 	1    0    0    -1  
 $EndComp
 Wire Wire Line
-	1450 6300 1450 6400
+	1800 4550 1800 4650
 Wire Wire Line
-	1450 6400 1300 6400
+	1800 4650 1650 4650
 $Comp
 L mini-macro-keyboard-eco-rescue:USBLC6-2SC6-Power_Protection U1
 U 1 1 60025D65
-P 3650 6550
-F 0 "U1" H 3900 6900 50  0000 C CNN
-F 1 "USBLC6-2SC6" H 3950 6200 50  0000 C CNN
-F 2 "Package_TO_SOT_SMD:SOT-23-6" H 3650 6050 50  0001 C CNN
-F 3 "https://www.st.com/resource/en/datasheet/usblc6-2.pdf" H 3850 6900 50  0001 C CNN
-	1    3650 6550
+P 3600 4800
+F 0 "U1" H 3850 5150 50  0000 C CNN
+F 1 "USBLC6-2SC6" H 3900 4450 50  0000 C CNN
+F 2 "Package_TO_SOT_SMD:SOT-23-6" H 3600 4300 50  0001 C CNN
+F 3 "https://www.st.com/resource/en/datasheet/usblc6-2.pdf" H 3800 5150 50  0001 C CNN
+	1    3600 4800
 	1    0    0    -1  
 $EndComp
-Text GLabel 1300 6600 2    50   Input ~ 0
+Text GLabel 1650 4850 2    50   Input ~ 0
 USB_CONN_D+
-Text GLabel 1300 6700 2    50   Input ~ 0
+Text GLabel 1650 4950 2    50   Input ~ 0
 USB_CONN_D-
-Text GLabel 3250 6650 0    50   Input ~ 0
+Text GLabel 3200 4900 0    50   Input ~ 0
 USB_CONN_D+
 $Comp
 L mini-macro-keyboard-eco-rescue:+5V-power #PWR0109
 U 1 1 6002EBC6
-P 3650 6150
-F 0 "#PWR0109" H 3650 6000 50  0001 C CNN
-F 1 "+5V" H 3665 6323 50  0000 C CNN
-F 2 "" H 3650 6150 50  0001 C CNN
-F 3 "" H 3650 6150 50  0001 C CNN
-	1    3650 6150
+P 3600 4400
+F 0 "#PWR0109" H 3600 4250 50  0001 C CNN
+F 1 "+5V" H 3615 4573 50  0000 C CNN
+F 2 "" H 3600 4400 50  0001 C CNN
+F 3 "" H 3600 4400 50  0001 C CNN
+	1    3600 4400
 	1    0    0    -1  
 $EndComp
 $Comp
 L mini-macro-keyboard-eco-rescue:GND-power #PWR0110
 U 1 1 6002F1AC
-P 3650 6950
-F 0 "#PWR0110" H 3650 6700 50  0001 C CNN
-F 1 "GND" H 3655 6777 50  0000 C CNN
-F 2 "" H 3650 6950 50  0001 C CNN
-F 3 "" H 3650 6950 50  0001 C CNN
-	1    3650 6950
+P 3600 5200
+F 0 "#PWR0110" H 3600 4950 50  0001 C CNN
+F 1 "GND" H 3605 5027 50  0000 C CNN
+F 2 "" H 3600 5200 50  0001 C CNN
+F 3 "" H 3600 5200 50  0001 C CNN
+	1    3600 5200
 	1    0    0    -1  
 $EndComp
-Text GLabel 3250 6450 0    50   Input ~ 0
+Text GLabel 3200 4700 0    50   Input ~ 0
 USB_D+
-Text GLabel 4050 6650 2    50   Input ~ 0
+Text GLabel 4000 4900 2    50   Input ~ 0
 USB_CONN_D-
-Text GLabel 4050 6450 2    50   Input ~ 0
+Text GLabel 4000 4700 2    50   Input ~ 0
 USB_D-
 Text GLabel 7650 900  0    50   Input ~ 0
 LED_1
@@ -395,12 +393,6 @@ F 3 "" H 9700 1450 50  0001 C CNN
 	1    9700 1450
 	1    0    0    -1  
 $EndComp
-Wire Notes Line
-	2500 2500 500  2500
-Wire Notes Line
-	2500 500  2500 5500
-Wire Notes Line
-	500  5500 5000 5500
 $Comp
 L mini-macro-keyboard-eco-rescue:+3.3V-power #PWR0124
 U 1 1 60078817
@@ -412,8 +404,6 @@ F 3 "" H 3550 1900 50  0001 C CNN
 	1    3550 1900
 	1    0    0    -1  
 $EndComp
-Wire Notes Line
-	5000 500  5000 7800
 Text GLabel 5900 2750 2    50   Input ~ 0
 SW_1
 $Comp
@@ -453,11 +443,9 @@ F 3 "" H 7000 3400 50  0001 C CNN
 	1    7000 3400
 	1    0    0    -1  
 $EndComp
-Text Notes 550  2650 0    50   ~ 0
-Boot switch
-Text Notes 550  3700 0    50   ~ 0
+Text Notes 600  2200 0    50   ~ 0
 Oscillator 16 MHz
-Text Notes 550  5700 0    50   ~ 0
+Text Notes 550  4200 0    50   ~ 0
 USB 2.0 FS
 Text Notes 5100 650  0    50   ~ 0
 Low dropout regulator (100 mA max)\n
@@ -606,85 +594,83 @@ Wire Wire Line
 	9700 1050 10300 1050
 Wire Wire Line
 	9700 1350 10300 1350
-Text Notes 2800 7700 0    50   ~ 0
+Text Notes 2750 5900 0    50   ~ 0
 Note: STM32F070F6P6 has internal D+ pull up resistor\n
 $Comp
 L mini-macro-keyboard-eco-rescue:Crystal_GND24_Small-Device Y1
 U 1 1 5FFE3AEF
-P 1500 4500
-F 0 "Y1" H 1450 4850 50  0000 L CNN
-F 1 "16 MHz" H 1350 4750 50  0000 L CNN
-F 2 "Crystal:Crystal_SMD_3225-4Pin_3.2x2.5mm" H 1500 4500 50  0001 C CNN
-F 3 "~" H 1500 4500 50  0001 C CNN
-	1    1500 4500
+P 1400 3050
+F 0 "Y1" H 1350 3400 50  0000 L CNN
+F 1 "16 MHz" H 1250 3300 50  0000 L CNN
+F 2 "Crystal:Crystal_SMD_3225-4Pin_3.2x2.5mm" H 1400 3050 50  0001 C CNN
+F 3 "~" H 1400 3050 50  0001 C CNN
+	1    1400 3050
 	1    0    0    -1  
 $EndComp
 $Comp
 L mini-macro-keyboard-eco-rescue:GND-power #PWR0111
 U 1 1 5FFE5909
-P 1500 4950
-F 0 "#PWR0111" H 1500 4700 50  0001 C CNN
-F 1 "GND" H 1505 4777 50  0000 C CNN
-F 2 "" H 1500 4950 50  0001 C CNN
-F 3 "" H 1500 4950 50  0001 C CNN
-	1    1500 4950
+P 1400 3500
+F 0 "#PWR0111" H 1400 3250 50  0001 C CNN
+F 1 "GND" H 1405 3327 50  0000 C CNN
+F 2 "" H 1400 3500 50  0001 C CNN
+F 3 "" H 1400 3500 50  0001 C CNN
+	1    1400 3500
 	1    0    0    -1  
 $EndComp
 $Comp
 L mini-macro-keyboard-eco-rescue:C_Small-Device C8
 U 1 1 5FFE79A1
-P 1750 4750
-F 0 "C8" H 1550 4700 50  0000 L CNN
-F 1 "12p" H 1500 4800 50  0000 L CNN
-F 2 "Capacitor_SMD:C_0402_1005Metric" H 1750 4750 50  0001 C CNN
-F 3 "~" H 1750 4750 50  0001 C CNN
-	1    1750 4750
+P 1650 3300
+F 0 "C8" H 1450 3250 50  0000 L CNN
+F 1 "12p" H 1400 3350 50  0000 L CNN
+F 2 "Capacitor_SMD:C_0402_1005Metric" H 1650 3300 50  0001 C CNN
+F 3 "~" H 1650 3300 50  0001 C CNN
+	1    1650 3300
 	-1   0    0    1   
 $EndComp
 Wire Wire Line
-	1600 4500 1750 4500
+	1500 3050 1650 3050
 Wire Wire Line
-	1750 4500 1750 4650
+	1650 3050 1650 3200
 Wire Wire Line
-	1750 4850 1750 4950
+	1650 3400 1650 3500
 Wire Wire Line
-	1750 4950 1500 4950
-Connection ~ 1500 4950
+	1650 3500 1400 3500
+Connection ~ 1400 3500
 Wire Wire Line
-	1500 4600 1500 4650
+	1400 3150 1400 3200
 Wire Wire Line
-	1200 4850 1200 4950
+	1100 3400 1100 3500
 Wire Wire Line
-	1200 4950 1500 4950
+	1100 3500 1400 3500
 Wire Wire Line
-	1400 4500 1200 4500
+	1300 3050 1100 3050
 Wire Wire Line
-	1200 4500 1200 4650
+	1100 3050 1100 3200
 Wire Wire Line
-	1500 4400 1500 4300
+	1400 2950 1400 2850
 Wire Wire Line
-	1500 4300 1650 4300
+	1400 2850 1550 2850
 Wire Wire Line
-	1650 4300 1650 4650
+	1550 2850 1550 3200
 Wire Wire Line
-	1650 4650 1500 4650
-Connection ~ 1500 4650
+	1550 3200 1400 3200
+Connection ~ 1400 3200
 Wire Wire Line
-	1500 4650 1500 4950
+	1400 3200 1400 3500
 Wire Wire Line
-	1750 4250 1750 4500
-Connection ~ 1750 4500
-Connection ~ 1200 4500
+	1650 2800 1650 3050
+Connection ~ 1650 3050
+Connection ~ 1100 3050
 Wire Wire Line
-	1950 4000 1750 4000
+	1850 2550 1650 2550
 Wire Wire Line
-	1750 4000 1750 4050
+	1650 2550 1650 2600
 Wire Notes Line
 	7000 500  7000 2000
 Wire Notes Line
 	5000 2000 11200 2000
-Wire Notes Line
-	11200 4000 5000 4000
 Text GLabel 9850 3400 0    50   Input ~ 0
 SW_BACKLIGHT
 Wire Wire Line
@@ -767,62 +753,10 @@ Text GLabel 9850 2650 0    50   Input ~ 0
 SW_LAYOUT
 Text Notes 9100 2200 0    50   ~ 0
 Switches
-Text GLabel 1100 3000 0    50   Input ~ 0
-BOOT0
 Wire Wire Line
-	1700 3100 1750 3100
+	1850 2450 1100 2450
 Wire Wire Line
-	1700 2900 1750 2900
-$Comp
-L mini-macro-keyboard-eco-rescue:R_Small-Device R0
-U 1 1 5FFD7E6E
-P 1200 3000
-F 0 "R0" V 1300 3000 50  0000 C CNN
-F 1 "10k" V 1100 3000 50  0000 C CNN
-F 2 "Resistor_SMD:R_0402_1005Metric" H 1200 3000 50  0001 C CNN
-F 3 "~" H 1200 3000 50  0001 C CNN
-	1    1200 3000
-	0    -1   -1   0   
-$EndComp
-$Comp
-L mini-macro-keyboard-eco-rescue:+3.3V-power #PWR0105
-U 1 1 5FFD7490
-P 1750 2900
-F 0 "#PWR0105" H 1750 2750 50  0001 C CNN
-F 1 "+3.3V" H 1765 3073 50  0000 C CNN
-F 2 "" H 1750 2900 50  0001 C CNN
-F 3 "" H 1750 2900 50  0001 C CNN
-	1    1750 2900
-	1    0    0    -1  
-$EndComp
-$Comp
-L mini-macro-keyboard-eco-rescue:GND-power #PWR0104
-U 1 1 5FFD59D1
-P 1750 3100
-F 0 "#PWR0104" H 1750 2850 50  0001 C CNN
-F 1 "GND" H 1755 2927 50  0000 C CNN
-F 2 "" H 1750 3100 50  0001 C CNN
-F 3 "" H 1750 3100 50  0001 C CNN
-	1    1750 3100
-	1    0    0    -1  
-$EndComp
-$Comp
-L mini-macro-keyboard-eco-rescue:SW_SPDT-Switch SW0
-U 1 1 5FFCFED1
-P 1500 3000
-F 0 "SW0" H 1500 3200 50  0000 C CNN
-F 1 "BOOT" H 1500 2800 50  0000 C CNN
-F 2 "Button_Switch_SMD:SW_SPDT_PCM12" H 1500 3000 50  0001 C CNN
-F 3 "~" H 1500 3000 50  0001 C CNN
-	1    1500 3000
-	1    0    0    -1  
-$EndComp
-Wire Notes Line
-	2500 3500 500  3500
-Wire Wire Line
-	1950 3900 1200 3900
-Wire Wire Line
-	1200 3900 1200 4500
+	1100 2450 1100 3050
 $Comp
 L mini-macro-keyboard-eco-rescue:SW_SPDT-Switch SW6
 U 1 1 6000BFDF
@@ -910,4 +844,29 @@ Wire Wire Line
 Text Notes 7000 3900 0    50   ~ 0
 Note: Each pin will have internal pull-up resistor
 NoConn ~ 3050 2200
+$Comp
+L mini-macro-keyboard-eco-rescue:GND-power #PWR?
+U 1 1 600CAED8
+P 2950 2500
+F 0 "#PWR?" H 2950 2250 50  0001 C CNN
+F 1 "GND" H 2955 2327 50  0000 C CNN
+F 2 "" H 2950 2500 50  0001 C CNN
+F 3 "" H 2950 2500 50  0001 C CNN
+	1    2950 2500
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	3050 2400 2950 2400
+Wire Wire Line
+	2950 2400 2950 2500
+Wire Notes Line
+	2500 500  2500 4000
+Wire Notes Line
+	500  4000 11200 4000
+Wire Notes Line
+	500  6000 5000 6000
+Wire Notes Line
+	5000 6000 5000 500 
+Wire Notes Line
+	2500 2000 500  2000
 $EndSCHEMATC
