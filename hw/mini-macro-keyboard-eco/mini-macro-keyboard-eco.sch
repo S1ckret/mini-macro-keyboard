@@ -47,17 +47,6 @@ F 3 "~" H 3600 1200 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L mini-macro-keyboard-eco-rescue:C_Small-Device C4
-U 1 1 5FF9DDD1
-P 1500 1500
-F 0 "C4" H 1600 1550 50  0000 L CNN
-F 1 "100n" H 1550 1450 50  0000 L CNN
-F 2 "Capacitor_SMD:C_0402_1005Metric" H 1500 1500 50  0001 C CNN
-F 3 "~" H 1500 1500 50  0001 C CNN
-	1    1500 1500
-	1    0    0    -1  
-$EndComp
-$Comp
 L mini-macro-keyboard-eco-rescue:C_Small-Device C7
 U 1 1 5FF9E127
 P 3950 1200
@@ -104,28 +93,6 @@ F 3 "" H 3300 1000 50  0001 C CNN
 $EndComp
 Text GLabel 3050 2400 0    50   Input ~ 0
 BOOT0
-Text GLabel 3050 2200 0    50   Input ~ 0
-NRST
-Wire Wire Line
-	1500 1200 1500 1250
-$Comp
-L mini-macro-keyboard-eco-rescue:GND-power #PWR0106
-U 1 1 5FFEBFB1
-P 1500 1850
-F 0 "#PWR0106" H 1500 1600 50  0001 C CNN
-F 1 "GND" H 1505 1677 50  0000 C CNN
-F 2 "" H 1500 1850 50  0001 C CNN
-F 3 "" H 1500 1850 50  0001 C CNN
-	1    1500 1850
-	1    0    0    -1  
-$EndComp
-Wire Wire Line
-	1500 1400 1500 1250
-Connection ~ 1500 1250
-Text GLabel 1650 1250 2    50   Input ~ 0
-NRST
-Wire Wire Line
-	1500 1250 1650 1250
 Text GLabel 3050 3000 0    50   Input ~ 0
 OSC_IN
 Text GLabel 4350 3200 2    50   Input ~ 0
@@ -160,17 +127,6 @@ F 2 "Capacitor_SMD:C_0402_1005Metric" H 1200 4750 50  0001 C CNN
 F 3 "~" H 1200 4750 50  0001 C CNN
 	1    1200 4750
 	-1   0    0    1   
-$EndComp
-$Comp
-L mini-macro-keyboard-eco-rescue:R_Small-Device R4
-U 1 1 5FFE7355
-P 1500 1100
-F 0 "R4" V 1600 1100 50  0000 C CNN
-F 1 "10k" V 1400 1100 50  0000 C CNN
-F 2 "Resistor_SMD:R_0402_1005Metric" H 1500 1100 50  0001 C CNN
-F 3 "~" H 1500 1100 50  0001 C CNN
-	1    1500 1100
-	1    0    0    -1  
 $EndComp
 $Comp
 L mini-macro-keyboard-eco-rescue:R_Small-Device R7
@@ -439,41 +395,6 @@ F 3 "" H 9700 1450 50  0001 C CNN
 	1    9700 1450
 	1    0    0    -1  
 $EndComp
-$Comp
-L mini-macro-keyboard-eco-rescue:SW_Push-Switch SW4
-U 1 1 5FFA57A7
-P 1250 1500
-F 0 "SW4" V 1400 1700 50  0000 R CNN
-F 1 "RESET" V 1100 1850 50  0000 R CNN
-F 2 "Button_Switch_THT:SW_PUSH_6mm" H 1250 1700 50  0001 C CNN
-F 3 "~" H 1250 1700 50  0001 C CNN
-	1    1250 1500
-	0    -1   -1   0   
-$EndComp
-Wire Wire Line
-	1500 1600 1500 1750
-Wire Wire Line
-	1500 1250 1250 1250
-Wire Wire Line
-	1250 1250 1250 1300
-Wire Wire Line
-	1250 1700 1250 1750
-Wire Wire Line
-	1250 1750 1500 1750
-Connection ~ 1500 1750
-Wire Wire Line
-	1500 1750 1500 1850
-$Comp
-L mini-macro-keyboard-eco-rescue:+3.3V-power #PWR0123
-U 1 1 5FFB05C0
-P 1500 1000
-F 0 "#PWR0123" H 1500 850 50  0001 C CNN
-F 1 "+3.3V" H 1515 1173 50  0000 C CNN
-F 2 "" H 1500 1000 50  0001 C CNN
-F 3 "" H 1500 1000 50  0001 C CNN
-	1    1500 1000
-	1    0    0    -1  
-$EndComp
 Wire Notes Line
 	2500 2500 500  2500
 Wire Notes Line
@@ -542,8 +463,6 @@ Text Notes 5100 650  0    50   ~ 0
 Low dropout regulator (100 mA max)\n
 Text Notes 2600 650  0    50   ~ 0
 STM32 Microcontroller\n
-Text Notes 550  650  0    50   ~ 0
-Reset push button
 Text Notes 7100 650  0    50   ~ 0
 LEDs\n
 Text Notes 5100 2200 0    50   ~ 0
@@ -990,4 +909,5 @@ Wire Wire Line
 	8200 3300 8200 3400
 Text Notes 7000 3900 0    50   ~ 0
 Note: Each pin will have internal pull-up resistor
+NoConn ~ 3050 2200
 $EndSCHEMATC
