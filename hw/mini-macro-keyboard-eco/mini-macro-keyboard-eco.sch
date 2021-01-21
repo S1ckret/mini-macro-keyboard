@@ -869,4 +869,80 @@ Wire Notes Line
 	5000 6000 5000 500 
 Wire Notes Line
 	2500 2000 500  2000
+Text Notes 550  650  0    50   ~ 0
+Mounting Holes\n\n
+$Comp
+L Mechanical:MountingHole_Pad H1
+U 1 1 60158ED2
+P 1100 800
+F 0 "H1" V 1054 950 50  0000 L CNN
+F 1 "MountingHole_Pad" V 1145 950 50  0000 L CNN
+F 2 "MountingHole:MountingHole_2.2mm_M2_ISO7380_Pad" H 1100 800 50  0001 C CNN
+F 3 "~" H 1100 800 50  0001 C CNN
+	1    1100 800 
+	0    1    1    0   
+$EndComp
+$Comp
+L Mechanical:MountingHole_Pad H2
+U 1 1 6015B489
+P 1100 1050
+F 0 "H2" V 1054 1200 50  0000 L CNN
+F 1 "MountingHole_Pad" V 1145 1200 50  0000 L CNN
+F 2 "MountingHole:MountingHole_2.2mm_M2_ISO7380_Pad" H 1100 1050 50  0001 C CNN
+F 3 "~" H 1100 1050 50  0001 C CNN
+	1    1100 1050
+	0    1    1    0   
+$EndComp
+$Comp
+L Mechanical:MountingHole_Pad H3
+U 1 1 6015BA51
+P 1100 1300
+F 0 "H3" V 1054 1450 50  0000 L CNN
+F 1 "MountingHole_Pad" V 1145 1450 50  0000 L CNN
+F 2 "MountingHole:MountingHole_2.2mm_M2_ISO7380_Pad" H 1100 1300 50  0001 C CNN
+F 3 "~" H 1100 1300 50  0001 C CNN
+	1    1100 1300
+	0    1    1    0   
+$EndComp
+$Comp
+L Mechanical:MountingHole_Pad H4
+U 1 1 6015BDD9
+P 1100 1550
+F 0 "H4" V 1054 1700 50  0000 L CNN
+F 1 "MountingHole_Pad" V 1145 1700 50  0000 L CNN
+F 2 "MountingHole:MountingHole_2.2mm_M2_ISO7380_Pad" H 1100 1550 50  0001 C CNN
+F 3 "~" H 1100 1550 50  0001 C CNN
+	1    1100 1550
+	0    1    1    0   
+$EndComp
+$Comp
+L mini-macro-keyboard-eco-rescue:GND-power #PWR06
+U 1 1 6015E4B8
+P 900 1700
+F 0 "#PWR06" H 900 1450 50  0001 C CNN
+F 1 "GND" H 905 1527 50  0000 C CNN
+F 2 "" H 900 1700 50  0001 C CNN
+F 3 "" H 900 1700 50  0001 C CNN
+	1    900  1700
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	1000 800  900  800 
+Wire Wire Line
+	900  800  900  1050
+Wire Wire Line
+	1000 1550 900  1550
+Connection ~ 900  1550
+Wire Wire Line
+	900  1550 900  1700
+Wire Wire Line
+	900  1300 1000 1300
+Connection ~ 900  1300
+Wire Wire Line
+	900  1300 900  1550
+Wire Wire Line
+	1000 1050 900  1050
+Connection ~ 900  1050
+Wire Wire Line
+	900  1050 900  1300
 $EndSCHEMATC
