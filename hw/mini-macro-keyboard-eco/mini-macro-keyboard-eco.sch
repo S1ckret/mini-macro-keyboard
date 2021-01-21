@@ -25,10 +25,10 @@ F 3 "" H 3550 3500 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L mini-macro-keyboard-eco-rescue:C_Small-Device C5
+L mini-macro-keyboard-eco-rescue:C_Small-Device C2
 U 1 1 5FF9BD70
 P 3300 1200
-F 0 "C5" H 3400 1250 50  0000 L CNN
+F 0 "C2" H 3400 1250 50  0000 L CNN
 F 1 "100n" H 3350 1150 50  0000 L CNN
 F 2 "Capacitor_SMD:C_0402_1005Metric" H 3300 1200 50  0001 C CNN
 F 3 "~" H 3300 1200 50  0001 C CNN
@@ -36,10 +36,10 @@ F 3 "~" H 3300 1200 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L mini-macro-keyboard-eco-rescue:C_Small-Device C6
+L mini-macro-keyboard-eco-rescue:C_Small-Device C3
 U 1 1 5FF9D075
 P 3600 1200
-F 0 "C6" H 3700 1250 50  0000 L CNN
+F 0 "C3" H 3700 1250 50  0000 L CNN
 F 1 "100n" H 3650 1150 50  0000 L CNN
 F 2 "Capacitor_SMD:C_0402_1005Metric" H 3600 1200 50  0001 C CNN
 F 3 "~" H 3600 1200 50  0001 C CNN
@@ -47,10 +47,10 @@ F 3 "~" H 3600 1200 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L mini-macro-keyboard-eco-rescue:C_Small-Device C7
+L mini-macro-keyboard-eco-rescue:C_Small-Device C4
 U 1 1 5FF9E127
 P 3950 1200
-F 0 "C7" H 4050 1250 50  0000 L CNN
+F 0 "C4" H 4050 1250 50  0000 L CNN
 F 1 "4.7u" H 4000 1150 50  0000 L CNN
 F 2 "Capacitor_SMD:C_0402_1005Metric" H 3950 1200 50  0001 C CNN
 F 3 "~" H 3950 1200 50  0001 C CNN
@@ -116,10 +116,10 @@ SW_3
 Text GLabel 3050 3100 0    50   Input ~ 0
 OSC_OUT
 $Comp
-L mini-macro-keyboard-eco-rescue:C_Small-Device C9
+L mini-macro-keyboard-eco-rescue:C_Small-Device C0
 U 1 1 6000E4D6
 P 1100 3300
-F 0 "C9" H 850 3250 50  0000 L CNN
+F 0 "C0" H 850 3250 50  0000 L CNN
 F 1 "12p" H 850 3350 50  0000 L CNN
 F 2 "Capacitor_SMD:C_0402_1005Metric" H 1100 3300 50  0001 C CNN
 F 3 "~" H 1100 3300 50  0001 C CNN
@@ -127,10 +127,10 @@ F 3 "~" H 1100 3300 50  0001 C CNN
 	-1   0    0    1   
 $EndComp
 $Comp
-L mini-macro-keyboard-eco-rescue:R_Small-Device R7
+L mini-macro-keyboard-eco-rescue:R_Small-Device R0
 U 1 1 60011E97
 P 1650 2700
-F 0 "R7" H 1800 2750 50  0000 C CNN
+F 0 "R0" H 1800 2750 50  0000 C CNN
 F 1 "47" H 1800 2650 50  0000 C CNN
 F 2 "Resistor_SMD:R_0402_1005Metric" H 1650 2700 50  0001 C CNN
 F 3 "~" H 1650 2700 50  0001 C CNN
@@ -245,10 +245,10 @@ F 3 "~" V 7900 900 50  0001 C CNN
 	-1   0    0    1   
 $EndComp
 $Comp
-L mini-macro-keyboard-eco-rescue:R_Small-Device R11
+L mini-macro-keyboard-eco-rescue:R_Small-Device R1
 U 1 1 6009B719
 P 8250 900
-F 0 "R11" V 8350 900 50  0000 C CNN
+F 0 "R1" V 8350 900 50  0000 C CNN
 F 1 "330" V 8150 900 50  0000 C CNN
 F 2 "Resistor_SMD:R_0603_1608Metric" H 8250 900 50  0001 C CNN
 F 3 "~" H 8250 900 50  0001 C CNN
@@ -284,10 +284,10 @@ F 3 "~" V 7900 1250 50  0001 C CNN
 	-1   0    0    1   
 $EndComp
 $Comp
-L mini-macro-keyboard-eco-rescue:R_Small-Device R12
+L mini-macro-keyboard-eco-rescue:R_Small-Device R2
 U 1 1 600AA3E1
 P 8250 1250
-F 0 "R12" V 8350 1250 50  0000 C CNN
+F 0 "R2" V 8350 1250 50  0000 C CNN
 F 1 "330" V 8150 1250 50  0000 C CNN
 F 2 "Resistor_SMD:R_0603_1608Metric" H 8250 1250 50  0001 C CNN
 F 3 "~" H 8250 1250 50  0001 C CNN
@@ -323,10 +323,10 @@ F 3 "~" V 7900 1600 50  0001 C CNN
 	-1   0    0    1   
 $EndComp
 $Comp
-L mini-macro-keyboard-eco-rescue:R_Small-Device R13
+L mini-macro-keyboard-eco-rescue:R_Small-Device R3
 U 1 1 600AC5B9
 P 8250 1600
-F 0 "R13" V 8350 1600 50  0000 C CNN
+F 0 "R3" V 8350 1600 50  0000 C CNN
 F 1 "330" V 8150 1600 50  0000 C CNN
 F 2 "Resistor_SMD:R_0603_1608Metric" H 8250 1600 50  0001 C CNN
 F 3 "~" H 8250 1600 50  0001 C CNN
@@ -370,10 +370,10 @@ SWDIO
 Text GLabel 10300 1250 0    50   Input ~ 0
 SWCLK
 $Comp
-L mini-macro-keyboard-eco-rescue:C_Small-Device C0
+L mini-macro-keyboard-eco-rescue:C_Small-Device C7
 U 1 1 600C2115
 P 9700 1200
-F 0 "C0" H 9800 1250 50  0000 L CNN
+F 0 "C7" H 9800 1250 50  0000 L CNN
 F 1 "100n" H 9750 1150 50  0000 L CNN
 F 2 "Capacitor_SMD:C_0402_1005Metric" H 9700 1200 50  0001 C CNN
 F 3 "~" H 9700 1200 50  0001 C CNN
@@ -480,10 +480,10 @@ F 3 "" H 5850 1500 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L mini-macro-keyboard-eco-rescue:C_Small-Device C10
+L mini-macro-keyboard-eco-rescue:C_Small-Device C5
 U 1 1 60114EAE
 P 5400 1400
-F 0 "C10" H 5450 1500 50  0000 L CNN
+F 0 "C5" H 5450 1500 50  0000 L CNN
 F 1 "1u" H 5500 1300 50  0000 L CNN
 F 2 "Capacitor_SMD:C_0402_1005Metric" H 5400 1400 50  0001 C CNN
 F 3 "~" H 5400 1400 50  0001 C CNN
@@ -491,10 +491,10 @@ F 3 "~" H 5400 1400 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L mini-macro-keyboard-eco-rescue:C_Small-Device C11
+L mini-macro-keyboard-eco-rescue:C_Small-Device C6
 U 1 1 6011562F
 P 6300 1400
-F 0 "C11" H 6350 1500 50  0000 L CNN
+F 0 "C6" H 6350 1500 50  0000 L CNN
 F 1 "1u" H 6400 1300 50  0000 L CNN
 F 2 "Capacitor_SMD:C_0402_1005Metric" H 6300 1400 50  0001 C CNN
 F 3 "~" H 6300 1400 50  0001 C CNN
@@ -619,10 +619,10 @@ F 3 "" H 1400 3500 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L mini-macro-keyboard-eco-rescue:C_Small-Device C8
+L mini-macro-keyboard-eco-rescue:C_Small-Device C1
 U 1 1 5FFE79A1
 P 1650 3300
-F 0 "C8" H 1450 3250 50  0000 L CNN
+F 0 "C1" H 1450 3250 50  0000 L CNN
 F 1 "12p" H 1400 3350 50  0000 L CNN
 F 2 "Capacitor_SMD:C_0402_1005Metric" H 1650 3300 50  0001 C CNN
 F 3 "~" H 1650 3300 50  0001 C CNN
@@ -845,10 +845,10 @@ Text Notes 7000 3900 0    50   ~ 0
 Note: Each pin will have internal pull-up resistor
 NoConn ~ 3050 2200
 $Comp
-L mini-macro-keyboard-eco-rescue:GND-power #PWR?
+L mini-macro-keyboard-eco-rescue:GND-power #PWR0104
 U 1 1 600CAED8
 P 2950 2500
-F 0 "#PWR?" H 2950 2250 50  0001 C CNN
+F 0 "#PWR0104" H 2950 2250 50  0001 C CNN
 F 1 "GND" H 2955 2327 50  0000 C CNN
 F 2 "" H 2950 2500 50  0001 C CNN
 F 3 "" H 2950 2500 50  0001 C CNN
