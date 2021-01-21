@@ -192,7 +192,7 @@ L mini-macro-keyboard-eco-rescue:USB_B_Micro-Connector J0
 U 1 1 6001BB49
 P 1000 6600
 F 0 "J0" H 1057 7067 50  0000 C CNN
-F 1 "USB_B_Micro" H 1057 6976 50  0000 C CNN
+F 1 "USB" H 1057 6976 50  0000 C CNN
 F 2 "Connector_USB:USB_Micro-B_Molex-105017-0001" H 1150 6550 50  0001 C CNN
 F 3 "~" H 1150 6550 50  0001 C CNN
 	1    1000 6600
@@ -520,17 +520,6 @@ Wire Wire Line
 Wire Wire Line
 	5800 3200 5800 3350
 $Comp
-L mini-macro-keyboard-eco-rescue:SW_Push-Switch SW1
-U 1 1 5FFBA653
-P 5550 3100
-F 0 "SW1" V 5700 3300 50  0000 R CNN
-F 1 "SW_1" V 5400 3450 50  0000 R CNN
-F 2 "Button_Switch_Keyboard:SW_Cherry_MX_1.00u_PCB" H 5550 3300 50  0001 C CNN
-F 3 "~" H 5550 3300 50  0001 C CNN
-	1    5550 3100
-	0    -1   -1   0   
-$EndComp
-$Comp
 L mini-macro-keyboard-eco-rescue:R_Small-Device R1
 U 1 1 5FFBA64D
 P 5800 2700
@@ -597,17 +586,6 @@ Wire Wire Line
 Wire Wire Line
 	8200 3200 8200 3350
 $Comp
-L mini-macro-keyboard-eco-rescue:SW_Push-Switch SW3
-U 1 1 5FFC23E7
-P 7950 3100
-F 0 "SW3" V 8100 3300 50  0000 R CNN
-F 1 "SW_3" V 7800 3450 50  0000 R CNN
-F 2 "Button_Switch_Keyboard:SW_Cherry_MX_1.00u_PCB" H 7950 3300 50  0001 C CNN
-F 3 "~" H 7950 3300 50  0001 C CNN
-	1    7950 3100
-	0    -1   -1   0   
-$EndComp
-$Comp
 L mini-macro-keyboard-eco-rescue:R_Small-Device R3
 U 1 1 5FFC23E1
 P 8200 2700
@@ -673,17 +651,6 @@ Wire Wire Line
 	7000 2850 6750 2850
 Wire Wire Line
 	7000 3200 7000 3350
-$Comp
-L mini-macro-keyboard-eco-rescue:SW_Push-Switch SW2
-U 1 1 5FFBFB01
-P 6750 3100
-F 0 "SW2" V 6900 3300 50  0000 R CNN
-F 1 "SW_2" V 6600 3450 50  0000 R CNN
-F 2 "Button_Switch_Keyboard:SW_Cherry_MX_1.00u_PCB" H 6750 3300 50  0001 C CNN
-F 3 "~" H 6750 3300 50  0001 C CNN
-	1    6750 3100
-	0    -1   -1   0   
-$EndComp
 $Comp
 L mini-macro-keyboard-eco-rescue:R_Small-Device R2
 U 1 1 5FFBFAFB
@@ -849,7 +816,7 @@ L mini-macro-keyboard-eco-rescue:STM32F070F6Px-MCU_ST_STM32F0 U3
 U 1 1 5FFB40A7
 P 3750 2700
 F 0 "U3" H 4100 3400 50  0000 C CNN
-F 1 "STM32F070F6Px" H 4000 1900 50  0000 C CNN
+F 1 "STM32F070F6P6" H 4000 1900 50  0000 C CNN
 F 2 "Package_SO:TSSOP-20_4.4x6.5mm_P0.65mm" H 3150 2000 50  0001 R CNN
 F 3 "http://www.st.com/st-web-ui/static/active/en/resource/technical/document/datasheet/DM00141386.pdf" H 3750 2700 50  0001 C CNN
 	1    3750 2700
@@ -869,17 +836,6 @@ Wire Wire Line
 	3600 1100 3950 1100
 Wire Wire Line
 	3600 1300 3950 1300
-$Comp
-L mini-macro-keyboard-eco-rescue:Conn_01x04_Male-Connector J1
-U 1 1 5FFC7CBC
-P 10500 1150
-F 0 "J1" H 10472 1124 50  0000 R CNN
-F 1 "SWD" H 10472 1033 50  0000 R CNN
-F 2 "Connector_PinHeader_2.54mm:PinHeader_1x04_P2.54mm_Horizontal" H 10500 1150 50  0001 C CNN
-F 3 "~" H 10500 1150 50  0001 C CNN
-	1    10500 1150
-	-1   0    0    -1  
-$EndComp
 Wire Wire Line
 	9700 1050 9700 1100
 Connection ~ 9700 1050
@@ -1008,30 +964,8 @@ F 3 "" H 10500 3500 50  0001 C CNN
 	1    10500 3500
 	1    0    0    -1  
 $EndComp
-$Comp
-L mini-macro-keyboard-eco-rescue:SW_SPDT-Switch SW6
-U 1 1 6000BFDF
-P 10250 3400
-F 0 "SW6" H 10250 3600 50  0000 C CNN
-F 1 "SW_SPDT" H 10250 3200 50  0000 C CNN
-F 2 "Button_Switch_SMD:SW_SPDT_PCM12" H 10250 3400 50  0001 C CNN
-F 3 "~" H 10250 3400 50  0001 C CNN
-	1    10250 3400
-	1    0    0    -1  
-$EndComp
 Wire Notes Line
 	9000 500  9000 4000
-$Comp
-L mini-macro-keyboard-eco-rescue:SW_SPDT-Switch SW5
-U 1 1 60009322
-P 10250 2650
-F 0 "SW5" H 10250 2850 50  0000 C CNN
-F 1 "SW_SPDT" H 10250 2450 50  0000 C CNN
-F 2 "Button_Switch_SMD:SW_SPDT_PCM12" H 10250 2650 50  0001 C CNN
-F 3 "~" H 10250 2650 50  0001 C CNN
-	1    10250 2650
-	1    0    0    -1  
-$EndComp
 $Comp
 L mini-macro-keyboard-eco-rescue:GND-power #PWR0114
 U 1 1 60009328
@@ -1117,7 +1051,7 @@ L mini-macro-keyboard-eco-rescue:SW_SPDT-Switch SW0
 U 1 1 5FFCFED1
 P 1500 3000
 F 0 "SW0" H 1500 3200 50  0000 C CNN
-F 1 "SW_SPDT" H 1500 2800 50  0000 C CNN
+F 1 "BOOT" H 1500 2800 50  0000 C CNN
 F 2 "Button_Switch_SMD:SW_SPDT_PCM12" H 1500 3000 50  0001 C CNN
 F 3 "~" H 1500 3000 50  0001 C CNN
 	1    1500 3000
@@ -1129,4 +1063,70 @@ Wire Wire Line
 	1950 3900 1200 3900
 Wire Wire Line
 	1200 3900 1200 4500
+$Comp
+L mini-macro-keyboard-eco-rescue:SW_SPDT-Switch SW6
+U 1 1 6000BFDF
+P 10250 3400
+F 0 "SW6" H 10250 3600 50  0000 C CNN
+F 1 "BACKLIGHT" H 10250 3200 50  0000 C CNN
+F 2 "Button_Switch_SMD:SW_SPDT_PCM12" H 10250 3400 50  0001 C CNN
+F 3 "~" H 10250 3400 50  0001 C CNN
+	1    10250 3400
+	1    0    0    -1  
+$EndComp
+$Comp
+L mini-macro-keyboard-eco-rescue:Conn_01x04_Male-Connector J1
+U 1 1 5FFC7CBC
+P 10500 1150
+F 0 "J1" H 10472 1124 50  0000 R CNN
+F 1 "DEBUG_SWD" H 10472 1033 50  0000 R CNN
+F 2 "Connector_PinHeader_2.54mm:PinHeader_1x04_P2.54mm_Horizontal" H 10500 1150 50  0001 C CNN
+F 3 "~" H 10500 1150 50  0001 C CNN
+	1    10500 1150
+	-1   0    0    -1  
+$EndComp
+$Comp
+L mini-macro-keyboard-eco-rescue:SW_Push-Switch SW3
+U 1 1 5FFC23E7
+P 7950 3100
+F 0 "SW3" V 8100 3300 50  0000 R CNN
+F 1 "SW_Cherry_MX_1.00u_PCB" H 8450 3400 50  0000 R CNN
+F 2 "Button_Switch_Keyboard:SW_Cherry_MX_1.00u_PCB" H 7950 3300 50  0001 C CNN
+F 3 "~" H 7950 3300 50  0001 C CNN
+	1    7950 3100
+	0    -1   -1   0   
+$EndComp
+$Comp
+L mini-macro-keyboard-eco-rescue:SW_SPDT-Switch SW5
+U 1 1 60009322
+P 10250 2650
+F 0 "SW5" H 10250 2850 50  0000 C CNN
+F 1 "LAYOUT" H 10250 2450 50  0000 C CNN
+F 2 "Button_Switch_SMD:SW_SPDT_PCM12" H 10250 2650 50  0001 C CNN
+F 3 "~" H 10250 2650 50  0001 C CNN
+	1    10250 2650
+	1    0    0    -1  
+$EndComp
+$Comp
+L mini-macro-keyboard-eco-rescue:SW_Push-Switch SW2
+U 1 1 5FFBFB01
+P 6750 3100
+F 0 "SW2" V 6900 3300 50  0000 R CNN
+F 1 "SW_Cherry_MX_1.00u_PCB" H 7250 3400 50  0000 R CNN
+F 2 "Button_Switch_Keyboard:SW_Cherry_MX_1.00u_PCB" H 6750 3300 50  0001 C CNN
+F 3 "~" H 6750 3300 50  0001 C CNN
+	1    6750 3100
+	0    -1   -1   0   
+$EndComp
+$Comp
+L mini-macro-keyboard-eco-rescue:SW_Push-Switch SW1
+U 1 1 5FFBA653
+P 5550 3100
+F 0 "SW1" V 5700 3300 50  0000 R CNN
+F 1 "SW_Cherry_MX_1.00u_PCB" H 6050 3400 50  0000 R CNN
+F 2 "Button_Switch_Keyboard:SW_Cherry_MX_1.00u_PCB" H 5550 3300 50  0001 C CNN
+F 3 "~" H 5550 3300 50  0001 C CNN
+	1    5550 3100
+	0    -1   -1   0   
+$EndComp
 $EndSCHEMATC
