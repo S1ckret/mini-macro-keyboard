@@ -101,17 +101,17 @@ Text GLabel 4350 3100 2    50   Input ~ 0
 USB_D+
 Text GLabel 4350 3000 2    50   Input ~ 0
 USB_D-
-Text GLabel 4350 2500 2    50   Input ~ 0
+Text GLabel 4350 2200 2    50   Input ~ 0
 LED_3
 Text GLabel 4350 2300 2    50   Input ~ 0
 LED_2
-Text GLabel 4350 2200 2    50   Input ~ 0
+Text GLabel 4350 2500 2    50   Input ~ 0
 LED_1
-Text GLabel 4350 2700 2    50   Input ~ 0
+Text GLabel 4350 2900 2    50   Input ~ 0
 SW_1
 Text GLabel 4350 2800 2    50   Input ~ 0
 SW_2
-Text GLabel 4350 2900 2    50   Input ~ 0
+Text GLabel 4350 2700 2    50   Input ~ 0
 SW_3
 Text GLabel 3050 3100 0    50   Input ~ 0
 OSC_OUT
@@ -201,7 +201,7 @@ Text GLabel 1650 4850 2    50   Input ~ 0
 USB_CONN_D+
 Text GLabel 1650 4950 2    50   Input ~ 0
 USB_CONN_D-
-Text GLabel 3200 4900 0    50   Input ~ 0
+Text GLabel 4000 4900 2    50   Input ~ 0
 USB_CONN_D+
 $Comp
 L mini-macro-keyboard-eco-rescue:+5V-power #PWR0109
@@ -225,11 +225,11 @@ F 3 "" H 3600 5200 50  0001 C CNN
 	1    3600 5200
 	1    0    0    -1  
 $EndComp
-Text GLabel 3200 4700 0    50   Input ~ 0
-USB_D+
-Text GLabel 4000 4900 2    50   Input ~ 0
-USB_CONN_D-
 Text GLabel 4000 4700 2    50   Input ~ 0
+USB_D+
+Text GLabel 3200 4900 0    50   Input ~ 0
+USB_CONN_D-
+Text GLabel 3200 4700 0    50   Input ~ 0
 USB_D-
 Text GLabel 7650 900  0    50   Input ~ 0
 LED_1
