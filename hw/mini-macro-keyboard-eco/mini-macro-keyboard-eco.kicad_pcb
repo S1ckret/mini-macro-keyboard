@@ -1070,6 +1070,11 @@
       (scale (xyz 1 1 1))
       (rotate (xyz 0 0 0))
     )
+    (model "D:/Downloads/machanical-keyboard-keys-mx-key-switches-mx-1.snapshot.10/MX .STEP"
+      (offset (xyz 4.8 2.3 5.5))
+      (scale (xyz 1 1 1))
+      (rotate (xyz -90 0 180))
+    )
   )
 
   (module Button_Switch_Keyboard:SW_Cherry_MX_1.00u_PCB (layer F.Cu) (tedit 5A02FE24) (tstamp 600B2344)
@@ -1114,6 +1119,11 @@
       (scale (xyz 1 1 1))
       (rotate (xyz 0 0 0))
     )
+    (model ${KIPRJMOD}/models/MX.STEP
+      (offset (xyz 4.8 2.3 5.5))
+      (scale (xyz 1 1 1))
+      (rotate (xyz -90 0 180))
+    )
   )
 
   (module Button_Switch_Keyboard:SW_Cherry_MX_1.00u_PCB (layer F.Cu) (tedit 5A02FE24) (tstamp 600B2B11)
@@ -1157,6 +1167,11 @@
       (at (xyz 0 0 0))
       (scale (xyz 1 1 1))
       (rotate (xyz 0 0 0))
+    )
+    (model ${KIPRJMOD}/models/MX.STEP
+      (offset (xyz 4.8 2.3 5.5))
+      (scale (xyz 1 1 1))
+      (rotate (xyz -90 0 180))
     )
   )
 
