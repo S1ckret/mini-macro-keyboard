@@ -186,7 +186,7 @@ void SysTick_Handler(void)
   /* USER CODE END SysTick_IRQn 0 */
   HAL_IncTick();
   /* USER CODE BEGIN SysTick_IRQn 1 */
-
+  e_module_timers_tick();
   /* USER CODE END SysTick_IRQn 1 */
 }
 
