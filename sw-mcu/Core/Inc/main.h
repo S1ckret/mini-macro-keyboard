@@ -58,6 +58,29 @@ void Error_Handler(void);
 /* USER CODE END EFP */
 
 /* Private defines -----------------------------------------------------------*/
+#define Heartbeat_Pin GPIO_PIN_13
+#define Heartbeat_GPIO_Port GPIOC
+#define KEY1_Pin GPIO_PIN_15
+#define KEY1_GPIO_Port GPIOC
+#define KEY1_EXTI_IRQn EXTI15_10_IRQn
+#define LED1_Pin GPIO_PIN_0
+#define LED1_GPIO_Port GPIOA
+#define KEY2_Pin GPIO_PIN_4
+#define KEY2_GPIO_Port GPIOA
+#define KEY2_EXTI_IRQn EXTI4_IRQn
+#define LED2_Pin GPIO_PIN_5
+#define LED2_GPIO_Port GPIOA
+#define KEY3_Pin GPIO_PIN_1
+#define KEY3_GPIO_Port GPIOB
+#define KEY3_EXTI_IRQn EXTI1_IRQn
+#define LED3_Pin GPIO_PIN_10
+#define LED3_GPIO_Port GPIOB
+#define SW_BACKLIGHT_Pin GPIO_PIN_9
+#define SW_BACKLIGHT_GPIO_Port GPIOA
+#define SW_BACKLIGHT_EXTI_IRQn EXTI9_5_IRQn
+#define SW_LAYOUT_Pin GPIO_PIN_7
+#define SW_LAYOUT_GPIO_Port GPIOB
+#define SW_LAYOUT_EXTI_IRQn EXTI9_5_IRQn
 /* USER CODE BEGIN Private defines */
 
 /* USER CODE END Private defines */
