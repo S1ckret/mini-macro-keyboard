@@ -33,6 +33,8 @@ enum e_signal_sys {
 enum e_signal {
   SIG_KEY_PRESSED = SIG_SYS_USER,
   SIG_KEY_RELEASED,
+  SIG_BACKLIGHT_ON,
+  SIG_BACKLIGHT_OFF,
   /* ... */
 };
 
