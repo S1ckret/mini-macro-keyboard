@@ -35,6 +35,8 @@ enum e_signal {
   SIG_KEY_RELEASED,
   SIG_BACKLIGHT_ON,
   SIG_BACKLIGHT_OFF,
+  SIG_LAYOUT_ON,
+  SIG_LAYOUT_OFF,
   /* ... */
 };
 
