@@ -31,8 +31,8 @@ enum e_signal_sys {
  * @brief Signal list
  */
 enum e_signal {
-  SIG_BTN_PRESSED = SIG_SYS_USER,
-  SIG_BTN_RELEASED,
+  SIG_KEY_PRESSED = SIG_SYS_USER,
+  SIG_KEY_RELEASED,
   /* ... */
 };
 
