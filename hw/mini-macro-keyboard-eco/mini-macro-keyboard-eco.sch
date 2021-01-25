@@ -126,17 +126,6 @@ F 3 "~" H 1100 3300 50  0001 C CNN
 	1    1100 3300
 	-1   0    0    1   
 $EndComp
-$Comp
-L mini-macro-keyboard-eco-rescue:R_Small-Device R0
-U 1 1 60011E97
-P 1650 2700
-F 0 "R0" H 1800 2750 50  0000 C CNN
-F 1 "47" H 1800 2650 50  0000 C CNN
-F 2 "Resistor_SMD:R_0402_1005Metric" H 1650 2700 50  0001 C CNN
-F 3 "~" H 1650 2700 50  0001 C CNN
-	1    1650 2700
-	1    0    0    -1  
-$EndComp
 Text GLabel 1850 2450 2    50   Input ~ 0
 OSC_IN
 Text GLabel 1850 2550 2    50   Input ~ 0
@@ -659,14 +648,10 @@ Wire Wire Line
 Connection ~ 1400 3200
 Wire Wire Line
 	1400 3200 1400 3500
-Wire Wire Line
-	1650 2800 1650 3050
 Connection ~ 1650 3050
 Connection ~ 1100 3050
 Wire Wire Line
 	1850 2550 1650 2550
-Wire Wire Line
-	1650 2550 1650 2600
 Wire Notes Line
 	7000 500  7000 2000
 Wire Notes Line
@@ -945,4 +930,6 @@ Wire Wire Line
 Connection ~ 900  1050
 Wire Wire Line
 	900  1050 900  1300
+Wire Wire Line
+	1650 2550 1650 3050
 $EndSCHEMATC
