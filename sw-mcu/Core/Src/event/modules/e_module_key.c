@@ -5,9 +5,11 @@
  *      Author: S1ckret
  */
 #include "event/modules/e_module.h"
+#include "event/modules/e_module_core.h"
 #include "event/modules/e_module_key.h"
 #include "event/modules/e_module_timers.h"
 
+#include "event/events/e_event.h"
 #include "event/events/e_event_key.h"
 
 #include "drv/drv_key.h"
@@ -26,6 +28,17 @@ void e_module_key_ctor(struct e_module_key *me,
 
 void e_module_key_dtor(struct e_module_key *me) {
   e_module_dtor((struct e_module *)me);
+}
+
+static void form_event(struct e_module *me,
+                        struct e_event_key *e,
+                        enum e_signal sig,
+                        enum drv_key_name key) {
+  e->super.mod_from = me;
+  e->super.mod_to = e_pmod_keyboard;
+  e->super.sig = sig;
+  e->super.size = 1;
+  e->key = key;
 }
 
 static void key_dispatch(struct e_module *me, struct e_event *e) {
@@ -55,6 +68,9 @@ static void key_dispatch(struct e_module *me, struct e_event *e) {
         /* It is real release */
         me_key->key_state = MOD_KEY_STATE_RELEASED;
         /* Generate event to other modules */
+        struct e_event_key event_to_send;
+        form_event(me, &event_to_send, SIG_KEY_PRESSED, me_key->key);
+        e_core_notify((struct e_event *)(&event_to_send));
       }
       /* It was bounce */
       break;
@@ -63,6 +79,9 @@ static void key_dispatch(struct e_module *me, struct e_event *e) {
         /* It is real press */
         me_key->key_state = MOD_KEY_STATE_PRESSED;
         /* Generate event to other modules */
+        struct e_event_key event_to_send;
+        form_event(me, &event_to_send, SIG_KEY_RELEASED, me_key->key);
+        e_core_notify((struct e_event *)(&event_to_send));
       }
       /* It was bounce */
       break;

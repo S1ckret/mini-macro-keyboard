@@ -8,6 +8,8 @@
 #include "event/modules/e_module.h"
 #include "event/modules/e_module_keyboard.h"
 
+#include "event/events/e_event_key.h"
+
 #include "drv/drv_led.h"
 
 static void keyboard_dispatch(struct e_module *me, struct e_event *e);
@@ -34,6 +36,20 @@ static void keyboard_dispatch(struct e_module *me, struct e_event *e) {
     break;
   case SIG_LAYOUT_ON:
     keyboard->current_layout = MOD_LAYOUT_B;
+    break;
+  case SIG_KEY_PRESSED:
+  {
+    struct e_event_key *e_key = (struct e_event_key *)e;
+    /* Send info to the hid codec module */
+    struct e_module_key_data *pressed_key = &(keyboard->keys[keyboard->current_layout][e_key->key]);
+  }
+  break;
+  case SIG_KEY_RELEASED:
+  {
+    struct e_event_key *e_key = (struct e_event_key *)e;
+    /* Send info to the hid codec module */
+    struct e_module_key_data *pressed_key = &(keyboard->keys[keyboard->current_layout][e_key->key]);
+  }
     break;
   default:
     break;
