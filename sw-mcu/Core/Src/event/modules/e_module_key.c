@@ -95,3 +95,22 @@ static void key_dispatch(struct e_module *me, struct e_event *e) {
   }
 }
 
+void e_module_key_press(struct e_module_key *me) {
+  struct e_event_key e;
+  e.super.mod_from = 0;
+  e.super.mod_to = me;
+  e.super.sig = SIG_KEY_PRESSED;
+  e.super.size = 1;
+  e.key = me->key;
+  e_core_notify(&e);
+}
+
+void e_module_key_release(struct e_module_key *me) {
+  struct e_event_key e;
+  e.super.mod_from = 0;
+  e.super.mod_to = me;
+  e.super.sig = SIG_KEY_RELEASED;
+  e.super.size = 1;
+  e.key = me->key;
+  e_core_notify(&e);
+}

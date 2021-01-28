@@ -32,5 +32,8 @@ void e_module_key_ctor(struct e_module_key *me,
 
 void e_module_key_dtor(struct e_module_key *me);
 
+void e_module_key_press(struct e_module_key *me);
+
+void e_module_key_release(struct e_module_key *me);
 
 #endif /* INC_EVENT_MODULES_E_MODULE_KEY_H_ */
