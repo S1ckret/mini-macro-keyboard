@@ -36,4 +36,5 @@ struct e_module *e_pmod_key_3 = NULL;
 struct e_module *e_pmod_keyboard = NULL;
 struct e_module *e_pmod_backlight = NULL;
 struct e_module *e_pmod_heartbeat = NULL;
+struct e_module *e_pmod_report_codec;
 

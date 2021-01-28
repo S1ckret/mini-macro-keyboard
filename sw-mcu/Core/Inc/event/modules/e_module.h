@@ -43,5 +43,6 @@ extern struct e_module *e_pmod_key_3;
 extern struct e_module *e_pmod_keyboard;
 extern struct e_module *e_pmod_backlight;
 extern struct e_module *e_pmod_heartbeat;
+extern struct e_module *e_pmod_report_codec;
 
 #endif /* INC_EVENT_E_MODULE_H_ */
