@@ -269,6 +269,15 @@ void EXTI15_10_IRQHandler(void)
 }
 
 /* USER CODE BEGIN 1 */
+#include "event/modules/e_module_backlight.h"
+void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin) {
+  if (GPIO_Pin == GPIO_PIN_9) {
+    if (HAL_GPIO_ReadPin(GPIOA, GPIO_PIN_0))
+      e_module_backlight_turn_off(e_pmod_backlight);
+    else
+      e_module_backlight_turn_on(e_pmod_backlight);
+  }
+}
 
 /* USER CODE END 1 */
 /************************ (C) COPYRIGHT STMicroelectronics *****END OF FILE****/
