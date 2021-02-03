@@ -10,7 +10,7 @@
 
 #include "event/modules/e_module.h"
 
-enum e_module_key {
+enum e_module_key_name {
   MOD_KEY_1 = 0u,
   MOD_KEY_2,
   MOD_KEY_3,
