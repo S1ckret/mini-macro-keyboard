@@ -21,4 +21,8 @@ void e_module_backlight_ctor(struct e_module_backlight *me,
 
 void e_module_backlight_dtor(struct e_module_backlight *me);
 
+void e_module_backlight_turn_on(struct e_module_backlight *me);
+
+void e_module_backlight_turn_off(struct e_module_backlight *me);
+
 #endif /* INC_EVENT_MODULES_E_MODULE_BACKLIGHT_H_ */
