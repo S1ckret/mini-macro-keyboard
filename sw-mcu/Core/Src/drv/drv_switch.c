@@ -24,6 +24,11 @@ static struct drv_switch switchs[DRV_SWITCH_COUNT] = {
     {GPIOA, GPIO_PIN_4},
     /* DRV_switch_3 */
     {GPIOB, GPIO_PIN_1},
+    /* DRV_SWITCH_BACKLIGHT */
+    {GPIOA, GPIO_PIN_9},
+    /* DRV_SWITCH_LAYOUT */
+    {GPIOB, GPIO_PIN_7},
+
 };
 
 uint8_t drv_switch_get_state(enum drv_switch_name me) {
