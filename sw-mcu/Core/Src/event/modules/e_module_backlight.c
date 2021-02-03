@@ -5,7 +5,10 @@
  *      Author: S1ckret
  */
 #include "event/modules/e_module.h"
+#include "event/modules/e_module_core.h"
 #include "event/modules/e_module_backlight.h"
+
+#include "event/events/e_event.h"
 
 #include "drv/drv_led.h"
 
@@ -50,5 +53,21 @@ static void backlight_dispatch(struct e_module *me, struct e_event *e) {
   }
 }
 
+void e_module_backlight_turn_on(struct e_module_backlight *me) {
+  struct e_event e;
+  e.mod_from = 0;
+  e.mod_to = me;
+  e.size = 0;
+  e.sig = SIG_BACKLIGHT_ON;
+  e_core_notify(&e);
+}
 
+void e_module_backlight_turn_off(struct e_module_backlight *me) {
+  struct e_event e;
+  e.mod_from = 0;
+  e.mod_to = me;
+  e.size = 0;
+  e.sig = SIG_BACKLIGHT_OFF;
+  e_core_notify((struct e_event*)&e);
+}
 
