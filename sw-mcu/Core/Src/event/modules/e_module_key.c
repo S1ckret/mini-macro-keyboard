@@ -4,6 +4,8 @@
  *  Created on: Jan 23, 2021
  *      Author: S1ckret
  */
+#include "drv/drv_switch.h"
+
 #include "event/modules/e_module.h"
 #include "event/modules/e_module_core.h"
 #include "event/modules/e_module_key.h"
@@ -12,7 +14,6 @@
 #include "event/events/e_event.h"
 #include "event/events/e_event_key.h"
 
-#include "drv/drv_key.h"
 
 #define KEY_DEBAUNCE_TIME 20
 
@@ -20,7 +21,7 @@ static void key_dispatch(struct e_module *me, struct e_event *e);
 
 void e_module_key_ctor(struct e_module_key *me,
                               uint8_t *name,
-                              enum drv_key_name key) {
+                              enum drv_switch_name key) {
   e_module_ctor((struct e_module *)me, name, key_dispatch);
   me->key = key;
   me->key_state = MOD_KEY_STATE_RELEASED;
@@ -33,7 +34,7 @@ void e_module_key_dtor(struct e_module_key *me) {
 static void form_event(struct e_module *me,
                         struct e_event_key *e,
                         enum e_signal sig,
-                        enum drv_key_name key) {
+                        enum drv_switch_name key) {
   e->super.mod_from = me;
   e->super.mod_to = e_pmod_keyboard;
   e->super.sig = sig;
@@ -64,7 +65,7 @@ static void key_dispatch(struct e_module *me, struct e_event *e) {
 
     switch (me_key->key_state) {
     case MOD_KEY_STATE_PRESSED:
-      if (drv_key_get_state(me_key->key) == DRV_KEY_RELEASED) {
+      if (drv_switch_get_state(me_key->key) == DRV_KEY_RELEASED) {
         /* It is real release */
         me_key->key_state = MOD_KEY_STATE_RELEASED;
         /* Generate event to other modules */
@@ -75,7 +76,7 @@ static void key_dispatch(struct e_module *me, struct e_event *e) {
       /* It was bounce */
       break;
     case MOD_KEY_STATE_RELEASED:
-      if (drv_key_get_state(me_key->key) == DRV_KEY_PRESSED) {
+      if (drv_switch_get_state(me_key->key) == DRV_KEY_PRESSED) {
         /* It is real press */
         me_key->key_state = MOD_KEY_STATE_PRESSED;
         /* Generate event to other modules */
