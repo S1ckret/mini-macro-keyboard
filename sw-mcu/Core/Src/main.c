@@ -21,7 +21,10 @@
 /* Includes ------------------------------------------------------------------*/
 #include "main.h"
 #include "usb_device.h"
-
+#include "event/modules/e_module_heartbeat.h"
+#include "event/modules/e_module_backlight.h"
+#include "event/modules/e_module_core.h"
+#include "event/modules/e_module_timers.h"
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
 
@@ -89,7 +92,25 @@ int main(void)
   MX_GPIO_Init();
   MX_USB_DEVICE_Init();
   /* USER CODE BEGIN 2 */
+  struct e_module mod_table[10];
+  uint8_t stack[256];
+  uint8_t qstack[2048];
+  e_core_ctor(mod_table, 10, qstack, 2048, stack, 256);
 
+  struct e_timer timers[5];
+  e_module_timers_ctor(timers, 5);
+
+  struct e_module_heartbeat mod_heartbeat;
+  e_pmod_heartbeat = &mod_heartbeat;
+  e_module_heartbeat_ctor(&mod_heartbeat, "HEARTBEAT", DRV_LED_HEARTBEAT, 800, 300);
+
+  struct e_module_backlight mod_backlight;
+  e_pmod_backlight = &mod_backlight;
+  e_module_backlight_ctor(&mod_backlight, "BCKL");
+
+  e_core_add_module((struct e_module*) &mod_heartbeat);
+  e_core_add_module((struct e_module*) &mod_backlight);
+  e_core_loop();
   /* USER CODE END 2 */
 
   /* Infinite loop */
