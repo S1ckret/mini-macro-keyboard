@@ -26,4 +26,6 @@ enum drv_switch_state {
 
 uint8_t drv_switch_get_state(enum drv_switch_name me);
 
+uint8_t drv_switch_is_state_changed(enum drv_switch_name me);
+
 #endif /* INC_DRV_DRV_SWITCH_H_ */
