@@ -41,3 +41,6 @@ uint8_t e_timer_step(struct e_timer *me) {
   }
   return 0U;
 }
+uint8_t e_timer_is_armed(struct e_timer *me) {
+  return (me->timeout > 0U);
+}
