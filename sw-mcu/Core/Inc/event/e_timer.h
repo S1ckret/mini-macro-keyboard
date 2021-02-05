@@ -26,4 +26,6 @@ void e_timer_disarm(struct e_timer *me);
 
 uint8_t e_timer_step(struct e_timer *me);
 
+uint8_t e_timer_is_armed(struct e_timer *me);
+
 #endif /* INC_EVENT_E_TIMER_H_ */
