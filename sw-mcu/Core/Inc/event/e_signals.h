@@ -19,6 +19,7 @@ typedef uint16_t e_signal_t;
  * @brief System reserved positions for signals
  */
 enum e_signal_sys {
+  SIG_SYS_NOP,
   SIG_SYS_MOD_ADD,
   SIG_SYS_MOD_RM,
   SIG_SYS_INIT,
