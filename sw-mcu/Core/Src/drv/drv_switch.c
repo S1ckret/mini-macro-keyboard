@@ -35,10 +35,12 @@ static struct drv_switch switchs[DRV_SWITCH_COUNT] = {
 uint8_t drv_switch_get_state(enum drv_switch_name me) {
   /* Limit range to 0 or 1 */
   switchs[me].state = (switchs[me].port->IDR & switchs[me].pin) && DRV_KEY_RELEASED;
-  return (switchs[me].port->IDR & switchs[me].pin);
+  return switchs[me].state;
 }
 
 uint8_t drv_switch_is_state_changed(enum drv_switch_name me) {
-  return (switchs[me].port->IDR & switchs[me].pin) ^ switchs[me].state;
+  uint8_t new_state = (switchs[me].port->IDR & switchs[me].pin) && DRV_KEY_RELEASED;
+  uint8_t is_state_changed = new_state ^ switchs[me].state;
+  return is_state_changed;
 }
 
