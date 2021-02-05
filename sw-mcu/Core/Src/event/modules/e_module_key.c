@@ -67,12 +67,16 @@ static void key_dispatch(struct e_module *me, struct e_event *e) {
     break;
   case SIG_KEY_PRESSED:
     if (me_key->key_state == MOD_KEY_STATE_RELEASED) {
-      e_timer_arm(&me_key->timer, KEY_DEBAUNCE_TIME, 0U);
+      if (!e_timer_is_armed(&me_key->timer)) {
+        e_timer_arm(&me_key->timer, KEY_DEBAUNCE_TIME, 0U);
+      }
     }
     break;
   case SIG_KEY_RELEASED:
     if (me_key->key_state == MOD_KEY_STATE_PRESSED) {
-      e_timer_arm(&me_key->timer, KEY_DEBAUNCE_TIME, 0U);
+      if (!e_timer_is_armed(&me_key->timer)) {
+        e_timer_arm(&me_key->timer, KEY_DEBAUNCE_TIME, 0U);
+      }
     }
     break;
   case SIG_SYS_TIMEOUT:
@@ -110,7 +114,10 @@ static void key_dispatch(struct e_module *me, struct e_event *e) {
   }
 }
 
+/* TODO: Third state: MOD_KEY_STATE_DEBAUNCE */
 void e_module_key_press(struct e_module_key *me) {
+  if (e_timer_is_armed(&me->timer)) return;
+
   struct e_event_key e;
   e.super.mod_from = 0;
   e.super.mod_to = me;
@@ -121,6 +128,8 @@ void e_module_key_press(struct e_module_key *me) {
 }
 
 void e_module_key_release(struct e_module_key *me) {
+  if (e_timer_is_armed(&me->timer)) return;
+
   struct e_event_key e;
   e.super.mod_from = 0;
   e.super.mod_to = me;
