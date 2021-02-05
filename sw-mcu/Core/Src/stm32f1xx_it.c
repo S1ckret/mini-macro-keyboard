@@ -23,6 +23,9 @@
 #include "stm32f1xx_it.h"
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
+#include "drv/drv_switch.h"
+
+#include "event/modules/e_module_key.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -269,13 +272,14 @@ void EXTI15_10_IRQHandler(void)
 }
 
 /* USER CODE BEGIN 1 */
-#include "event/modules/e_module_backlight.h"
 void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin) {
-  if (GPIO_Pin == GPIO_PIN_9) {
-    if (HAL_GPIO_ReadPin(GPIOA, GPIO_PIN_0))
-      e_module_backlight_turn_off(e_pmod_backlight);
-    else
-      e_module_backlight_turn_on(e_pmod_backlight);
+  if (drv_switch_is_state_changed(DRV_SWITCH_BACKLIGHT)) {
+    if (drv_switch_get_state(DRV_SWITCH_BACKLIGHT) == DRV_KEY_PRESSED) {
+      e_module_key_press(e_pmod_switch_backlight);
+    }
+    else {
+      e_module_key_release(e_pmod_switch_backlight);
+    }
   }
 }
 
