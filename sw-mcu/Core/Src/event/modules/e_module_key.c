@@ -88,7 +88,7 @@ static void key_dispatch(struct e_module *me, struct e_event *e) {
         me_key->key_state = MOD_KEY_STATE_RELEASED;
         /* Generate event to other modules */
         struct e_event_key event_to_send;
-        form_event_on_press(me, &event_to_send);
+        form_event_on_release(me, &event_to_send);
         e_core_notify((struct e_event *)(&event_to_send));
       }
       /* It was bounce */
@@ -99,7 +99,7 @@ static void key_dispatch(struct e_module *me, struct e_event *e) {
         me_key->key_state = MOD_KEY_STATE_PRESSED;
         /* Generate event to other modules */
         struct e_event_key event_to_send;
-        form_event_on_release(me, &event_to_send);
+        form_event_on_press(me, &event_to_send);
         e_core_notify((struct e_event *)(&event_to_send));
       }
       /* It was bounce */
