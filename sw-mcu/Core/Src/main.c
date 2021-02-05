@@ -25,6 +25,7 @@
 #include "event/modules/e_module_backlight.h"
 #include "event/modules/e_module_core.h"
 #include "event/modules/e_module_timers.h"
+#include "event/modules/e_module_key.h"
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
 
@@ -108,8 +109,18 @@ int main(void)
   e_pmod_backlight = &mod_backlight;
   e_module_backlight_ctor(&mod_backlight, "BCKL");
 
+  struct e_module_key mod_switch_backlight;
+  e_pmod_switch_backlight = &mod_switch_backlight;
+  e_module_key_ctor(&mod_switch_backlight,
+                      "SW_BCKL",
+                      DRV_SWITCH_BACKLIGHT,
+                      SIG_BACKLIGHT_ON,
+                      SIG_BACKLIGHT_OFF,
+                      e_pmod_backlight);
+
   e_core_add_module((struct e_module*) &mod_heartbeat);
   e_core_add_module((struct e_module*) &mod_backlight);
+  e_core_add_module((struct e_module*) &mod_switch_backlight);
   e_core_loop();
   /* USER CODE END 2 */
 
