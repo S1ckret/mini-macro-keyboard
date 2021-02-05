@@ -33,6 +33,8 @@ void e_module_dispatch(struct e_module *me, struct e_event *e) {
 struct e_module *e_pmod_key_1 = NULL;
 struct e_module *e_pmod_key_2 = NULL;
 struct e_module *e_pmod_key_3 = NULL;
+struct e_module *e_pmod_switch_backlight = NULL;
+struct e_module *e_pmod_switch_layout = NULL;
 struct e_module *e_pmod_keyboard = NULL;
 struct e_module *e_pmod_backlight = NULL;
 struct e_module *e_pmod_heartbeat = NULL;
