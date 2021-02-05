@@ -40,6 +40,8 @@ void e_module_dispatch(struct e_module *me, struct e_event *e);
 extern struct e_module *e_pmod_key_1;
 extern struct e_module *e_pmod_key_2;
 extern struct e_module *e_pmod_key_3;
+extern struct e_module *e_pmod_switch_backlight;
+extern struct e_module *e_pmod_switch_layout;
 extern struct e_module *e_pmod_keyboard;
 extern struct e_module *e_pmod_backlight;
 extern struct e_module *e_pmod_heartbeat;
