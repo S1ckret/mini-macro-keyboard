@@ -281,6 +281,30 @@ void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin) {
       e_module_key_release(e_pmod_switch_backlight);
     }
   }
+  else if (drv_switch_is_state_changed(DRV_KEY_1)) {
+    if (drv_switch_get_state(DRV_KEY_1) == DRV_KEY_PRESSED) {
+      e_module_key_press(e_pmod_key_1);
+    }
+    else {
+      e_module_key_release(e_pmod_key_1);
+    }
+  }
+  else if (drv_switch_is_state_changed(DRV_KEY_2)) {
+    if (drv_switch_get_state(DRV_KEY_2) == DRV_KEY_PRESSED) {
+      e_module_key_press(e_pmod_key_2);
+    }
+    else {
+      e_module_key_release(e_pmod_key_2);
+    }
+  }
+  else if (drv_switch_is_state_changed(DRV_KEY_3)) {
+    if (drv_switch_get_state(DRV_KEY_3) == DRV_KEY_PRESSED) {
+      e_module_key_press(e_pmod_key_3);
+    }
+    else {
+      e_module_key_release(e_pmod_key_3);
+    }
+  }
 }
 
 /* USER CODE END 1 */
