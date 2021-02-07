@@ -1,0 +1,3 @@
+[submodule "sw-pc/hid-sniffer/vendor/hidapi"]
+	path = sw-pc/hid-sniffer/vendor/hidapi
+	url = https://github.com/libusb/hidapi.git
