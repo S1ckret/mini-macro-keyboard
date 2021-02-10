@@ -19,6 +19,7 @@ int main(int argc, char* argv[])
 	struct hid_device_info *keyboard = find_keyboard(devs);
 
 	if (keyboard) {
+		print_hid_info(keyboard);
 		printf("The mini-macro-keyboard was found!\n");
 	}
 	else {
@@ -47,10 +48,8 @@ struct hid_device_info *find_keyboard(struct hid_device_info *devs) {
 	struct hid_device_info *keyboard = NULL;
 	while (cur_dev) {
 		printf("Device found:\n");
-		print_hid_info(cur_dev);
 		if (cur_dev->vendor_id == KEYBOARD_VENDOR_ID && cur_dev->product_id == KEYBOARD_PRODUCT_ID) {
 			keyboard = cur_dev;
-			printf("The mini-macro-keyboard was found!\n");
 		}
 		cur_dev = cur_dev->next;
 	}
