@@ -95,34 +95,12 @@ __ALIGN_BEGIN static uint8_t CUSTOM_HID_ReportDesc_FS[USBD_CUSTOM_HID_REPORT_DES
   0x05, 0x01,                    // USAGE_PAGE (Generic Desktop)
   0x09, 0x06,                    // USAGE (Keyboard)
   0xa1, 0x01,                    // COLLECTION (Application)
+  0x85, 0x02,                    //   REPORT_ID (2)
   0x05, 0x07,                    //   USAGE_PAGE (Keyboard)
-  0x19, 0xe0,                    //   USAGE_MINIMUM (Keyboard LeftControl)
-  0x29, 0xe7,                    //   USAGE_MAXIMUM (Keyboard Right GUI)
-  0x15, 0x00,                    //   LOGICAL_MINIMUM (0)
-  0x25, 0x01,                    //   LOGICAL_MAXIMUM (1)
-  0x75, 0x01,                    //   REPORT_SIZE (1)
-  0x95, 0x08,                    //   REPORT_COUNT (8)
-  0x81, 0x02,                    //   INPUT (Data,Var,Abs)
-  0x95, 0x01,                    //   REPORT_COUNT (1)
   0x75, 0x08,                    //   REPORT_SIZE (8)
-  0x81, 0x03,                    //   INPUT (Cnst,Var,Abs)
-  0x95, 0x05,                    //   REPORT_COUNT (5)
-  0x75, 0x01,                    //   REPORT_SIZE (1)
-  0x05, 0x08,                    //   USAGE_PAGE (LEDs)
-  0x19, 0x01,                    //   USAGE_MINIMUM (Num Lock)
-  0x29, 0x05,                    //   USAGE_MAXIMUM (Kana)
-  0x91, 0x02,                    //   OUTPUT (Data,Var,Abs)
-  0x95, 0x01,                    //   REPORT_COUNT (1)
-  0x75, 0x03,                    //   REPORT_SIZE (3)
-  0x91, 0x03,                    //   OUTPUT (Cnst,Var,Abs)
-  0x95, 0x06,                    //   REPORT_COUNT (6)
-  0x75, 0x08,                    //   REPORT_SIZE (8)
-  0x15, 0x00,                    //   LOGICAL_MINIMUM (0)
-  0x25, 0x65,                    //   LOGICAL_MAXIMUM (101)
-  0x05, 0x07,                    //   USAGE_PAGE (Keyboard)
-  0x19, 0x00,                    //   USAGE_MINIMUM (Reserved (no event indicated))
-  0x29, 0x65,                    //   USAGE_MAXIMUM (Keyboard Application)
+  0x95, 0x04,                    //   REPORT_COUNT (4)
   0x81, 0x00,                    //   INPUT (Data,Ary,Abs)
+  0x91, 0x00,                    //   OUTPUT (Data,Ary,Abs)
   /* USER CODE END 0 */
   0xC0    /*     END_COLLECTION	             */
 };
@@ -198,15 +176,34 @@ static int8_t CUSTOM_HID_DeInit_FS(void)
   /* USER CODE END 5 */
 }
 
+#include "drv/drv_led.h"
+
 /**
   * @brief  Manage the CUSTOM HID class events
   * @param  event_idx: Event index
   * @param  state: Event state
   * @retval USBD_OK if all operations are OK else USBD_FAIL
   */
+__attribute__((optimize("unroll-loops")))
 static int8_t CUSTOM_HID_OutEvent_FS(uint8_t event_idx, uint8_t state)
 {
   /* USER CODE BEGIN 6 */
+  static uint8_t report[8];
+  USBD_CUSTOM_HID_HandleTypeDef *hhid = (USBD_CUSTOM_HID_HandleTypeDef *) hUsbDeviceFS.pData;
+
+  for (uint8_t i = 0; i < 8; ++i) {
+    report[i] = hhid->Report_buf[i];
+  }
+
+  if (report[0] == 77) {
+    drv_led_toggle(DRV_LED_1);
+  }
+  if (report[1] == 42) {
+    drv_led_toggle(DRV_LED_2);
+  }
+  if (report[2] == 69) {
+    drv_led_toggle(DRV_LED_3);
+  }
   return (USBD_OK);
   /* USER CODE END 6 */
 }
