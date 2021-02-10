@@ -1,46 +1,30 @@
 #include <stdio.h>
-#include <wchar.h>
 #include <string.h>
 #include <stdlib.h>
 #include "hidapi.h"
 
-// Headers needed for sleeping.
-#ifdef _WIN32
-	#include <windows.h>
-#else
-	#include <unistd.h>
-#endif
+#define KEYBOARD_VENDOR_ID (0x0483u)
+#define KEYBOARD_PRODUCT_ID (0x5750u)
+
+void print_hid_info(struct hid_device_info *dev);
+
+struct hid_device_info *find_keyboard(struct hid_device_info *devs);
 
 int main(int argc, char* argv[])
 {
-	(void)argc;
-	(void)argv;
+	if (hid_init()) return -1;
 
-	int res;
-	unsigned char buf[256];
-	#define MAX_STR 255
-	wchar_t wstr[MAX_STR];
-	hid_device *handle;
-	int i;
+	struct hid_device_info *devs = hid_enumerate(0x0, 0x0);
 
-	struct hid_device_info *devs, *cur_dev;
-    
-	if (hid_init())
-		return -1;
+	struct hid_device_info *keyboard = find_keyboard(devs);
 
-	devs = hid_enumerate(0x0, 0x0);
-	cur_dev = devs;
-	while (cur_dev) {
-		printf("Device Found\n  type: %04hx %04hx\n  path: %s\n  serial_number: %ls", cur_dev->vendor_id, cur_dev->product_id, cur_dev->path, cur_dev->serial_number);
-		printf("\n");
-		printf("  Manufacturer: %ls\n", cur_dev->manufacturer_string);
-		printf("  Product:      %ls\n", cur_dev->product_string);
-		printf("  Release:      %hx\n", cur_dev->release_number);
-		printf("  Interface:    %d\n",  cur_dev->interface_number);
-		printf("  Usage (page): 0x%hx (0x%hx)\n", cur_dev->usage, cur_dev->usage_page);
-		printf("\n");
-		cur_dev = cur_dev->next;
+	if (keyboard) {
+		printf("The mini-macro-keyboard was found!\n");
 	}
+	else {
+		printf("The mini-macro-keyboard wasn't found! Please try again.\n");
+	}
+
 	hid_free_enumeration(devs);
 
 #ifdef WIN32
@@ -48,4 +32,28 @@ int main(int argc, char* argv[])
 #endif
 
 	return 0;
+}
+
+void print_hid_info(struct hid_device_info *dev) {
+	printf("  VID: 0x%04hx", dev->vendor_id);
+	printf("  PID: 0x%04hx\n", dev->product_id);
+	printf("  serial_number: %ls", dev->serial_number);
+	printf("  Manufacturer: %ls\n", dev->manufacturer_string);
+}
+
+struct hid_device_info *find_keyboard(struct hid_device_info *devs) {
+	struct hid_device_info *cur_dev = devs;
+	printf("Looking for device with VID: %04hx PID: %04hx...\n", KEYBOARD_VENDOR_ID, KEYBOARD_PRODUCT_ID);
+	struct hid_device_info *keyboard = NULL;
+	while (cur_dev) {
+		printf("Device found:\n");
+		print_hid_info(cur_dev);
+		if (cur_dev->vendor_id == KEYBOARD_VENDOR_ID && cur_dev->product_id == KEYBOARD_PRODUCT_ID) {
+			keyboard = cur_dev;
+			printf("The mini-macro-keyboard was found!\n");
+		}
+		cur_dev = cur_dev->next;
+	}
+
+	return keyboard;
 }
