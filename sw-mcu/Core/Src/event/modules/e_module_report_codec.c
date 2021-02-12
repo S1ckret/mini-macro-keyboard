@@ -49,12 +49,12 @@ static void report_codec_dispatch(struct e_module *me, struct e_event *e) {
       report[1] = 0x1a;
     }
     else if (e_key->key == DRV_KEY_2) {
-      report[2] = 0x2c;
+      report[1] = 0x2c;
     }
     else if (e_key->key == DRV_KEY_1) {
-      report[3] = 0x19;
+      report[1] = 0x19;
     }
-    USBD_CUSTOM_HID_SendReport(&hUsbDeviceFS, report, 8);
+    USBD_CUSTOM_HID_SendReport(&hUsbDeviceFS, report, 2);
   }
     break;
   case SIG_KEY_RELEASED:
@@ -62,7 +62,7 @@ static void report_codec_dispatch(struct e_module *me, struct e_event *e) {
     report[1] = 0;
     report[2] = 0;
     report[3] = 0;
-    USBD_CUSTOM_HID_SendReport(&hUsbDeviceFS, report, 8);
+    USBD_CUSTOM_HID_SendReport(&hUsbDeviceFS, report, 2);
     break;
   default:
     break;
