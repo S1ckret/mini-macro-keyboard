@@ -92,20 +92,17 @@
 __ALIGN_BEGIN static uint8_t CUSTOM_HID_ReportDesc_FS[USBD_CUSTOM_HID_REPORT_DESC_SIZE] __ALIGN_END =
 {
   /* USER CODE BEGIN 0 */
-    0x06, 0x00, 0xff,                    // USAGE_PAGE (Generic Desktop)
-    0x09, 0x01,                    // USAGE (Vendor Usage 1)
-    0xa1, 0x01,                    // COLLECTION (Application)
-    0x85, 0x02,                    //   REPORT_ID (2)
-    0x09, 0x01,                    //   USAGE (Vendor Usage 1)
-    0x15, 0x00,                    //   LOGICAL_MINIMUM (0)
-    0x26, 0xff, 0x00,              //   LOGICAL_MAXIMUM (255)
-    0x75, 0x08,                    //   REPORT_SIZE (8)
-    0x95, 0x01,                    //   REPORT_COUNT (1)
-    0x81, 0x00,                    //   INPUT (Data,Ary,Abs)
-    0x09, 0x01,                    //   USAGE (Vendor Usage 1)
-    0x91, 0x00,                    //   OUTPUT (Data,Ary,Abs)
-    0xc0                           // END_COLLECTION
+  0x05, 0x01,                    // USAGE_PAGE (Generic Desktop)
+  0x09, 0x06,                    // USAGE (Keyboard)
+  0xa1, 0x01,                    // COLLECTION (Application)
+  0x85, 0x02,                    //   REPORT_ID (2)
+  0x05, 0x07,                    //   USAGE_PAGE (Keyboard)
+  0x75, 0x08,                    //   REPORT_SIZE (8)
+  0x95, 0x04,                    //   REPORT_COUNT (4)
+  0x81, 0x00,                    //   INPUT (Data,Ary,Abs)
+  0x91, 0x00,                    //   OUTPUT (Data,Ary,Abs)
   /* USER CODE END 0 */
+  0xC0    /*     END_COLLECTION	             */
 };
 
 /* USER CODE BEGIN PRIVATE_VARIABLES */
@@ -192,19 +189,19 @@ static int8_t CUSTOM_HID_OutEvent_FS(uint8_t event_idx, uint8_t state)
 {
   /* USER CODE BEGIN 6 */
   static uint8_t report[8];
-  USBD_CUSTOM_HID_HandleTypeDef *hhid = (USBD_CUSTOM_HID_HandleTypeDef *) hUsbDeviceFS.pClassData;
+  USBD_CUSTOM_HID_HandleTypeDef *hhid = (USBD_CUSTOM_HID_HandleTypeDef *) hUsbDeviceFS.pData;
 
-  for (uint8_t i = 0; i < 2; ++i) {
+  for (uint8_t i = 0; i < 8; ++i) {
     report[i] = hhid->Report_buf[i];
   }
 
-  if (report[0] == 2) {
+  if (report[0] == 77) {
     drv_led_toggle(DRV_LED_1);
   }
   if (report[1] == 42) {
     drv_led_toggle(DRV_LED_2);
   }
-  if (report[1] == 69) {
+  if (report[2] == 69) {
     drv_led_toggle(DRV_LED_3);
   }
   return (USBD_OK);
