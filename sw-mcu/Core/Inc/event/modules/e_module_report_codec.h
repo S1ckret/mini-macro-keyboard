@@ -21,5 +21,6 @@ void e_module_report_codec_ctor(struct e_module_report_codec *me,
 
 void e_module_report_codec_dtor(struct e_module_report_codec *me);
 
+void report_codec_data_out(struct e_module_report_codec *me, uint8_t *report);
 
 #endif /* INC_EVENT_MODULES_E_MODULE_REPORT_CODEC_H_ */

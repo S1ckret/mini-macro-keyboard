@@ -10,9 +10,10 @@
 
 #include "event/events/e_event.h"
 
-#define E_HID_MAX_REPORT_SIZE (8)
+/* First byte is the Report ID */
+#define E_HID_MAX_REPORT_SIZE (9)
 
-/** You are not supposed to fill all 8 bytes.
+/** You are not supposed to fill all 9 bytes.
  * You can fill for example 6 bytes and set super.size = 6
  * then only 6 bytes would be copied to the core queue.*/
 struct e_event_report {
