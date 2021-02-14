@@ -43,13 +43,6 @@ static void keyboard_dispatch(struct e_module *me, struct e_event *e) {
     drv_led_toggle(e_key->key + 1);
     /* Send info to the hid codec module */
     struct e_module_key_data *pressed_key = &(keyboard->keys[keyboard->current_layout][e_key->key]);
-    struct e_event_key e;
-    e.super.mod_from = me;
-    e.super.mod_to = e_pmod_report_codec;
-    e.super.sig = SIG_KEY_PRESSED;
-    e.super.size = 1;
-    e.key = e_key->key;
-    e_core_notify(&e);
   }
   break;
   case SIG_KEY_RELEASED:
@@ -58,13 +51,6 @@ static void keyboard_dispatch(struct e_module *me, struct e_event *e) {
     drv_led_toggle(e_key->key + 1);
     /* Send info to the hid codec module */
     struct e_module_key_data *pressed_key = &(keyboard->keys[keyboard->current_layout][e_key->key]);
-    struct e_event_key e;
-    e.super.mod_from = me;
-    e.super.mod_to = e_pmod_report_codec;
-    e.super.sig = SIG_KEY_RELEASED;
-    e.super.size = 1;
-    e.key = e_key->key;
-    e_core_notify(&e);
   }
     break;
   default:
