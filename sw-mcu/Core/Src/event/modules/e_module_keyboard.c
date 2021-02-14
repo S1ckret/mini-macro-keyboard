@@ -54,6 +54,25 @@ static void keyboard_dispatch(struct e_module *me, struct e_event *e) {
     struct e_module_key_data *pressed_key = &(keyboard->keys[keyboard->current_layout][e_key->key]);
   }
     break;
+  case SIG_KEYBOARD_CREATE_MACRO:
+  {
+    struct e_event_keyboard *e_keyboard = (struct e_event_key *)e;
+    uint8_t k = e_keyboard->key_cfg.key_name;
+    uint8_t l = e_keyboard->key_cfg.layout;
+
+    /* Clear current key */
+    keyboard->keys[l][k].key = 0U;
+    keyboard->keys[l][k].mode = MOD_KEY_MODE_MARCO_SEQ;
+    keyboard->keys[l][k].modifiers = 0U;
+
+    /* Assign new values*/
+    keyboard->keys[l][k].key = e_keyboard->key_cfg.key[0];
+    keyboard->keys[l][k].mode = e_keyboard->key_cfg.key_mode;
+    keyboard->keys[l][k].modifiers = e_keyboard->key_cfg.modifiers;
+
+    /* TODO: Notify report codec that everything is OK */
+  }
+  break;
   default:
     break;
   }
