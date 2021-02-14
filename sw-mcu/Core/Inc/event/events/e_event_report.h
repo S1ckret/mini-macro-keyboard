@@ -13,6 +13,8 @@
 /* First byte is the Report ID */
 #define E_HID_MAX_REPORT_SIZE (9)
 
+#define E_HID_MAX_REPORT_KEY_SIZE (6)
+
 /** You are not supposed to fill all 9 bytes.
  * You can fill for example 6 bytes and set super.size = 6
  * then only 6 bytes would be copied to the core queue.*/

@@ -9,6 +9,7 @@
 #include "event/modules/e_module_keyboard.h"
 
 #include "event/events/e_event_key.h"
+#include "event/events/e_event_keyboard.h"
 
 #include "drv/drv_led.h"
 
@@ -57,3 +58,25 @@ static void keyboard_dispatch(struct e_module *me, struct e_event *e) {
     break;
   }
 }
+
+/**
+ * @Warning Hard coded mod_from to e_pmod_report_codec
+ */
+__attribute__((optimize("unroll-loops")))
+void e_module_keyboard_create_macro(struct e_module_keyboard *me, struct e_modile_key_config *cfg) {
+  struct e_event_keyboard e;
+  e.super.mod_from = e_pmod_report_codec;
+  e.super.mod_to = me;
+  e.super.sig = SIG_KEYBOARD_CREATE_MACRO;
+  e.super.size = sizeof(struct e_modile_key_config);
+
+  e.key_cfg.key_mode = cfg->key_mode;
+  e.key_cfg.key_name = cfg->key_name;
+  e.key_cfg.layout = cfg->layout;
+  for (uint8_t i = 0; i < E_HID_MAX_REPORT_KEY_SIZE; ++i) {
+    e.key_cfg.key[i] = cfg->key[i];
+  }
+
+  e_core_notify(&e);
+}
+

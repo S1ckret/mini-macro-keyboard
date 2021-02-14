@@ -13,9 +13,7 @@
 
 struct e_event_keyboard {
   struct e_event super;
-  enum e_module_key_name key_name;
-  enum e_module_layout layout_name;
-  struct e_module_key_data key_data;
+  struct e_modile_key_config key_cfg;
 };
 
 #endif /* INC_EVENT_EVENTS_E_EVENT_KEYBOARD_H_ */
