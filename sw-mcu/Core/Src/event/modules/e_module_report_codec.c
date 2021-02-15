@@ -5,16 +5,11 @@
  *      Author: S1ckret
  */
 
-/*
- * e_module_report_codec.c
- *
- *  Created on: 28 нояб. 2020 г.
- *      Author: S1ckret
- */
 #include "event/modules/e_module.h"
 #include "event/modules/e_module_report_codec.h"
 
 #include "event/events/e_event_report.h"
+#include "event/events/e_event_key_data.h"
 
 static void report_codec_dispatch(struct e_module *me, struct e_event *e);
 
@@ -56,4 +51,32 @@ void report_codec_data_out(struct e_module_report_codec *me, uint8_t *report) {
   }
 
   e_core_notify(&e_report);
+}
+
+/**
+ * @Warning Hardcoded to e_pmod_keyboard
+ */
+void report_codec_key_pressed(struct e_module_report_codec *me, struct e_module_key_data *key_data) {
+  struct e_event_key_data e;
+  e.super.mod_from = e_pmod_keyboard;
+  e.super.mod_to = me;
+  e.super.sig = SIG_KEY_PRESSED;
+  e.super.size = sizeof(struct e_module_key_data *);
+  e.p_key_data = key_data;
+
+  e_core_notify(&e);
+}
+
+/**
+ * @Warning Hardcoded to e_pmod_keyboard
+ */
+void report_codec_key_released(struct e_module_report_codec *me) {
+  struct e_event_key_data e;
+  e.super.mod_from = e_pmod_keyboard;
+  e.super.mod_to = me;
+  e.super.sig = SIG_KEY_RELEASED;
+  e.super.size = 0U;
+  e.p_key_data = 0U;
+
+  e_core_notify(&e);
 }
