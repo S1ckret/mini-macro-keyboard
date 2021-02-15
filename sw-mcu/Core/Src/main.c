@@ -27,6 +27,7 @@
 #include "event/modules/e_module_timers.h"
 #include "event/modules/e_module_key.h"
 #include "event/modules/e_module_keyboard.h"
+#include "event/modules/e_module_report_codec.h"
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
 
@@ -150,6 +151,10 @@ int main(void)
                       SIG_KEY_RELEASED,
                       e_pmod_keyboard);
 
+  struct e_module_report_codec mod_report_codec;
+  e_pmod_report_codec = &mod_report_codec;
+  e_module_report_codec_ctor(&mod_report_codec, "CODEC");
+
   e_core_add_module((struct e_module*) &mod_heartbeat);
   e_core_add_module((struct e_module*) &mod_backlight);
   e_core_add_module((struct e_module*) &mod_switch_backlight);
@@ -157,6 +162,8 @@ int main(void)
   e_core_add_module((struct e_module*) &mod_switch_key_1);
   e_core_add_module((struct e_module*) &mod_switch_key_2);
   e_core_add_module((struct e_module*) &mod_switch_key_3);
+  e_core_add_module((struct e_module*) &mod_report_codec);
+
   e_core_loop();
   /* USER CODE END 2 */
 
