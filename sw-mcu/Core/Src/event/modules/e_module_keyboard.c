@@ -7,6 +7,7 @@
 
 #include "event/modules/e_module.h"
 #include "event/modules/e_module_keyboard.h"
+#include "event/modules/e_module_report_codec.h"
 
 #include "event/events/e_event_key.h"
 #include "event/events/e_event_keyboard.h"
@@ -44,6 +45,7 @@ static void keyboard_dispatch(struct e_module *me, struct e_event *e) {
     drv_led_toggle(e_key->key + 1);
     /* Send info to the hid codec module */
     struct e_module_key_data *pressed_key = &(keyboard->keys[keyboard->current_layout][e_key->key]);
+    report_codec_key_pressed(e_pmod_report_codec, pressed_key);
   }
   break;
   case SIG_KEY_RELEASED:
@@ -52,6 +54,7 @@ static void keyboard_dispatch(struct e_module *me, struct e_event *e) {
     drv_led_toggle(e_key->key + 1);
     /* Send info to the hid codec module */
     struct e_module_key_data *pressed_key = &(keyboard->keys[keyboard->current_layout][e_key->key]);
+    report_codec_key_released(e_pmod_report_codec);
   }
     break;
   case SIG_KEYBOARD_CREATE_MACRO:
