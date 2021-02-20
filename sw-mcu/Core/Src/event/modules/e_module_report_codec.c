@@ -45,6 +45,7 @@ static void report_codec_dispatch(struct e_module *me, struct e_event *e) {
       report_codec->report_data_in[3] = report_codec->current_key_data->key;
 
       USBD_CUSTOM_HID_SendReport(&hUsbDeviceFS, report_codec->report_data_in, 9);
+      drv_led_toggle(DRV_LED_1);
     }
 
   }
@@ -61,6 +62,7 @@ static void report_codec_dispatch(struct e_module *me, struct e_event *e) {
     report_codec->report_data_in[8] = 0U;
 
     USBD_CUSTOM_HID_SendReport(&hUsbDeviceFS, report_codec->report_data_in, 9);
+    drv_led_toggle(DRV_LED_1);
 
     break;
   default:
