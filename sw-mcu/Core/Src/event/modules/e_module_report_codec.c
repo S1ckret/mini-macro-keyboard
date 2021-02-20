@@ -65,6 +65,33 @@ static void report_codec_dispatch(struct e_module *me, struct e_event *e) {
     drv_led_toggle(DRV_LED_1);
 
     break;
+  case SIG_HID_CODEC_DATA_OUT:
+  {
+    struct e_event_report *e_report = (struct e_event_report *)e;
+    // TODO: Function to parse report IDs and execute appropriate commands
+    if (e_report->report[0] == 'M') {
+      struct e_modile_key_config key_cfg;
+      /* TODO: Parse Byte#1 for appropriate flags */
+      /**
+       * @Warning Hardcoded to zero
+       */
+      key_cfg.key_mode = 0;
+      key_cfg.key_name = 0;
+      key_cfg.layout = 0;
+      key_cfg.modifiers = e_report->report[2];
+      key_cfg.key[0] = e_report->report[3];
+      key_cfg.key[1] = e_report->report[4];
+      key_cfg.key[2] = e_report->report[5];
+      key_cfg.key[3] = e_report->report[6];
+      key_cfg.key[4] = e_report->report[7];
+      key_cfg.key[5] = e_report->report[8];
+
+      e_module_keyboard_create_macro(e_pmod_keyboard, &key_cfg);
+      drv_led_toggle(DRV_LED_2);
+    }
+
+  }
+    break;
   default:
     break;
   }
