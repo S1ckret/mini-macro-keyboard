@@ -93,6 +93,58 @@
 __ALIGN_BEGIN static uint8_t CUSTOM_HID_ReportDesc_FS[USBD_CUSTOM_HID_REPORT_DESC_SIZE] __ALIGN_END =
 {
   /* USER CODE BEGIN 0 */
+
+    // Create Macro
+    0x06, 0x00, 0xff,              // USAGE_PAGE (Vendor Defined Page 1)
+    0x09, 0x01,                    // USAGE (Vendor Usage 1)
+    0xa1, 0x01,                    // COLLECTION (Application)
+    0x85, 0x4d,                    //   REPORT_ID (77)
+    0x15, 0x00,                    //   LOGICAL_MINIMUM (0)
+    0x26, 0xff, 0x00,              //   LOGICAL_MAXIMUM (255)
+    0x75, 0x08,                    //   REPORT_SIZE (8)
+    0x95, 0x08,                    //   REPORT_COUNT (8)
+    0x09, 0x01,                    //   USAGE (Vendor Usage 1)
+    0x91, 0x00,                    //   OUTPUT (Data,Ary,Abs)
+    0x95, 0x01,                    //   REPORT_COUNT (1)
+    0x09, 0x01,                    //   USAGE (Vendor Usage 1)
+    0x81, 0x00,                    //   INPUT (Data,Ary,Abs)
+
+    // Add Macro
+    0x85, 0x41,                    //   REPORT_ID (65)
+    0x15, 0x00,                    //   LOGICAL_MINIMUM (0)
+    0x26, 0xff, 0x00,              //   LOGICAL_MAXIMUM (255)
+    0x75, 0x08,                    //   REPORT_SIZE (8)
+    0x95, 0x08,                    //   REPORT_COUNT (8)
+    0x09, 0x02,                    //   USAGE (Vendor Usage 2)
+    0x91, 0x00,                    //   OUTPUT (Data,Ary,Abs)
+    0x95, 0x01,                    //   REPORT_COUNT (1)
+    0x09, 0x02,                    //   USAGE (Vendor Usage 2)
+    0x81, 0x00,                    //   INPUT (Data,Ary,Abs)
+
+    // Sync
+    0x85, 0x53,                    //   REPORT_ID (83)
+    0x15, 0x00,                    //   LOGICAL_MINIMUM (0)
+    0x26, 0xff, 0x00,              //   LOGICAL_MAXIMUM (255)
+    0x75, 0x08,                    //   REPORT_SIZE (8)
+    0x95, 0x08,                    //   REPORT_COUNT (8)
+    0x09, 0x03,                    //   USAGE (Vendor Usage 3)
+    0x91, 0x00,                    //   OUTPUT (Data,Ary,Abs)
+    0x09, 0x03,                    //   USAGE (Vendor Usage 3)
+    0x81, 0x00,                    //   INPUT (Data,Ary,Abs)
+
+    // Keep
+    0x85, 0x4b,                    //   REPORT_ID (75)
+    0x15, 0x00,                    //   LOGICAL_MINIMUM (0)
+    0x26, 0xff, 0x00,              //   LOGICAL_MAXIMUM (255)
+    0x75, 0x08,                    //   REPORT_SIZE (8)
+    0x95, 0x08,                    //   REPORT_COUNT (8)
+    0x09, 0x04,                    //   USAGE (Vendor Usage 4)
+    0x91, 0x00,                    //   OUTPUT (Data,Ary,Abs)
+    0x95, 0x01,                    //   REPORT_COUNT (1)
+    0x09, 0x04,                    //   USAGE (Vendor Usage 4)
+    0x81, 0x00,                    //   INPUT (Data,Ary,Abs)
+    0xc0,                           // END_COLLECTION
+
     // Keyboard
     0x05, 0x01,                    // USAGE_PAGE (Generic Desktop)
     0x09, 0x06,                    // USAGE (Keyboard)
@@ -128,68 +180,6 @@ __ALIGN_BEGIN static uint8_t CUSTOM_HID_ReportDesc_FS[USBD_CUSTOM_HID_REPORT_DES
     0x81, 0x00,                    //   INPUT (Data,Ary,Abs)
     0xc0,                          // END_COLLECTION
 
-    // Create Macro
-    0x06, 0x00, 0xff,              // USAGE_PAGE (Vendor Defined Page 1)
-    0x09, 0x01,                    // USAGE (Vendor Usage 1)
-    0xa1, 0x01,                    // COLLECTION (Application)
-    0x85, 0x4d,                    //   REPORT_ID (77)
-    0x15, 0x00,                    //   LOGICAL_MINIMUM (0)
-    0x26, 0xff, 0x00,              //   LOGICAL_MAXIMUM (255)
-    0x75, 0x08,                    //   REPORT_SIZE (8)
-    0x95, 0x08,                    //   REPORT_COUNT (8)
-    0x09, 0x01,                    //   USAGE (Vendor Usage 1)
-    0x91, 0x00,                    //   OUTPUT (Data,Ary,Abs)
-    0x95, 0x01,                    //   REPORT_COUNT (1)
-    0x09, 0x01,                    //   USAGE (Vendor Usage 1)
-    0x81, 0x00,                    //   INPUT (Data,Ary,Abs)
-    0xc0,                          // END_COLLECTION
-
-    // Add Macro
-    0x06, 0x00, 0xff,              // USAGE_PAGE (Vendor Defined Page 1)
-    0x09, 0x02,                    // USAGE (Vendor Usage 2)
-    0xa1, 0x01,                    // COLLECTION (Application)
-    0x85, 0x41,                    //   REPORT_ID (65)
-    0x15, 0x00,                    //   LOGICAL_MINIMUM (0)
-    0x26, 0xff, 0x00,              //   LOGICAL_MAXIMUM (255)
-    0x75, 0x08,                    //   REPORT_SIZE (8)
-    0x95, 0x08,                    //   REPORT_COUNT (8)
-    0x09, 0x02,                    //   USAGE (Vendor Usage 2)
-    0x91, 0x00,                    //   OUTPUT (Data,Ary,Abs)
-    0x95, 0x01,                    //   REPORT_COUNT (1)
-    0x09, 0x02,                    //   USAGE (Vendor Usage 2)
-    0x81, 0x00,                    //   INPUT (Data,Ary,Abs)
-    0xc0,                           // END_COLLECTION
-
-    // Sync
-    0x06, 0x00, 0xff,              // USAGE_PAGE (Vendor Defined Page 1)
-    0x09, 0x03,                    // USAGE (Vendor Usage 3)
-    0xa1, 0x01,                    // COLLECTION (Application)
-    0x85, 0x53,                    //   REPORT_ID (83)
-    0x15, 0x00,                    //   LOGICAL_MINIMUM (0)
-    0x26, 0xff, 0x00,              //   LOGICAL_MAXIMUM (255)
-    0x75, 0x08,                    //   REPORT_SIZE (8)
-    0x95, 0x08,                    //   REPORT_COUNT (8)
-    0x09, 0x03,                    //   USAGE (Vendor Usage 3)
-    0x91, 0x00,                    //   OUTPUT (Data,Ary,Abs)
-    0x09, 0x03,                    //   USAGE (Vendor Usage 3)
-    0x81, 0x00,                    //   INPUT (Data,Ary,Abs)
-    0xc0,                           // END_COLLECTION
-
-    // Keep
-    0x06, 0x00, 0xff,              // USAGE_PAGE (Vendor Defined Page 1)
-    0x09, 0x04,                    // USAGE (Vendor Usage 4)
-    0xa1, 0x01,                    // COLLECTION (Application)
-    0x85, 0x4b,                    //   REPORT_ID (75)
-    0x15, 0x00,                    //   LOGICAL_MINIMUM (0)
-    0x26, 0xff, 0x00,              //   LOGICAL_MAXIMUM (255)
-    0x75, 0x08,                    //   REPORT_SIZE (8)
-    0x95, 0x08,                    //   REPORT_COUNT (8)
-    0x09, 0x04,                    //   USAGE (Vendor Usage 4)
-    0x91, 0x00,                    //   OUTPUT (Data,Ary,Abs)
-    0x95, 0x01,                    //   REPORT_COUNT (1)
-    0x09, 0x04,                    //   USAGE (Vendor Usage 4)
-    0x81, 0x00,                    //   INPUT (Data,Ary,Abs)
-    0xc0                           // END_COLLECTION
   /* USER CODE END 0 */
 };
 
