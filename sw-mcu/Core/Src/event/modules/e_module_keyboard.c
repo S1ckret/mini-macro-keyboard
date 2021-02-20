@@ -32,6 +32,18 @@ static void keyboard_dispatch(struct e_module *me, struct e_event *e) {
   struct e_module_keyboard *keyboard = (struct e_module_keyboard *)me;
   switch(e->sig) {
   case SIG_SYS_INIT:
+    /* Assign temp test values*/
+    keyboard->keys[0][0].key = 0x9;
+    keyboard->keys[0][0].mode = MOD_KEY_MODE_MARCO_SEQ;
+    keyboard->keys[0][0].modifiers = 0U;
+
+    keyboard->keys[0][1].key = 0x12;
+    keyboard->keys[0][1].mode = MOD_KEY_MODE_MARCO_SEQ;
+    keyboard->keys[0][1].modifiers = 0U;
+
+    keyboard->keys[0][2].key = 0xD;
+    keyboard->keys[0][2].mode = MOD_KEY_MODE_MARCO_SEQ;
+    keyboard->keys[0][2].modifiers = 0U;
     break;
   case SIG_LAYOUT_OFF:
     keyboard->current_layout = MOD_LAYOUT_A;
