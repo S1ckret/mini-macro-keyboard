@@ -50,7 +50,7 @@ static void report_codec_dispatch(struct e_module *me, struct e_event *e) {
   }
     break;
   case SIG_KEY_RELEASED:
-    report_codec->report_data_in[0] = 0U;
+    report_codec->report_data_in[0] = 2U;
     report_codec->report_data_in[1] = 0U;
     report_codec->report_data_in[2] = 0U;
     report_codec->report_data_in[3] = 0U;
