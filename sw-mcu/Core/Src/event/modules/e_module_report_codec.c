@@ -71,13 +71,9 @@ static void report_codec_dispatch(struct e_module *me, struct e_event *e) {
     // TODO: Function to parse report IDs and execute appropriate commands
     if (e_report->report[0] == 'M') {
       struct e_modile_key_config key_cfg;
-      /* TODO: Parse Byte#1 for appropriate flags */
-      /**
-       * @Warning Hardcoded to zero
-       */
-      key_cfg.key_mode = 0;
-      key_cfg.key_name = 0;
-      key_cfg.layout = 0;
+      key_cfg.key_mode = e_module_keyboard_parse_mode(e_report->report[1]);
+      key_cfg.key_name = e_module_keyboard_parse_key_name(e_report->report[1])
+      key_cfg.layout = e_module_keyboard_parse_layout(e_report->report[1]);
       key_cfg.modifiers = e_report->report[2];
       key_cfg.key[0] = e_report->report[3];
       key_cfg.key[1] = e_report->report[4];

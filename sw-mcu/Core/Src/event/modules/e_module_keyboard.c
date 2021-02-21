@@ -114,3 +114,42 @@ void e_module_keyboard_create_macro(struct e_module_keyboard *me, struct e_modil
   drv_led_toggle(DRV_LED_3);
 }
 
+uint8_t e_module_keyboard_parse_key_name(uint8_t key_address) {
+  enum e_module_key_name key_name = MOD_KEY_COUNT;
+  if (key_address & (E_MOD_KEYBOARD_KEY_1 << E_MOD_KEYBOARD_KEY_OFFSET)) {
+    key_name = MOD_KEY_1;
+  }
+  else if (key_address & (E_MOD_KEYBOARD_KEY_2 << E_MOD_KEYBOARD_KEY_OFFSET)) {
+    key_name = MOD_KEY_2;
+  }
+  else if (key_address & (E_MOD_KEYBOARD_KEY_3 << E_MOD_KEYBOARD_KEY_OFFSET)) {
+     key_name = MOD_KEY_3;
+   }
+  return key_name;
+}
+
+uint8_t e_module_keyboard_parse_layout(uint8_t key_address) {
+  enum e_module_layout layout = MOD_LAYOUT_COUNT;
+  if (key_address & (E_MOD_KEYBOARD_LAYOUT_A << E_MOD_KEYBOARD_LAYOUT_OFFSET)) {
+    layout = MOD_LAYOUT_A;
+  }
+  else if (key_address & (E_MOD_KEYBOARD_LAYOUT_B << E_MOD_KEYBOARD_LAYOUT_OFFSET)) {
+    layout = MOD_LAYOUT_B;
+  }
+  return layout;
+}
+
+uint8_t e_module_keyboard_parse_mode(uint8_t key_address) {
+  enum e_module_key_mode key_mode = MOD_KEY_MODE_COUNT;
+  if (key_address & (E_MOD_KEYBOARD_MODE_MACRO_SEQUENCE << E_MOD_KEYBOARD_MODE_OFFSET)) {
+    key_mode = MOD_KEY_MODE_MARCO_SEQ;
+  }
+  else if (key_address & (E_MOD_KEYBOARD_MODE_TEXT << E_MOD_KEYBOARD_MODE_OFFSET)) {
+    key_mode = MOD_KEY_MODE_TEXT;
+  }
+  else if (key_address & (E_MOD_KEYBOARD_MODE_COMBO << E_MOD_KEYBOARD_MODE_OFFSET)) {
+    key_mode = MOD_KEY_MODE_COMBO;
+   }
+  return key_mode;
+}
+
