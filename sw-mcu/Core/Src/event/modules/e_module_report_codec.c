@@ -26,6 +26,10 @@ void e_module_report_codec_dtor(struct e_module_report_codec *me) {
   e_module_dtor((struct e_module *)me);
 }
 
+static void report_codec_sig_key_pressed(struct e_module_report_codec *me, struct e_event *e);
+static void report_codec_sig_key_released(struct e_module_report_codec *me, struct e_event *e);
+static void report_codec_sig_hid_data_out(struct e_module_report_codec *me, struct e_event *e);
+
 static void report_codec_dispatch(struct e_module *me, struct e_event *e) {
   if (me != e->mod_to) return;
 
@@ -35,58 +39,16 @@ static void report_codec_dispatch(struct e_module *me, struct e_event *e) {
     break;
     /* Supports only single macro now */
   case SIG_KEY_PRESSED:
-  {
-    struct e_event_key_data *e_key_data = (struct e_event_key_data *)e;
-    report_codec->current_key_data = e_key_data->p_key_data;
-    if (report_codec->current_key_data->mode == MOD_KEY_MODE_MARCO_SEQ) {
-      report_codec->report_data_in[0] = 2U;
-      report_codec->report_data_in[1] = report_codec->current_key_data->modifiers;
-      report_codec->report_data_in[2] = 0U; /* Reserved */
-      report_codec->report_data_in[3] = report_codec->current_key_data->key;
-
-      USBD_CUSTOM_HID_SendReport(&hUsbDeviceFS, report_codec->report_data_in, 9);
-      drv_led_toggle(DRV_LED_1);
-    }
-
-  }
+    report_codec_sig_key_pressed(report_codec, e);
+    drv_led_toggle(DRV_LED_1);
     break;
   case SIG_KEY_RELEASED:
-    report_codec->report_data_in[0] = 2U;
-    report_codec->report_data_in[1] = 0U;
-    report_codec->report_data_in[2] = 0U;
-    report_codec->report_data_in[3] = 0U;
-    report_codec->report_data_in[4] = 0U;
-    report_codec->report_data_in[5] = 0U;
-    report_codec->report_data_in[6] = 0U;
-    report_codec->report_data_in[7] = 0U;
-    report_codec->report_data_in[8] = 0U;
-
-    USBD_CUSTOM_HID_SendReport(&hUsbDeviceFS, report_codec->report_data_in, 9);
+    report_codec_sig_key_released(report_codec, e);
     drv_led_toggle(DRV_LED_1);
-
     break;
   case SIG_HID_CODEC_DATA_OUT:
-  {
-    struct e_event_report *e_report = (struct e_event_report *)e;
-    // TODO: Function to parse report IDs and execute appropriate commands
-    if (e_report->report[0] == 'M') {
-      struct e_modile_key_config key_cfg;
-      key_cfg.key_mode = e_module_keyboard_parse_mode(e_report->report[1]);
-      key_cfg.key_name = e_module_keyboard_parse_key_name(e_report->report[1])
-      key_cfg.layout = e_module_keyboard_parse_layout(e_report->report[1]);
-      key_cfg.modifiers = e_report->report[2];
-      key_cfg.key[0] = e_report->report[3];
-      key_cfg.key[1] = e_report->report[4];
-      key_cfg.key[2] = e_report->report[5];
-      key_cfg.key[3] = e_report->report[6];
-      key_cfg.key[4] = e_report->report[7];
-      key_cfg.key[5] = e_report->report[8];
-
-      e_module_keyboard_create_macro(e_pmod_keyboard, &key_cfg);
-      drv_led_toggle(DRV_LED_2);
-    }
-
-  }
+    report_codec_sig_hid_data_out(report_codec, e);
+    drv_led_toggle(DRV_LED_2);
     break;
   default:
     break;
@@ -139,3 +101,51 @@ void report_codec_key_released(struct e_module_report_codec *me) {
 
   e_core_notify(&e);
 }
+
+static void report_codec_sig_key_pressed(struct e_module_report_codec *me, struct e_event *e) {
+  struct e_event_key_data *e_key_data = (struct e_event_key_data *)e;
+  me->current_key_data = e_key_data->p_key_data;
+  if (me->current_key_data->mode == MOD_KEY_MODE_MARCO_SEQ) {
+    me->report_data_in[0] = 2U;
+    me->report_data_in[1] = me->current_key_data->modifiers;
+    me->report_data_in[2] = 0U; /* Reserved */
+    me->report_data_in[3] = me->current_key_data->key;
+
+    USBD_CUSTOM_HID_SendReport(&hUsbDeviceFS, me->report_data_in, 9);
+  }
+}
+
+static void report_codec_sig_key_released(struct e_module_report_codec *me, struct e_event *e) {
+  me->report_data_in[0] = 2U;
+  me->report_data_in[1] = 0U;
+  me->report_data_in[2] = 0U;
+  me->report_data_in[3] = 0U;
+  me->report_data_in[4] = 0U;
+  me->report_data_in[5] = 0U;
+  me->report_data_in[6] = 0U;
+  me->report_data_in[7] = 0U;
+  me->report_data_in[8] = 0U;
+
+  USBD_CUSTOM_HID_SendReport(&hUsbDeviceFS, me->report_data_in, 9);
+}
+
+static void report_codec_sig_hid_data_out(struct e_module_report_codec *me, struct e_event *e) {
+  struct e_event_report *e_report = (struct e_event_report *)e;
+  // TODO: Function to parse report IDs and execute appropriate commands
+  if (e_report->report[0] == 'M') {
+    struct e_modile_key_config key_cfg;
+    key_cfg.key_mode = e_module_keyboard_parse_mode(e_report->report[1]);
+    key_cfg.key_name = e_module_keyboard_parse_key_name(e_report->report[1]);
+    key_cfg.layout = e_module_keyboard_parse_layout(e_report->report[1]);
+    key_cfg.modifiers = e_report->report[2];
+    key_cfg.key[0] = e_report->report[3];
+    key_cfg.key[1] = e_report->report[4];
+    key_cfg.key[2] = e_report->report[5];
+    key_cfg.key[3] = e_report->report[6];
+    key_cfg.key[4] = e_report->report[7];
+    key_cfg.key[5] = e_report->report[8];
+
+    e_module_keyboard_create_macro(e_pmod_keyboard, &key_cfg);
+  }
+}
+
