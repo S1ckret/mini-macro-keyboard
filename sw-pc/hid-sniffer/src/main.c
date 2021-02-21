@@ -7,6 +7,8 @@
 #define KEYBOARD_VENDOR_ID (0x0483u)
 #define KEYBOARD_PRODUCT_ID (0x5750u)
 
+#define REPORT_MAX_SIZE (9U)
+
 void print_hid_info(struct hid_device_info *dev);
 void print_report_content(unsigned char *report, unsigned report_size);
 
@@ -21,34 +23,49 @@ struct report_out_create_macro {
 
 int main(int argc, char* argv[])
 {
+	printf("Press CTRL + C to exit.\n");
 	if (hid_init()) return -1;
 	printf("HID API has been inited...\n");
 
 	hid_device *keyboard = hid_open(KEYBOARD_VENDOR_ID, KEYBOARD_PRODUCT_ID, NULL);
 	if (!keyboard) {
 		printf("The mini-macro-keyboard wasn't found! Please try again.\n");
+		return -1;
 	}
 	printf("The mini-macro-keyboard was found!\n");
-	struct report_out_create_macro report_out;
-	report_out.report_id = 77;
-	report_out.key_address = 1; /*button 2*/
-	report_out.dynamic_flags = 0;
-	report_out.key[0] = 8; /* E key */
-	report_out.key[1] = 0;
-	report_out.key[2] = 0;
-	report_out.key[3] = 0;
-	report_out.key[4] = 0;
-	report_out.key[5] = 0;
-	printf("Trying to send output report...\n");
-	print_report_content((uint8_t *) &report_out, 9);
-	hid_write(keyboard, (uint8_t *) &report_out, 9);
+	
+	while (1)
+	{
+		printf("Input 4-9 bytes in decimal comma separatted: \n");
 
+		char *in_s = NULL;
+		uint32_t in_s_size = 0U;
+		getline(&in_s, &in_s_size, stdin);
+		
+		uint8_t raw_report[REPORT_MAX_SIZE] = {0};
+		char *token = NULL;
+		const char delimeters[] = " ,[]";
+		uint8_t i = 0U;
 
-	printf("Trying to get intput report...\n");
-	unsigned char report_in[8] = {0};
-	hid_read_timeout(keyboard, report_in, 2, 2000);
-	print_report_content(report_in, 2);
+		token = strtok(in_s, delimeters);
+		while(token != NULL && i < REPORT_MAX_SIZE) {
+			raw_report[i] = atoi(token);
+			i++;
+			
+			token = strtok(NULL, delimeters);
+		}
+		free(in_s);
 
+		while (i < REPORT_MAX_SIZE) {
+			raw_report[i] = 0U;
+			i++;
+		}
+		
+		printf("Trying to send output report...\n");
+		print_report_content((uint8_t *) &raw_report, REPORT_MAX_SIZE);
+		hid_write(keyboard, (uint8_t *) &raw_report, REPORT_MAX_SIZE);
+	}
+	
 	hid_close(keyboard);
 
 	return 0;
