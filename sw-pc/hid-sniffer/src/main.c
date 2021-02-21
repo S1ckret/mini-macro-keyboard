@@ -23,7 +23,7 @@ struct report_out_create_macro {
 
 int main(int argc, char* argv[])
 {
-	printf("Press CTRL + C to exit.\n");
+	printf("Type `exit` to exit.\n");
 	if (hid_init()) return -1;
 	printf("HID API has been inited...\n");
 
@@ -36,12 +36,14 @@ int main(int argc, char* argv[])
 	
 	while (1)
 	{
-		printf("Input 4-9 bytes in decimal comma separatted: \n");
+		printf("Input 4-9 bytes in decimal comma/space separatted: \n");
 
 		char *in_s = NULL;
 		uint32_t in_s_size = 0U;
 		getline(&in_s, &in_s_size, stdin);
-		
+
+		if (strcmp(in_s, "exit\n") == 0) break;
+
 		uint8_t raw_report[REPORT_MAX_SIZE] = {0};
 		char *token = NULL;
 		const char delimeters[] = " ,[]";
