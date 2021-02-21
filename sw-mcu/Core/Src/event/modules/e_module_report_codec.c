@@ -7,6 +7,7 @@
 
 #include "event/modules/e_module.h"
 #include "event/modules/e_module_report_codec.h"
+#include "event/modules/e_module_timers.h"
 
 #include "event/events/e_event_report.h"
 #include "event/events/e_event_key_data.h"
@@ -20,6 +21,9 @@ static void report_codec_dispatch(struct e_module *me, struct e_event *e);
 void e_module_report_codec_ctor(struct e_module_report_codec *me,
                               uint8_t *name) {
   e_module_ctor((struct e_module *)me, name, report_codec_dispatch);
+  me->flag_init_mode = 0U;
+  me->cur_key = 0U;
+  me->cur_layout = 0U;
 }
 
 void e_module_report_codec_dtor(struct e_module_report_codec *me) {
@@ -29,6 +33,8 @@ void e_module_report_codec_dtor(struct e_module_report_codec *me) {
 static void report_codec_sig_key_pressed(struct e_module_report_codec *me, struct e_event *e);
 static void report_codec_sig_key_released(struct e_module_report_codec *me, struct e_event *e);
 static void report_codec_sig_hid_data_out(struct e_module_report_codec *me, struct e_event *e);
+static void report_codec_sig_keyboard_sync(struct e_module_report_codec *me, struct e_event *e);
+static void report_codec_sig_timeout(struct e_module_report_codec *me, struct e_event *e);
 
 static void report_codec_dispatch(struct e_module *me, struct e_event *e) {
   if (me != e->mod_to) return;
@@ -36,6 +42,9 @@ static void report_codec_dispatch(struct e_module *me, struct e_event *e) {
   struct e_module_report_codec *report_codec = (struct e_module_report_codec *)me;
   switch(e->sig) {
   case SIG_SYS_INIT:
+    e_timer_ctor(&report_codec->timer, report_codec);
+    e_module_timers_register(&report_codec->timer);
+    report_codec->timeout_wait = 0;
     break;
     /* Supports only single macro now */
   case SIG_KEY_PRESSED:
@@ -50,6 +59,13 @@ static void report_codec_dispatch(struct e_module *me, struct e_event *e) {
     report_codec_sig_hid_data_out(report_codec, e);
     drv_led_toggle(DRV_LED_2);
     break;
+  case SIG_KEYBOARD_SYNC:
+    report_codec_sig_keyboard_sync(report_codec, e);
+    break;
+  case SIG_SYS_TIMEOUT:
+    report_codec_sig_timeout(report_codec, e);
+    drv_led_toggle(DRV_LED_1);
+
   default:
     break;
   }
@@ -102,6 +118,16 @@ void report_codec_key_released(struct e_module_report_codec *me) {
   e_core_notify(&e);
 }
 
+void report_codec_sync_next(struct e_module_report_codec *me) {
+  struct e_event e;
+  e.mod_from = me;
+  e.mod_to = me;
+  e.sig = SIG_KEYBOARD_SYNC;
+  e.size = 0;
+
+  e_core_notify(&e);
+}
+
 static void report_codec_sig_key_pressed(struct e_module_report_codec *me, struct e_event *e) {
   struct e_event_key_data *e_key_data = (struct e_event_key_data *)e;
   me->current_key_data = e_key_data->p_key_data;
@@ -147,5 +173,66 @@ static void report_codec_sig_hid_data_out(struct e_module_report_codec *me, stru
 
     e_module_keyboard_create_macro(e_pmod_keyboard, &key_cfg);
   }
+  else if (e_report->report[0] == 'S') {
+    me->flag_init_mode = 1U;
+    report_codec_sync_next(me);
+  }
 }
 
+static void report_codec_sig_keyboard_sync(struct e_module_report_codec *me, struct e_event *e) {
+  if (me->cur_layout == MOD_LAYOUT_COUNT) {
+    me->cur_layout = MOD_LAYOUT_A;
+    me->cur_key = MOD_KEY_1;
+    return;
+  }
+
+  const struct e_module_key_data *key_data = &((struct e_module_keyboard *)
+      e_pmod_keyboard)->keys[me->cur_layout][me->cur_key];
+
+  if (key_data->mode != MOD_KEY_MODE_MARCO_SEQ) return;
+
+  me->report_data_in[0] = 'S';
+  me->report_data_in[1] = 0U;
+  me->report_data_in[1] |= e_module_keyboard_index_to_bit_msk(me->cur_key, E_MOD_KEYBOARD_KEY_OFFSET);
+  me->report_data_in[1] |= e_module_keyboard_index_to_bit_msk(me->cur_layout, E_MOD_KEYBOARD_LAYOUT_OFFSET);
+  me->report_data_in[1] |= e_module_keyboard_index_to_bit_msk(key_data->mode, E_MOD_KEYBOARD_MODE_OFFSET);
+  me->report_data_in[2] = key_data->modifiers;
+  me->report_data_in[3] = key_data->key;
+  me->report_data_in[4] = 0U;
+  me->report_data_in[5] = 0U;
+  me->report_data_in[6] = 0U;
+  me->report_data_in[7] = 0U;
+  me->report_data_in[8] = 0U;
+
+  USBD_CUSTOM_HID_SendReport(&hUsbDeviceFS, me->report_data_in, 9);
+
+  e_timer_arm(&me->timer, 20U, 0U);
+
+  /* Iterate to the next key */
+  me->cur_key = (me->cur_key + 1) % MOD_KEY_COUNT;
+  if (me->cur_key == 0) me->cur_layout += 1;
+}
+
+static void report_codec_sig_timeout(struct e_module_report_codec *me, struct e_event *e) {
+  me->timeout_wait = !me->timeout_wait;
+
+  if (me->timeout_wait) {
+    /* Stop sending report */
+    me->report_data_in[0] = 'S';
+    me->report_data_in[1] = 0U;
+    me->report_data_in[2] = 0U;
+    me->report_data_in[3] = 0U;
+    me->report_data_in[4] = 0U;
+    me->report_data_in[5] = 0U;
+    me->report_data_in[6] = 0U;
+    me->report_data_in[7] = 0U;
+    me->report_data_in[8] = 0U;
+
+    USBD_CUSTOM_HID_SendReport(&hUsbDeviceFS, me->report_data_in, 9);
+
+    e_timer_arm(&me->timer, 20U, 0U);
+  }
+  else {
+    report_codec_sync_next(me);
+  }
+}

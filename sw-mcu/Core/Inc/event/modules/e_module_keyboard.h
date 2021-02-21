@@ -78,5 +78,6 @@ void e_module_keyboard_create_macro(struct e_module_keyboard *me, struct e_modil
 uint8_t e_module_keyboard_parse_key_name(uint8_t key_address);
 uint8_t e_module_keyboard_parse_layout(uint8_t key_address);
 uint8_t e_module_keyboard_parse_mode(uint8_t key_address);
+uint8_t e_module_keyboard_index_to_bit_msk(uint8_t index, uint8_t offset);
 
 #endif /* INC_EVENT_MODULES_E_MODULE_KEYBOARD_H_ */

@@ -159,3 +159,9 @@ uint8_t e_module_keyboard_parse_mode(uint8_t key_address) {
   return key_mode;
 }
 
+uint8_t e_module_keyboard_index_to_bit_msk(uint8_t index, uint8_t offset) {
+  uint8_t msk = 1U;
+  msk = msk << offset;
+  msk = msk << index;
+  return msk;
+}
