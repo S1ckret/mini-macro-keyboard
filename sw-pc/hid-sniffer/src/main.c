@@ -26,14 +26,14 @@ int main(int argc, char* argv[])
 	printf("Type `exit` to exit.\n");
 	if (hid_init()) return -1;
 	printf("HID API has been inited...\n");
-
-	hid_device *keyboard = hid_open(KEYBOARD_VENDOR_ID, KEYBOARD_PRODUCT_ID, NULL);
+	
+	hid_device *keyboard = hid_open_path("\\\\?\\hid#vid_0483&pid_5750&col01#6&4756b74&0&0000#{4d1e55b2-f16f-11cf-88cb-001111000030}");
 	if (!keyboard) {
 		printf("The mini-macro-keyboard wasn't found! Please try again.\n");
 		return -1;
 	}
 	printf("The mini-macro-keyboard was found!\n");
-	
+
 	while (1)
 	{
 		printf("Input 4-9 bytes in decimal comma/space separatted: \n");
@@ -66,6 +66,8 @@ int main(int argc, char* argv[])
 		printf("Trying to send output report...\n");
 		print_report_content((uint8_t *) &raw_report, REPORT_MAX_SIZE);
 		hid_write(keyboard, (uint8_t *) &raw_report, REPORT_MAX_SIZE);
+		int status = hid_write(keyboard, (uint8_t *) &raw_report, 9);
+		printf("Status: %d, %ls\n", status, hid_error(keyboard));
 	}
 	
 	hid_close(keyboard);
