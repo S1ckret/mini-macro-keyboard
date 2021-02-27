@@ -8,6 +8,7 @@
 #define KEYBOARD_PRODUCT_ID (0x5750u)
 
 #define REPORT_MAX_SIZE (9U)
+#define REPORT_SYNC_MAX_COUNT (6U)
 
 void print_hid_info(struct hid_device_info *dev);
 void print_report_content(unsigned char *report, unsigned report_size);
@@ -68,6 +69,16 @@ int main(int argc, char* argv[])
 		hid_write(keyboard, (uint8_t *) &raw_report, REPORT_MAX_SIZE);
 		int status = hid_write(keyboard, (uint8_t *) &raw_report, 9);
 		printf("Status: %d, %ls\n", status, hid_error(keyboard));
+
+		if (raw_report[0] == 'S') {
+			for (uint8_t i = 0; i < REPORT_SYNC_MAX_COUNT; ++i) {
+				uint8_t in_report[REPORT_MAX_SIZE] = {0};
+				printf("Trying read input report...\n");
+				int in_status = hid_read_timeout(keyboard, (uint8_t *) &in_report, REPORT_MAX_SIZE, 2000);
+				printf("Status: %d, %ls\n", status, hid_error(keyboard));
+				print_report_content((uint8_t *) &in_report, REPORT_MAX_SIZE);
+			}
+		}
 	}
 	
 	hid_close(keyboard);
