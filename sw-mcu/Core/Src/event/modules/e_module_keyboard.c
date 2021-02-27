@@ -97,6 +97,12 @@ static void keyboard_dispatch(struct e_module *me, struct e_event *e) {
  */
 __attribute__((optimize("unroll-loops")))
 void e_module_keyboard_create_macro(struct e_module_keyboard *me, struct e_modile_key_config *cfg) {
+  if (cfg->key_mode == MOD_KEY_MODE_COUNT ||
+      cfg->key_name == MOD_KEY_COUNT ||
+      cfg->layout == MOD_LAYOUT_COUNT) {
+    return;
+  }
+
   struct e_event_keyboard e;
   e.super.mod_from = e_pmod_report_codec;
   e.super.mod_to = me;
