@@ -100,8 +100,8 @@ int main(void)
   uint8_t qstack[2048];
   e_core_ctor(mod_table, 10, qstack, 2048, stack, 256);
 
-  struct e_timer timers[5];
-  e_module_timers_ctor(timers, 5);
+  struct e_timer timers[6];
+  e_module_timers_ctor(timers, 6);
 
   struct e_module_heartbeat mod_heartbeat;
   e_pmod_heartbeat = &mod_heartbeat;
