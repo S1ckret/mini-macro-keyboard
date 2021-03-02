@@ -166,20 +166,20 @@ static void MX_GPIO_Init(void)
   /*Configure GPIO pins : LED_3_Pin LED_2_Pin LED_1_Pin */
   GPIO_InitStruct.Pin = LED_3_Pin|LED_2_Pin|LED_1_Pin;
   GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
-  GPIO_InitStruct.Pull = GPIO_NOPULL;
+  GPIO_InitStruct.Pull = GPIO_PULLUP;
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
   HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
 
   /*Configure GPIO pins : SW_BACKLIGHT_Pin SW_3_Pin SW_2_Pin SW_1_Pin */
   GPIO_InitStruct.Pin = SW_BACKLIGHT_Pin|SW_3_Pin|SW_2_Pin|SW_1_Pin;
-  GPIO_InitStruct.Mode = GPIO_MODE_IT_RISING;
-  GPIO_InitStruct.Pull = GPIO_NOPULL;
+  GPIO_InitStruct.Mode = GPIO_MODE_IT_RISING_FALLING;
+  GPIO_InitStruct.Pull = GPIO_PULLUP;
   HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
 
   /*Configure GPIO pin : SW_LAYOUT_Pin */
   GPIO_InitStruct.Pin = SW_LAYOUT_Pin;
-  GPIO_InitStruct.Mode = GPIO_MODE_IT_RISING;
-  GPIO_InitStruct.Pull = GPIO_NOPULL;
+  GPIO_InitStruct.Mode = GPIO_MODE_IT_RISING_FALLING;
+  GPIO_InitStruct.Pull = GPIO_PULLUP;
   HAL_GPIO_Init(SW_LAYOUT_GPIO_Port, &GPIO_InitStruct);
 
   /* EXTI interrupt init*/

@@ -37,6 +37,5 @@ struct e_module *e_pmod_switch_backlight = NULL;
 struct e_module *e_pmod_switch_layout = NULL;
 struct e_module *e_pmod_keyboard = NULL;
 struct e_module *e_pmod_backlight = NULL;
-struct e_module *e_pmod_heartbeat = NULL;
-struct e_module *e_pmod_report_codec;
+struct e_module *e_pmod_report_codec = NULL;
 

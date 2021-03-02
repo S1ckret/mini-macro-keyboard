@@ -6,9 +6,10 @@
  */
 
 #include <stdint.h>
-#include "drv/drv_switch.h"
 
-#include "stm32f1xx_hal.h"
+#include "stm32f0xx_hal.h"
+
+#include "drv/drv_switch.h"
 
 // TODO: Include inverted logic levels
 
@@ -20,15 +21,15 @@ struct drv_switch {
 
 static struct drv_switch switchs[DRV_SWITCH_COUNT] = {
     /* DRV_switch_1 */
-    {GPIOC, GPIO_PIN_15, DRV_KEY_RELEASED},
+    {GPIOA, GPIO_PIN_7, DRV_KEY_RELEASED},
     /* DRV_switch_2 */
-    {GPIOA, GPIO_PIN_4, DRV_KEY_RELEASED},
+    {GPIOA, GPIO_PIN_6, DRV_KEY_RELEASED},
     /* DRV_switch_3 */
-    {GPIOB, GPIO_PIN_1, DRV_KEY_RELEASED},
+    {GPIOA, GPIO_PIN_5, DRV_KEY_RELEASED},
     /* DRV_SWITCH_BACKLIGHT */
-    {GPIOA, GPIO_PIN_9, DRV_KEY_RELEASED},
+    {GPIOA, GPIO_PIN_4, DRV_KEY_RELEASED},
     /* DRV_SWITCH_LAYOUT */
-    {GPIOB, GPIO_PIN_7, DRV_KEY_RELEASED},
+    {GPIOB, GPIO_PIN_1, DRV_KEY_RELEASED},
 
 };
 

@@ -7,7 +7,7 @@
 
 #include <stdint.h>
 
-#include "stm32f1xx_hal.h"
+#include "stm32f0xx_hal.h"
 
 #include "drv/drv_led.h"
 
@@ -18,14 +18,12 @@ struct drv_led {
 };
 
 static struct drv_led leds[DRV_LED_COUNT] = {
-    /* DRV_LED_HEARTBEAT */
-    {GPIOC, GPIO_PIN_13, DRV_LED_STATE_OFF},
     /* DRV_LED_1 */
-    {GPIOA, GPIO_PIN_0, DRV_LED_STATE_OFF},
+    {GPIOA, GPIO_PIN_3, DRV_LED_STATE_OFF},
     /* DRV_LED_2 */
-    {GPIOA, GPIO_PIN_5, DRV_LED_STATE_OFF},
+    {GPIOA, GPIO_PIN_1, DRV_LED_STATE_OFF},
     /* DRV_LED_3 */
-    {GPIOB, GPIO_PIN_10, DRV_LED_STATE_OFF},
+    {GPIOA, GPIO_PIN_0, DRV_LED_STATE_OFF},
 };
 
 void drv_led_on(enum drv_led_name me) {

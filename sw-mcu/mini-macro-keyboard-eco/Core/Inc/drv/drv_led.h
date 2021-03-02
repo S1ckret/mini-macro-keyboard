@@ -9,8 +9,7 @@
 #define INC_DRV_DRV_LED_H_
 
 enum drv_led_name {
-  DRV_LED_HEARTBEAT = 0,
-  DRV_LED_1,
+  DRV_LED_1 = 0U,
   DRV_LED_2,
   DRV_LED_3,
   DRV_LED_COUNT
