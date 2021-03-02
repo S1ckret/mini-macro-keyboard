@@ -23,7 +23,8 @@
 #include "usbd_custom_hid_if.h"
 
 /* USER CODE BEGIN INCLUDE */
-
+#include "event/modules/e_module.h"
+#include "event/modules/e_module_report_codec.h"
 /* USER CODE END INCLUDE */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -177,6 +178,9 @@ static int8_t CUSTOM_HID_DeInit_FS(void)
 static int8_t CUSTOM_HID_OutEvent_FS(uint8_t event_idx, uint8_t state)
 {
   /* USER CODE BEGIN 6 */
+  USBD_CUSTOM_HID_HandleTypeDef *hhid = (USBD_CUSTOM_HID_HandleTypeDef *) hUsbDeviceFS.pClassData;
+  report_codec_data_out(e_pmod_report_codec, hhid->Report_buf);
+  drv_led_toggle(DRV_LED_2);
   return (USBD_OK);
   /* USER CODE END 6 */
 }

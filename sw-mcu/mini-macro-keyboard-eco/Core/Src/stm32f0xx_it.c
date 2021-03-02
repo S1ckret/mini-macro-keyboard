@@ -24,7 +24,9 @@
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
 /* USER CODE END Includes */
+#include "drv/drv_switch.h"
 
+#include "event/modules/e_module_key.h"
 /* Private typedef -----------------------------------------------------------*/
 /* USER CODE BEGIN TD */
 
@@ -130,7 +132,7 @@ void SysTick_Handler(void)
   /* USER CODE END SysTick_IRQn 0 */
   HAL_IncTick();
   /* USER CODE BEGIN SysTick_IRQn 1 */
-
+  e_module_timers_tick();
   /* USER CODE END SysTick_IRQn 1 */
 }
 
@@ -187,6 +189,39 @@ void USB_IRQHandler(void)
 }
 
 /* USER CODE BEGIN 1 */
-
+void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin) {
+  if (drv_switch_is_state_changed(DRV_SWITCH_BACKLIGHT)) {
+    if (drv_switch_get_state(DRV_SWITCH_BACKLIGHT) == DRV_KEY_PRESSED) {
+      e_module_key_press(e_pmod_switch_backlight);
+    }
+    else {
+      e_module_key_release(e_pmod_switch_backlight);
+    }
+  }
+  else if (drv_switch_is_state_changed(DRV_KEY_1)) {
+    if (drv_switch_get_state(DRV_KEY_1) == DRV_KEY_PRESSED) {
+      e_module_key_press(e_pmod_key_1);
+    }
+    else {
+      e_module_key_release(e_pmod_key_1);
+    }
+  }
+  else if (drv_switch_is_state_changed(DRV_KEY_2)) {
+    if (drv_switch_get_state(DRV_KEY_2) == DRV_KEY_PRESSED) {
+      e_module_key_press(e_pmod_key_2);
+    }
+    else {
+      e_module_key_release(e_pmod_key_2);
+    }
+  }
+  else if (drv_switch_is_state_changed(DRV_KEY_3)) {
+    if (drv_switch_get_state(DRV_KEY_3) == DRV_KEY_PRESSED) {
+      e_module_key_press(e_pmod_key_3);
+    }
+    else {
+      e_module_key_release(e_pmod_key_3);
+    }
+  }
+}
 /* USER CODE END 1 */
 /************************ (C) COPYRIGHT STMicroelectronics *****END OF FILE****/
