@@ -20,7 +20,12 @@
 /* Includes ------------------------------------------------------------------*/
 #include "main.h"
 #include "usb_device.h"
-
+#include "event/modules/e_module_backlight.h"
+#include "event/modules/e_module_core.h"
+#include "event/modules/e_module_timers.h"
+#include "event/modules/e_module_key.h"
+#include "event/modules/e_module_keyboard.h"
+#include "event/modules/e_module_report_codec.h"
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
 
@@ -88,7 +93,71 @@ int main(void)
   MX_GPIO_Init();
   MX_USB_DEVICE_Init();
   /* USER CODE BEGIN 2 */
+  struct e_module mod_table[10];
+  uint8_t stack[256];
+  uint8_t qstack[2048];
+  e_core_ctor(mod_table, 10, qstack, 2048, stack, 256);
 
+  struct e_timer timers[6];
+  e_module_timers_ctor(timers, 6);
+
+  struct e_module_backlight mod_backlight;
+  e_pmod_backlight = &mod_backlight;
+  e_module_backlight_ctor(&mod_backlight, "BCKL");
+
+  struct e_module_key mod_switch_backlight;
+  e_pmod_switch_backlight = &mod_switch_backlight;
+  e_module_key_ctor(&mod_switch_backlight,
+                      "SW_BCKL",
+                      DRV_SWITCH_BACKLIGHT,
+                      SIG_BACKLIGHT_ON,
+                      SIG_BACKLIGHT_OFF,
+                      e_pmod_backlight);
+
+  struct e_module_keyboard mod_keyboard;
+  e_pmod_keyboard = &mod_keyboard;
+  e_module_keyboard_ctor(&mod_keyboard, "KEYBOARD");
+
+  struct e_module_key mod_switch_key_1;
+  e_pmod_key_1 = &mod_switch_key_1;
+  e_module_key_ctor(&mod_switch_key_1,
+                      "SW_KEY_1",
+                      DRV_KEY_1,
+                      SIG_KEY_PRESSED,
+                      SIG_KEY_RELEASED,
+                      e_pmod_keyboard);
+
+  struct e_module_key mod_switch_key_2;
+  e_pmod_key_2 = &mod_switch_key_2;
+  e_module_key_ctor(&mod_switch_key_2,
+                      "SW_KEY_2",
+                      DRV_KEY_2,
+                      SIG_KEY_PRESSED,
+                      SIG_KEY_RELEASED,
+                      e_pmod_keyboard);
+
+  struct e_module_key mod_switch_key_3;
+  e_pmod_key_3 = &mod_switch_key_3;
+  e_module_key_ctor(&mod_switch_key_3,
+                      "SW_KEY_3",
+                      DRV_KEY_3,
+                      SIG_KEY_PRESSED,
+                      SIG_KEY_RELEASED,
+                      e_pmod_keyboard);
+
+  struct e_module_report_codec mod_report_codec;
+  e_pmod_report_codec = &mod_report_codec;
+  e_module_report_codec_ctor(&mod_report_codec, "CODEC");
+
+  e_core_add_module((struct e_module*) &mod_backlight);
+  e_core_add_module((struct e_module*) &mod_switch_backlight);
+  e_core_add_module((struct e_module*) &mod_keyboard);
+  e_core_add_module((struct e_module*) &mod_switch_key_1);
+  e_core_add_module((struct e_module*) &mod_switch_key_2);
+  e_core_add_module((struct e_module*) &mod_switch_key_3);
+  e_core_add_module((struct e_module*) &mod_report_codec);
+
+  e_core_loop();
   /* USER CODE END 2 */
 
   /* Infinite loop */
