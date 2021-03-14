@@ -45,6 +45,7 @@ static void report_codec_dispatch(struct e_module *me, struct e_event *e) {
     e_timer_ctor(&report_codec->timer, report_codec);
     e_module_timers_register(&report_codec->timer);
     report_codec->timeout_wait = 0;
+    report_codec_sig_key_released(report_codec, e);
     break;
     /* Supports only single macro now */
   case SIG_KEY_PRESSED:
