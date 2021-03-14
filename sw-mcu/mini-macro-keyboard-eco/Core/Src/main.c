@@ -93,12 +93,12 @@ int main(void)
   MX_GPIO_Init();
   MX_USB_DEVICE_Init();
   /* USER CODE BEGIN 2 */
-  struct e_module mod_table[10];
+  struct e_module *mod_table[10];
   uint8_t stack[256];
   uint8_t qstack[2048];
   e_core_ctor(mod_table, 10, qstack, 2048, stack, 256);
 
-  struct e_timer timers[6];
+  struct e_timer *timers[6];
   e_module_timers_ctor(timers, 6);
 
   struct e_module_backlight mod_backlight;
