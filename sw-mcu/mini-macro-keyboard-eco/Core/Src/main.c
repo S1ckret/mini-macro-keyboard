@@ -98,8 +98,8 @@ int main(void)
   uint8_t qstack[2048];
   e_core_ctor(mod_table, 10, qstack, 2048, stack, 256);
 
-  struct e_timer *timers[6];
-  e_module_timers_ctor(timers, 6);
+  struct e_timer *timers[5];
+  e_module_timers_ctor(timers, 5);
 
   struct e_module_backlight mod_backlight;
   e_pmod_backlight = &mod_backlight;
@@ -117,6 +117,15 @@ int main(void)
   struct e_module_keyboard mod_keyboard;
   e_pmod_keyboard = &mod_keyboard;
   e_module_keyboard_ctor(&mod_keyboard, "KEYBOARD");
+
+  struct e_module_key mod_switch_layout;
+  e_pmod_switch_layout = &mod_switch_layout;
+  e_module_key_ctor(&mod_switch_layout,
+                      "SW_LAYOUT",
+                      DRV_SWITCH_LAYOUT,
+                      SIG_LAYOUT_ON,
+                      SIG_LAYOUT_OFF,
+                      e_pmod_keyboard);
 
   struct e_module_key mod_switch_key_1;
   e_pmod_key_1 = &mod_switch_key_1;
@@ -152,6 +161,7 @@ int main(void)
   e_core_add_module((struct e_module*) &mod_backlight);
   e_core_add_module((struct e_module*) &mod_switch_backlight);
   e_core_add_module((struct e_module*) &mod_keyboard);
+  e_core_add_module((struct e_module*) &mod_switch_layout);
   e_core_add_module((struct e_module*) &mod_switch_key_1);
   e_core_add_module((struct e_module*) &mod_switch_key_2);
   e_core_add_module((struct e_module*) &mod_switch_key_3);

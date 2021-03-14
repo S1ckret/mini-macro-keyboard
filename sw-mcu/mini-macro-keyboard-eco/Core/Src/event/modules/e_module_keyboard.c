@@ -32,6 +32,12 @@ static void keyboard_dispatch(struct e_module *me, struct e_event *e) {
   struct e_module_keyboard *keyboard = (struct e_module_keyboard *)me;
   switch(e->sig) {
   case SIG_SYS_INIT:
+    if (drv_switch_get_state(DRV_SWITCH_LAYOUT) == DRV_KEY_PRESSED) {
+      keyboard->current_layout = MOD_LAYOUT_B;
+    }
+    else {
+      keyboard->current_layout = MOD_LAYOUT_A;
+    }
 
     /* Assign temp test values*/
     keyboard->keys[0][0].key = 0x9;
