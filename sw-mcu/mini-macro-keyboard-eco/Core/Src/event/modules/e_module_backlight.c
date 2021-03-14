@@ -11,6 +11,7 @@
 #include "event/events/e_event.h"
 
 #include "drv/drv_led.h"
+#include "drv/drv_switch.h"
 
 static void backlight_dispatch(struct e_module *me, struct e_event *e);
 
@@ -40,7 +41,12 @@ static void backlight_dispatch(struct e_module *me, struct e_event *e) {
 
   switch(e->sig) {
   case SIG_SYS_INIT:
-    backlight_off();
+    if (drv_switch_get_state(DRV_SWITCH_BACKLIGHT) == DRV_KEY_PRESSED) {
+      backlight_on();
+    }
+    else {
+      backlight_off();
+      }
     break;
   case SIG_BACKLIGHT_OFF:
     backlight_off();
