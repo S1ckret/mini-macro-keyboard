@@ -93,13 +93,13 @@ int main(void)
   MX_GPIO_Init();
   MX_USB_DEVICE_Init();
   /* USER CODE BEGIN 2 */
-  struct e_module *mod_table[10];
+  struct e_module *mod_table[11];
   uint8_t stack[256];
   uint8_t qstack[2048];
-  e_core_ctor(mod_table, 10, qstack, 2048, stack, 256);
+  e_core_ctor(mod_table, 11, qstack, 2048, stack, 256);
 
-  struct e_timer *timers[6];
-  e_module_timers_ctor(timers, 6);
+  struct e_timer *timers[7];
+  e_module_timers_ctor(timers, 7);
 
   struct e_module_backlight mod_backlight;
   e_pmod_backlight = &mod_backlight;
@@ -113,6 +113,15 @@ int main(void)
                       SIG_BACKLIGHT_ON,
                       SIG_BACKLIGHT_OFF,
                       e_pmod_backlight);
+
+  struct e_module_key mod_switch_layout;
+  e_pmod_switch_layout = &mod_switch_layout;
+  e_module_key_ctor(&mod_switch_layout,
+                      "SW_LAYOUT",
+                      DRV_SWITCH_LAYOUT,
+                      SIG_LAYOUT_ON,
+                      SIG_LAYOUT_OFF,
+                      e_pmod_keyboard);
 
   struct e_module_keyboard mod_keyboard;
   e_pmod_keyboard = &mod_keyboard;

@@ -198,6 +198,14 @@ void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin) {
       e_module_key_release(e_pmod_switch_backlight);
     }
   }
+  else if (drv_switch_is_state_changed(DRV_SWITCH_LAYOUT)) {
+    if (drv_switch_get_state(DRV_SWITCH_LAYOUT) == DRV_KEY_PRESSED) {
+      e_module_key_press(e_pmod_switch_layout);
+    }
+    else {
+      e_module_key_release(e_pmod_switch_layout);
+    }
+  }
   else if (drv_switch_is_state_changed(DRV_KEY_1)) {
     if (drv_switch_get_state(DRV_KEY_1) == DRV_KEY_PRESSED) {
       e_module_key_press(e_pmod_key_1);
